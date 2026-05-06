@@ -1,0 +1,80 @@
+{
+    "total_registros": 2476,
+    "por_anio": {
+        "2021": 568,
+        "2022": 650,
+        "2023": 373,
+        "2024": 351,
+        "2025": 300,
+        "2026": 234
+    },
+    "por_anio_publicacion": {
+        "2021": 568,
+        "2022": 650,
+        "2023": 373,
+        "2024": 351,
+        "2025": 300,
+        "2026": 234
+    },
+    "por_anio_mencionado": {
+        "2021": 425,
+        "2022": 449,
+        "2023": 266,
+        "2024": 249,
+        "2025": 221,
+        "2026": 12
+    },
+    "por_tipo_violencia": {
+        "violencia de pareja": 789,
+        "violencia familiar": 525,
+        "violencia sexual": 429,
+        "violencia psicológica": 295,
+        "violencia física": 185,
+        "violencia laboral": 147,
+        "violencia escolar": 72,
+        "violencia económica": 34
+    },
+    "por_tipo_contenido": {
+        "otro": 1268,
+        "estadistica": 807,
+        "institucional": 216,
+        "noticia": 163,
+        "opinion": 13,
+        "propaganda": 5,
+        "denuncia": 4
+    },
+    "por_estado": {
+        "Nacional": 1936,
+        "CDMX": 193,
+        "Estado de México": 114,
+        "Tlaxcala": 44,
+        "Puebla": 30,
+        "Jalisco": 22,
+        "Oaxaca": 21,
+        "Veracruz": 20,
+        "Guanajuato": 15,
+        "Querétaro": 13,
+        "Sonora": 12,
+        "Chiapas": 12,
+        "Tamaulipas": 9,
+        "Guerrero": 9,
+        "Nuevo León": 9,
+        "Baja California": 9,
+        "Yucatán": 5,
+        "Colima": 3
+    },
+    "basura_vs_utiles": {
+        "no": 2253,
+        "si": 223
+    },
+    "confianza_promedio": 0.5339741518578353,
+    "confianza_por_tipo": {
+        "denuncia": 0.76,
+        "estadistica": 0.91,
+        "institucional": 0.82,
+        "noticia": 0.86,
+        "opinion": 0.65,
+        "otro": 0.2,
+        "propaganda": 0.6
+    }
+}

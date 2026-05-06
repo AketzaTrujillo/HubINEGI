@@ -1,0 +1,35 @@
+# entorno virtual
+venv/
+
+# python
+__pycache__/
+*.pyc
+
+# mac
+.DS_Store
+
+# vscode
+.vscode/
+
+# logs
+*.log
+
+# archivos temporales
+tmp/
+temp/
+
+# jupyter
+.ipynb_checkpoints/
+
+# datos pesados opcionales
+data/raw/
+
+# si NO quieres subir processed:
+# data/processed/
+
+# credenciales
+.env         
+
+
+.venv/
+venv/
