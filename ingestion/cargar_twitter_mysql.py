@@ -5,7 +5,7 @@ import pandas as pd
 import mysql.connector
 
 
-CSV_PATH = "data/processed/dataset_twitter_limpio.csv"
+CSV_PATH = "../data/processed/dataset_twitter_limpio.csv"
 
 
 def limpiar(valor):

@@ -4,7 +4,7 @@ from getpass import getpass
 import math
 
 
-CSV_PATH = "data/processed/endireh_limpio.csv"
+CSV_PATH = "../data/processed/endireh_limpio.csv"
 
 
 def limpiar_valor(valor):

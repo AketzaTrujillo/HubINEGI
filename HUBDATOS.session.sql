@@ -85,7 +85,7 @@ INSERT INTO fuentes (nombre, tipo_fuente, url, descripcion, fecha_consulta) VALU
 ('INMUJERES SIE', 'SEMUJERES', NULL, 'Indicadores del Sistema de Información Estadística de INMUJERES', CURDATE());
 
 
---twitter
+-- twitter
 CREATE TABLE registros (
     id_registro BIGINT AUTO_INCREMENT PRIMARY KEY,
 
@@ -120,7 +120,7 @@ CREATE TABLE registros (
 );
 
 
---endireh
+-- endireh
 CREATE TABLE indicadores_endireh (
     id_indicador BIGINT AUTO_INCREMENT PRIMARY KEY,
 
@@ -147,7 +147,7 @@ CREATE TABLE indicadores_endireh (
 );
 
 
---siesvim
+-- siesvim
 
 CREATE TABLE indicadores_siesvim (
     id_siesvim BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -170,7 +170,7 @@ CREATE TABLE indicadores_siesvim (
     FOREIGN KEY (id_fuente) REFERENCES fuentes(id_fuente)
 );
 
---inmujeres
+-- inmujeres
 
 CREATE TABLE indicadores_inmujeres (
     id_indicador BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -203,14 +203,13 @@ CREATE INDEX idx_siesvim_anio_entidad ON indicadores_siesvim(anio, entidad);
 CREATE INDEX idx_inmujeres_anio ON indicadores_inmujeres(anio);
 
 
---corrección
+-- corrección
 USE HUBDATOS;
 
 ALTER TABLE registros
 MODIFY fecha_publicacion TEXT;
 
 ALTER TABLE registros
-
 MODIFY usuario TEXT;
-DELETE FROM registros;
-ALTER TABLE registros AUTO_INCREMENT = 1;
+
+TRUNCATE TABLE registros;
