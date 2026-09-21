@@ -1,5 +1,5 @@
 import json
-from getpass import getpass
+from db import obtener_conexion
 
 import pandas as pd
 import mysql.connector
@@ -53,14 +53,7 @@ def main():
         print("\nTu CSV de SIESVIM todavía necesita normalizarse antes de insertarlo.")
         return
 
-    password = getpass("Contraseña MySQL: ")
-
-    conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password=password,
-        database="HUBDATOS"
-    )
+    conn = obtener_conexion()
 
     cursor = conn.cursor()
 

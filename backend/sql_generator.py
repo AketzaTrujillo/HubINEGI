@@ -1,3 +1,5 @@
+import re
+
 from ollama_service import preguntar_ollama
 from esquema_db import ESQUEMA_DB
 from diccionario_semantico import (
@@ -154,6 +156,26 @@ NO_SE_PUEDE_CONSULTAR
     return limpiar_sql(respuesta)
 
 
+TABLAS_PERMITIDAS = {
+    "fuentes",
+    "tipos_violencia",
+    "ambitos_violencia",
+    "tipos_contenido",
+    "ubicaciones",
+    "registros",
+    "indicadores_endireh",
+    "indicadores_siesvim",
+    "indicadores_inmujeres",
+}
+
+
+def _tablas_usadas(sql_limpio):
+    return re.findall(
+        r"\b(?:from|join)\s+([a-z_][a-z0-9_]*)",
+        sql_limpio,
+    )
+
+
 def validar_sql(sql):
 
     sql_limpio = sql.strip().lower()
@@ -179,9 +201,61 @@ def validar_sql(sql):
         if palabra in sql_limpio:
             return False
 
+    for tabla in _tablas_usadas(sql_limpio):
+        if tabla not in TABLAS_PERMITIDAS:
+            return False
+
     contenido = sql_limpio.rstrip(";")
 
     if ";" in contenido:
         return False
 
     return True
+
+
+def corregir_sql(pregunta, sql_fallido, error, contexto=None):
+    prompt = f"""
+Eres el módulo NL-to-SQL del sistema MHub.
+
+La siguiente consulta MySQL falló. Corrígela usando
+ÚNICAMENTE las tablas y columnas del esquema.
+
+========================================
+ESQUEMA
+========================================
+
+{ESQUEMA_DB}
+
+========================================
+TABLAS PERMITIDAS
+========================================
+
+{", ".join(sorted(TABLAS_PERMITIDAS))}
+
+========================================
+PREGUNTA
+========================================
+
+{pregunta}
+
+========================================
+SQL CON ERROR
+========================================
+
+{sql_fallido}
+
+========================================
+ERROR DE MYSQL
+========================================
+
+{error}
+
+Devuelve SOLO la consulta SELECT corregida (sin Markdown,
+sin explicaciones, terminada en punto y coma).
+
+Si no puede responderse con el esquema, responde exactamente:
+
+NO_SE_PUEDE_CONSULTAR
+"""
+
+    return limpiar_sql(preguntar_ollama(prompt))

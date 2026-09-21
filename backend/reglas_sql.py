@@ -1,6 +1,19 @@
 REGLAS_SQL = """
 REGLAS OBLIGATORIAS PARA GENERAR SQL EN MHUB
 
+TABLAS PERMITIDAS (son las ÚNICAS que existen):
+fuentes, tipos_violencia, ambitos_violencia, tipos_contenido,
+ubicaciones, registros, indicadores_endireh, indicadores_siesvim,
+indicadores_inmujeres.
+
+Nunca uses una tabla que no esté en esa lista.
+
+Si la pregunta no trata sobre indicadores de violencia contra las
+mujeres en México (por ejemplo un saludo, otro tema o programación),
+o no puede responderse con esas tablas, responde exactamente:
+
+NO_SE_PUEDE_CONSULTAR
+
 1. Genera únicamente consultas SELECT.
 
 2. Está completamente prohibido generar:
@@ -220,6 +233,37 @@ Utiliza GROUP BY sobre la columna de año correspondiente.
 53. Una pregunta de seguimiento NO debe cambiar de tabla
 solo porque sea corta o ambigua. Conserva la tabla/fuente
 de la consulta anterior.
+
+54. Nunca inventes JOINs. Relaciona las tablas ÚNICAMENTE por
+las claves descritas en el esquema (por ejemplo
+registros.id_ubicacion = ubicaciones.id_ubicacion).
+No unas tipos_violencia, ambitos_violencia ni tipos_contenido
+entre sí, ni con las tablas de indicadores.
+
+55. Si la pregunta no menciona una entidad (estado) concreta,
+NO filtres por entidad. "México" es el país: no lo traduzcas
+a un estado como Jalisco ni a ningún otro.
+
+56. Si la pregunta dice "actualmente", "este año", "el año
+actual" o "el año más reciente", NO uses un año fijo; usa el
+año más reciente disponible, por ejemplo:
+WHERE anio = (SELECT MAX(anio) FROM indicadores_endireh)
+
+57. "tipo de violencia" en ENDIREH y SIESVIM está dentro de
+nombre_indicador o categoria_indicador; no existe una columna
+llamada tipo_violencia en esas tablas. Los catálogos
+tipos_violencia y ambitos_violencia solo se relacionan con
+registros (publicaciones de X).
+
+58. Las preguntas amplias SÍ se responden. Por ejemplo:
+"índices de violencia en México", "violencias en Jalisco" o
+"qué violencias hay". Genera la mejor consulta posible con
+LIMIT 100. No respondas NO_SE_PUEDE_CONSULTAR solo porque la
+pregunta sea general o ambigua.
+
+59. Responde NO_SE_PUEDE_CONSULTAR únicamente cuando la
+pregunta no trata sobre violencia contra las mujeres en
+México, o cuando ningún dato del esquema se relaciona con ella.
 """
 
 

@@ -244,4 +244,94 @@ WHERE u.estado = 'Jalisco'
 GROUP BY r.anio_publicacion
 ORDER BY r.anio_publicacion;
 
+
+Pregunta:
+Hola, buenos días
+
+SQL:
+NO_SE_PUEDE_CONSULTAR
+
+
+Pregunta:
+¿Me puedes dar el código de un hola mundo en C?
+
+SQL:
+NO_SE_PUEDE_CONSULTAR
+
+
+Pregunta:
+¿Qué tipos de violencia existen?
+
+SQL:
+SELECT
+    nombre,
+    descripcion
+FROM tipos_violencia;
+
+
+Pregunta:
+¿Qué ámbitos de violencia existen?
+
+SQL:
+SELECT
+    nombre,
+    descripcion
+FROM ambitos_violencia;
+
+
+Pregunta:
+Índices de violencia en México
+
+SQL:
+SELECT
+    'ENDIREH' AS fuente,
+    nombre_indicador,
+    entidad,
+    anio,
+    valor,
+    unidad
+FROM indicadores_endireh
+
+UNION ALL
+
+SELECT
+    'SIESVIM' AS fuente,
+    nombre_indicador,
+    entidad,
+    anio,
+    valor,
+    unidad
+FROM indicadores_siesvim
+
+LIMIT 100;
+
+
+Pregunta:
+Violencias en Jalisco
+
+SQL:
+SELECT
+    'ENDIREH' AS fuente,
+    nombre_indicador,
+    entidad,
+    anio,
+    valor,
+    unidad
+FROM indicadores_endireh
+WHERE entidad = 'Jalisco'
+
+UNION ALL
+
+SELECT
+    'SIESVIM' AS fuente,
+    nombre_indicador,
+    entidad,
+    anio,
+    valor,
+    unidad
+FROM indicadores_siesvim
+WHERE entidad = 'Jalisco'
+
+LIMIT 100;
+
 """

@@ -1,31 +1,24 @@
+import os
+
 import requests
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODELO = "llama3.2"
+OLLAMA_CHAT_URL = "http://localhost:11434/api/chat"
+MODELO = os.environ.get("OLLAMA_MODEL", "qwen2.5:7b")
+
+OPCIONES = {
+    "temperature": 0,
+    "top_p": 0.9,
+    "repeat_penalty": 1.1,
+    "num_predict": 500,
+}
 
 
-def preguntar_ollama(prompt):
-    payload = {
-        "model": MODELO,
-        "prompt": prompt,
-        "stream": False,
-        "options": {
-            "temperature": 0
-        }
-    }
-
+def _post(url, payload):
     try:
-        response = requests.post(
-            OLLAMA_URL,
-            json=payload,
-            timeout=120
-        )
-
+        response = requests.post(url, json=payload, timeout=120)
         response.raise_for_status()
-
-        data = response.json()
-
-        return data["response"]
+        return response.json()
 
     except requests.exceptions.ConnectionError:
         raise Exception(
@@ -44,9 +37,37 @@ def preguntar_ollama(prompt):
         )
 
 
-if __name__ == "__main__":
-    respuesta = preguntar_ollama(
-        "Responde en español: ¿qué es un indicador estadístico?"
-    )
+def preguntar_ollama(prompt, system=None):
+    if system:
+        data = _post(
+            OLLAMA_CHAT_URL,
+            {
+                "model": MODELO,
+                "messages": [
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": prompt},
+                ],
+                "stream": False,
+                "options": OPCIONES,
+            },
+        )
+        return data["message"]["content"]
 
-    print(respuesta)
+    data = _post(
+        OLLAMA_URL,
+        {
+            "model": MODELO,
+            "prompt": prompt,
+            "stream": False,
+            "options": OPCIONES,
+        },
+    )
+    return data["response"]
+
+
+if __name__ == "__main__":
+    print(
+        preguntar_ollama(
+            "Responde en español: ¿qué es un indicador estadístico?"
+        )
+    )

@@ -1,0 +1,4 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+mysql-connector-python>=9.0
+requests>=2.32

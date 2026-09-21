@@ -1,6 +1,6 @@
 import pandas as pd
 import mysql.connector
-from getpass import getpass
+from db import obtener_conexion
 import math
 
 
@@ -20,14 +20,7 @@ def main():
     print(df.columns.tolist())
     print("Total filas:", len(df))
 
-    password = getpass("Contraseña MySQL: ")
-
-    conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password=password,
-        database="HUBDATOS"
-    )
+    conn = obtener_conexion()
 
     cursor = conn.cursor()
 
