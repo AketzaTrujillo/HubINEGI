@@ -32,6 +32,7 @@ MAPA_FUENTES = {
     "Que_te_agrada_y_que_te_agrade_en_las_relaciones":
         "Qué te agrada en las relaciones",
     "noestassola_conavim": "No Estás Sola (CONAVIM)",
+    "911_SESPC": "SESNSP - Informe 911 (emergencias e incidencia delictiva)",
 }
 
 

@@ -1,0 +1,2138 @@
+{
+    "documento": "911_SESPC",
+    "titulo": "Informe de violencia contra las mujeres: Incidencia delictiva y llamadas de emergencia al 911",
+    "corte": "2026-03-31",
+    "publicacion": "2026-04",
+    "parte": 1,
+    "paginas_originales": {
+      "inicio": 1,
+      "fin": 95
+    },
+    "criterio_extraccion": "Transcripción e interpretación de alta confianza de texto y gráficas. Cuando una etiqueta o cifra pequeña no es suficientemente legible, no se infiere.",
+    "registros": [
+      {
+        "pagina": 1,
+        "tipo_contenido": "portada",
+        "incluir_rag": true,
+        "titulo": "Informe de violencia contra las mujeres",
+        "subtitulo": "Incidencia delictiva y llamadas de emergencia al 911",
+        "corte": "31 de marzo de 2026",
+        "fecha_publicacion": "abril de 2026",
+        "texto_rag": "El documento 911_SESPC es el Informe de violencia contra las mujeres sobre incidencia delictiva y llamadas de emergencia al 911, con corte al 31 de marzo de 2026 y publicado en abril de 2026."
+      },
+      {
+        "pagina": 2,
+        "tipo_contenido": "texto_metodologico",
+        "incluir_rag": true,
+        "tema": "metodologia_incidencia_delictiva",
+        "datos": {
+          "fuentes_principales": [
+            "Información de incidencia delictiva",
+            "Estadísticas de llamadas de emergencia al número único 9-1-1"
+          ],
+          "actualizacion": "mensual",
+          "cobertura_geografica": [
+            "nacional",
+            "estatal"
+          ],
+          "feminicidio_incluye_nivel_municipal": true,
+          "nueva_metodologia_desde": "enero de 2026"
+        },
+        "texto_rag": "El informe utiliza dos fuentes del Centro Nacional de Información: incidencia delictiva y estadísticas de llamadas de emergencia al 9-1-1. Las cifras de incidencia delictiva proceden de carpetas de investigación iniciadas ante el Ministerio Público y son proporcionadas por las procuradurías y fiscalías de las 32 entidades federativas. Desde enero de 2026 se implementó una nueva metodología para registrar y clasificar delitos y víctimas, con mayor desagregación por sexo y rangos de edad."
+      },
+      {
+        "pagina": 3,
+        "tipo_contenido": "texto_metodologico",
+        "incluir_rag": true,
+        "tema": "metodologia_llamadas_911",
+        "datos": {
+          "inicio_sistematizacion": 2016,
+          "centros_atencion_llamadas": 194,
+          "entidades": 32,
+          "llamadas_son_denuncias": false
+        },
+        "texto_rag": "Las llamadas de emergencia al 9-1-1 se recaban y sistematizan por el Centro Nacional de Información desde 2016 con base en el Catálogo Nacional de Incidentes de Emergencia. Provienen de 194 Centros de Atención de Llamadas de Emergencia. Las llamadas al 9-1-1 no son denuncias ante una autoridad: representan probables incidentes de emergencia según la percepción de la persona que realiza la llamada."
+      },
+      {
+        "pagina": 4,
+        "tipo_contenido": "separador",
+        "incluir_rag": false,
+        "titulo": "Incidencia delictiva contra las mujeres"
+      },
+      {
+        "pagina": 5,
+        "tipo_contenido": "separador",
+        "incluir_rag": false,
+        "titulo": "Panorama general"
+      },
+      {
+        "pagina": 6,
+        "tipo_contenido": "grafica_barras",
+        "incluir_rag": true,
+        "tema": "delitos_por_bien_juridico",
+        "periodo": "enero-marzo 2026",
+        "ambito_geografico": "nacional",
+        "total_delitos": 480653,
+        "unidad": [
+          "delitos",
+          "porcentaje"
+        ],
+        "datos": [
+          {
+            "bien_juridico": "El patrimonio",
+            "delitos": 191709,
+            "porcentaje": 39.9
+          },
+          {
+            "bien_juridico": "Otros bienes jurídicos afectados (del fuero común)",
+            "delitos": 123425,
+            "porcentaje": 25.7
+          },
+          {
+            "bien_juridico": "La familia",
+            "delitos": 72668,
+            "porcentaje": 15.1
+          },
+          {
+            "bien_juridico": "La vida y la integridad corporal",
+            "delitos": 62004,
+            "porcentaje": 12.9
+          },
+          {
+            "bien_juridico": "La libertad y la seguridad sexual",
+            "delitos": 19579,
+            "porcentaje": 4.1
+          },
+          {
+            "bien_juridico": "Libertad personal",
+            "delitos": 7707,
+            "porcentaje": 1.6
+          },
+          {
+            "bien_juridico": "La sociedad",
+            "delitos": 3561,
+            "porcentaje": 0.7
+          }
+        ],
+        "texto_rag": "De enero a marzo de 2026 se registraron 480,653 delitos a nivel nacional. Por bien jurídico afectado: patrimonio 191,709 (39.9%); otros bienes jurídicos del fuero común 123,425 (25.7%); familia 72,668 (15.1%); vida e integridad corporal 62,004 (12.9%); libertad y seguridad sexual 19,579 (4.1%); libertad personal 7,707 (1.6%); y sociedad 3,561 (0.7%)."
+      },
+      {
+        "pagina": 7,
+        "tipo_contenido": "grafica_barras_y_tabla",
+        "incluir_rag": true,
+        "tema": "victimas_por_sexo",
+        "periodo": "enero-marzo 2026",
+        "ambito_geografico": "nacional",
+        "victimas_reportadas": 78630,
+        "datos": [
+          {
+            "sexo": "Hombre",
+            "victimas": 43347,
+            "porcentaje": 55.1
+          },
+          {
+            "sexo": "Mujer",
+            "victimas": 29891,
+            "porcentaje": 38.0
+          },
+          {
+            "sexo": "No identificado",
+            "victimas": 5392,
+            "porcentaje": 6.9
+          }
+        ],
+        "proporcion_mujeres_por_hombre": [
+          {
+            "mes": "enero 2026",
+            "mujeres_pct": 37.4,
+            "hombres_pct": 56.1,
+            "proporcion": 0.67
+          },
+          {
+            "mes": "febrero 2026",
+            "mujeres_pct": 37.7,
+            "hombres_pct": 54.7,
+            "proporcion": 0.69
+          },
+          {
+            "mes": "marzo 2026",
+            "mujeres_pct": 38.8,
+            "hombres_pct": 54.7,
+            "proporcion": 0.71
+          }
+        ],
+        "texto_rag": "De enero a marzo de 2026 se reportaron 78,630 víctimas a nivel nacional: 43,347 hombres (55.1%), 29,891 mujeres (38.0%) y 5,392 víctimas con sexo no identificado (6.9%)."
+      },
+      {
+        "pagina": 8,
+        "tipo_contenido": "grafica_barras_apiladas",
+        "incluir_rag": true,
+        "tema": "porcentaje_victimas_por_delito_y_sexo",
+        "periodo": "enero-marzo 2026",
+        "ambito_geografico": "nacional",
+        "nota": "La gráfica compara la participación porcentual por sexo para distintos delitos. Se conservan únicamente los valores que se distinguen con alta confianza.",
+        "datos_alta_confianza": [
+          {
+            "delito": "Feminicidio",
+            "mujer_pct": 99.3
+          },
+          {
+            "delito": "Rapto",
+            "mujer_pct": 87.5,
+            "hombre_pct": 12.5
+          },
+          {
+            "delito": "Trata de personas",
+            "mujer_pct": 64.7,
+            "hombre_pct": 12.9,
+            "no_identificado_pct": 22.4
+          },
+          {
+            "delito": "Corrupción de menores",
+            "mujer_pct": 62.9,
+            "hombre_pct": 30.2,
+            "no_identificado_pct": 6.9
+          },
+          {
+            "delito": "Lesiones dolosas",
+            "mujer_pct": 46.7,
+            "hombre_pct": 50.8,
+            "no_identificado_pct": 2.5
+          },
+          {
+            "delito": "Lesiones culposas",
+            "mujer_pct": 32.4,
+            "hombre_pct": 61.6,
+            "no_identificado_pct": 6.0
+          },
+          {
+            "delito": "Otros delitos",
+            "mujer_pct": 31.3,
+            "hombre_pct": 45.0,
+            "no_identificado_pct": 23.7
+          },
+          {
+            "delito": "Extorsión",
+            "mujer_pct": 29.8,
+            "hombre_pct": 47.5,
+            "no_identificado_pct": 22.7
+          },
+          {
+            "delito": "Secuestro",
+            "mujer_pct": 18.8,
+            "hombre_pct": 79.9
+          },
+          {
+            "delito": "Homicidio culposo",
+            "mujer_pct": 15.7,
+            "hombre_pct": 67.5,
+            "no_identificado_pct": 16.8
+          },
+          {
+            "delito": "Homicidio doloso",
+            "mujer_pct": 8.1,
+            "hombre_pct": 87.3,
+            "no_identificado_pct": 4.6
+          }
+        ],
+        "texto_rag": "Entre enero y marzo de 2026, la participación de mujeres entre las víctimas varió ampliamente según el delito. En feminicidio fue 99.3%; en rapto 87.5%; en trata de personas 64.7%; en corrupción de menores 62.9%; en lesiones dolosas 46.7%; en lesiones culposas 32.4%; en extorsión 29.8%; en secuestro 18.8%; en homicidio culposo 15.7%; y en homicidio doloso 8.1%."
+      },
+      {
+        "pagina": 9,
+        "tipo_contenido": "separador",
+        "incluir_rag": false,
+        "titulo": "Delitos que atentan contra la vida y la integridad corporal"
+      },
+      {
+        "pagina": 10,
+        "tipo_contenido": "serie_temporal",
+        "incluir_rag": true,
+        "tema": "victimas_mujeres_feminicidio",
+        "ambito_geografico": "nacional",
+        "periodo": "enero 2015-marzo 2026",
+        "unidad": "víctimas",
+        "totales_anuales": {
+          "2015": 428,
+          "2016": 648,
+          "2017": 770,
+          "2018": 925,
+          "2019": 972,
+          "2020": 975,
+          "2021": 1022,
+          "2022": 984,
+          "2023": 852,
+          "2024": 855,
+          "2025": 731,
+          "2026_enero_marzo": 148
+        },
+        "texto_rag": "Las víctimas mujeres de feminicidio a nivel nacional fueron 428 en 2015, 648 en 2016, 770 en 2017, 925 en 2018, 972 en 2019, 975 en 2020, 1,022 en 2021, 984 en 2022, 852 en 2023, 855 en 2024 y 731 en 2025. De enero a marzo de 2026 se registraron 148 víctimas."
+      },
+      {
+        "pagina": 11,
+        "tipo_contenido": "grafica_barras",
+        "incluir_rag": true,
+        "tema": "victimas_feminicidio_por_entidad",
+        "periodo": "enero-marzo 2026",
+        "ambito_geografico": "entidad federativa",
+        "total_nacional": 148,
+        "resumen": {
+          "entidades_que_concentran": 6,
+          "porcentaje_concentrado": 46.6,
+          "victimas_concentradas": 69
+        },
+        "nota": "Los valores individuales por entidad se conservan únicamente cuando pueden validarse con suficiente legibilidad.",
+        "texto_rag": "De enero a marzo de 2026 se registraron 148 víctimas de feminicidio a nivel nacional. Seis entidades federativas concentraron 46.6% del total, equivalente a 69 víctimas."
+      },
+      {
+        "pagina": 12,
+        "tipo_contenido": "grafica_barras",
+        "incluir_rag": true,
+        "tema": "tasa_feminicidio_por_entidad",
+        "periodo": "enero-marzo 2026",
+        "unidad": "víctimas por cada 100 mil mujeres",
+        "tasa_nacional": 0.22,
+        "datos_alta_confianza": [
+          {
+            "entidad": "Sinaloa",
+            "tasa": 0.93,
+            "victimas": 15
+          },
+          {
+            "entidad": "Morelos",
+            "tasa": 0.75,
+            "victimas": 8
+          },
+          {
+            "entidad": "Sonora",
+            "tasa": 0.64,
+            "victimas": 10
+          }
+        ],
+        "texto_rag": "La tasa nacional de víctimas de feminicidio de enero a marzo de 2026 fue 0.22 por cada 100 mil mujeres. Entre las tasas estatales más altas mostradas en la gráfica se encuentran Sinaloa con 0.93, Morelos con 0.75 y Sonora con 0.64."
+      },
+      {
+        "pagina": 13,
+        "tipo_contenido": "grafica_barras_apiladas",
+        "incluir_rag": true,
+        "tema": "feminicidio_por_grupo_edad",
+        "periodo": "2015-marzo 2026",
+        "unidad": "víctimas",
+        "grupos": [
+          "adultas (18 y más)",
+          "menores de edad (0-17)",
+          "no especificado"
+        ],
+        "totales_anuales": {
+          "2015": 428,
+          "2016": 648,
+          "2017": 770,
+          "2018": 925,
+          "2019": 972,
+          "2020": 975,
+          "2021": 1022,
+          "2022": 984,
+          "2023": 852,
+          "2024": 855,
+          "2025": 731,
+          "2026_enero_marzo": 148
+        },
+        "adultas_alta_confianza": {
+          "2015": 333,
+          "2016": 501,
+          "2017": 608,
+          "2018": 733,
+          "2019": 772,
+          "2020": 772,
+          "2021": 826,
+          "2022": 810,
+          "2023": 714,
+          "2024": 720,
+          "2025": 619,
+          "2026_enero_marzo": 118
+        },
+        "texto_rag": "La serie de feminicidio por grupo de edad muestra que las víctimas adultas constituyen la mayor parte de los registros. En 2025 se observan 619 víctimas adultas dentro de un total de 731; entre enero y marzo de 2026 se observan 118 adultas dentro de un total de 148."
+      },
+      {
+        "pagina": 14,
+        "tipo_contenido": "grafica_barras_apiladas",
+        "incluir_rag": true,
+        "tema": "feminicidio_por_grupo_edad_y_entidad",
+        "periodo": "enero-marzo 2026",
+        "total_nacional": 148,
+        "grupos_edad": [
+          "0-2",
+          "3-17",
+          "18-29",
+          "30-59",
+          "60 o más",
+          "no especificado"
+        ],
+        "texto_rag": "La distribución de las 148 víctimas de feminicidio registradas entre enero y marzo de 2026 se presenta por entidad federativa y grupos de edad: 0 a 2 años, 3 a 17, 18 a 29, 30 a 59, 60 años o más y edad no especificada."
+      },
+      {
+        "pagina": 15,
+        "tipo_contenido": "mapa_y_tabla",
+        "incluir_rag": true,
+        "tema": "municipios_con_mas_feminicidios",
+        "periodo": "enero-marzo 2026",
+        "resumen": {
+          "municipios": 20,
+          "porcentaje_delitos_nacional": 39.6
+        },
+        "municipios_destacados_en_mapa": [
+          "Juárez, Chihuahua",
+          "Culiacán, Sinaloa",
+          "Reynosa, Tamaulipas",
+          "Venustiano Carranza, Ciudad de México",
+          "Victoria, Tamaulipas",
+          "La Magdalena Contreras, Ciudad de México",
+          "Tapachula, Chiapas",
+          "Hermosillo, Sonora",
+          "Cajeme, Sonora"
+        ],
+        "texto_rag": "Entre enero y marzo de 2026, 20 municipios concentraron 39.6% de los delitos de feminicidio a nivel nacional. El mapa destaca, entre otros, Juárez, Culiacán, Reynosa, Venustiano Carranza, Victoria, La Magdalena Contreras, Tapachula, Hermosillo y Cajeme."
+      },
+      {
+        "pagina": 16,
+        "tipo_contenido": "mapa_y_tabla",
+        "incluir_rag": true,
+        "tema": "feminicidio_municipal_tasa",
+        "periodo": "enero-marzo 2026",
+        "unidad": "delitos por cada 100 mil mujeres",
+        "texto_rag": "El informe presenta un mapa municipal de feminicidios por cada 100 mil mujeres para enero-marzo de 2026. La visualización permite comparar la tasa municipal y destaca municipios como Juárez, Culiacán, Reynosa, Venustiano Carranza, Victoria, La Magdalena Contreras, Hermosillo, Cajeme y Tapachula."
+      },
+      {
+        "pagina": 17,
+        "tipo_contenido": "serie_temporal",
+        "incluir_rag": true,
+        "tema": "victimas_mujeres_homicidio_doloso",
+        "ambito_geografico": "nacional",
+        "periodo": "enero 2015-marzo 2026",
+        "unidad": "víctimas",
+        "totales_anuales": {
+          "2015": 1733,
+          "2016": 2186,
+          "2017": 2531,
+          "2018": 2757,
+          "2019": 2874,
+          "2020": 2805,
+          "2021": 2747,
+          "2022": 2803,
+          "2023": 2583,
+          "2024": 2560,
+          "2025": 2070,
+          "2026_enero_marzo": 370
+        },
+        "texto_rag": "Las víctimas mujeres de homicidio doloso a nivel nacional fueron 1,733 en 2015, 2,186 en 2016, 2,531 en 2017, 2,757 en 2018, 2,874 en 2019, 2,805 en 2020, 2,747 en 2021, 2,803 en 2022, 2,583 en 2023, 2,560 en 2024 y 2,070 en 2025. Entre enero y marzo de 2026 se registraron 370 víctimas."
+      },
+      {
+        "pagina": 18,
+        "tipo_contenido": "grafica_barras",
+        "incluir_rag": true,
+        "tema": "victimas_mujeres_homicidio_doloso_por_entidad",
+        "periodo": "enero-marzo 2026",
+        "total_nacional": 370,
+        "resumen": {
+          "entidades_que_concentran": 4,
+          "porcentaje_concentrado": 35.9,
+          "victimas_concentradas": 133
+        },
+        "texto_rag": "De enero a marzo de 2026 se registraron 370 víctimas mujeres de homicidio doloso a nivel nacional. Cuatro entidades federativas concentraron 35.9% del total, equivalente a 133 víctimas."
+      },
+      {
+        "pagina": 19,
+        "tipo_contenido": "grafica_barras_apiladas",
+        "incluir_rag": true,
+        "tema": "homicidio_doloso_por_grupo_edad_y_entidad",
+        "periodo": "enero-marzo 2026",
+        "total_nacional": 370,
+        "grupos_edad": [
+          "0-2",
+          "3-17",
+          "18-29",
+          "30-59",
+          "60 o más",
+          "no especificado"
+        ],
+        "texto_rag": "El informe distribuye las 370 víctimas mujeres de homicidio doloso registradas entre enero y marzo de 2026 por entidad federativa y grupos de edad."
+      },
+      {
+        "pagina": 20,
+        "tipo_contenido": "grafica_barras",
+        "incluir_rag": true,
+        "tema": "tasa_homicidio_doloso_por_entidad",
+        "periodo": "enero-marzo 2026",
+        "unidad": "víctimas por cada 100 mil mujeres",
+        "tasa_nacional": 0.54,
+        "datos_alta_confianza": [
+
+          {
+
+            "entidad": "Colima",
+
+            "tasa": 3.08,
+
+            "victimas": 12
+
+          },
+
+          {
+
+            "entidad": "Morelos",
+
+            "tasa": 2.43,
+
+            "victimas": 26
+
+          },
+
+          {
+
+            "entidad": "Sinaloa",
+
+            "tasa": 1.63,
+
+            "victimas": 26
+
+          }
+
+        ],
+
+        "texto_rag": "La tasa nacional de homicidio doloso de mujeres entre enero y marzo de 2026 fue de 0.54 víctimas por cada 100 mil mujeres. Entre las tasas estatales más altas mostradas se encuentran Colima con 3.08, Morelos con 2.43 y Sinaloa con 1.63."
+
+      },
+
+      {
+
+        "pagina": 21,
+
+        "tipo_contenido": "serie_temporal",
+
+        "incluir_rag": true,
+
+        "tema": "victimas_mujeres_homicidio_culposo",
+
+        "ambito_geografico": "nacional",
+
+        "periodo": "enero 2015-marzo 2026",
+
+        "unidad": "víctimas",
+
+        "totales_anuales": {
+
+          "2015": 3391,
+
+          "2016": 3138,
+
+          "2017": 3172,
+
+          "2018": 3207,
+
+          "2019": 3297,
+
+          "2020": 3136,
+
+          "2021": 3284,
+
+          "2022": 3890,
+
+          "2023": 3740,
+
+          "2024": 3437,
+
+          "2025": 3208,
+
+          "2026_enero_marzo": 688
+
+        },
+
+        "texto_rag": "Las víctimas mujeres de homicidio culposo a nivel nacional fueron 3,391 en 2015, 3,138 en 2016, 3,172 en 2017, 3,207 en 2018, 3,297 en 2019, 3,136 en 2020, 3,284 en 2021, 3,890 en 2022, 3,740 en 2023, 3,437 en 2024 y 3,208 en 2025. De enero a marzo de 2026 se registraron 688 víctimas."
+
+      },
+          {
+            "pagina": 22,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_homicidio_culposo_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 688,
+            "resumen": {
+              "entidades_que_concentran": 5,
+              "porcentaje_concentrado": 41.4,
+              "victimas_concentradas": 285
+            },
+            "datos_alta_confianza": [
+              {
+                "entidad": "Veracruz",
+                "victimas": 76
+              },
+              {
+                "entidad": "Michoacán",
+                "victimas": 63
+              }
+            ],
+            "texto_rag": "De enero a marzo de 2026 se registraron 688 víctimas mujeres de homicidio culposo a nivel nacional. Cinco entidades federativas concentraron 41.4% del total, equivalente a 285 víctimas."
+          },
+          {
+            "pagina": 23,
+            "tipo_contenido": "grafica_barras_apiladas",
+            "incluir_rag": true,
+            "tema": "homicidio_culposo_por_grupo_edad_y_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 688,
+            "grupos_edad": [
+              "0-2",
+              "3-17",
+              "18-29",
+              "30-59",
+              "60 o más",
+              "no especificado"
+            ],
+            "texto_rag": "El informe distribuye las 688 víctimas mujeres de homicidio culposo registradas entre enero y marzo de 2026 por entidad federativa y grupos de edad."
+          },
+          {
+            "pagina": 24,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_homicidio_culposo_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "víctimas por cada 100 mil mujeres",
+            "tasa_nacional": 1.00,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Quintana Roo",
+                "tasa": 3.19,
+                "victimas": 33
+              },
+              {
+                "entidad": "Michoacán",
+                "tasa": 2.22,
+                "victimas": 63
+              },
+              {
+                "entidad": "Baja California Sur",
+                "tasa": 2.06,
+                "victimas": 9
+              }
+            ],
+            "texto_rag": "La tasa nacional de homicidio culposo de mujeres entre enero y marzo de 2026 fue de 1.00 víctima por cada 100 mil mujeres. Entre las tasas más altas mostradas se encuentran Quintana Roo con 3.19, Michoacán con 2.22 y Baja California Sur con 2.06."
+          },
+          {
+            "pagina": 25,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_lesiones_dolosas",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "víctimas",
+            "totales_anuales": {
+              "2015": 63723,
+              "2016": 62904,
+              "2017": 66724,
+              "2018": 61957,
+              "2019": 66345,
+              "2020": 57495,
+              "2021": 62370,
+              "2022": 67318,
+              "2023": 69005,
+              "2024": 67814,
+              "2025": 80524,
+              "2026_enero_marzo": 19530
+            },
+            "texto_rag": "Las víctimas mujeres de lesiones dolosas a nivel nacional fueron 63,723 en 2015, 62,904 en 2016, 66,724 en 2017, 61,957 en 2018, 66,345 en 2019, 57,495 en 2020, 62,370 en 2021, 67,318 en 2022, 69,005 en 2023, 67,814 en 2024 y 80,524 en 2025. De enero a marzo de 2026 se registraron 19,530 víctimas."
+          },
+          {
+            "pagina": 26,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_lesiones_dolosas_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 19530,
+            "resumen": {
+              "entidades_que_concentran": 2,
+              "porcentaje_concentrado": 44.1,
+              "victimas_concentradas": 8609
+            },
+            "datos_alta_confianza": [
+              {
+                "entidad": "Estado de México",
+                "victimas": 6432
+              },
+              {
+                "entidad": "Guanajuato",
+                "victimas": 2177
+              }
+            ],
+            "texto_rag": "De enero a marzo de 2026 se registraron 19,530 víctimas mujeres de lesiones dolosas a nivel nacional. Dos entidades federativas concentraron 44.1% del total, equivalente a 8,609 víctimas."
+          },
+          {
+            "pagina": 27,
+            "tipo_contenido": "grafica_barras_apiladas",
+            "incluir_rag": true,
+            "tema": "lesiones_dolosas_por_grupo_edad_y_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 19530,
+            "grupos_edad": [
+              "0-2",
+              "3-17",
+              "18-29",
+              "30-59",
+              "60 o más",
+              "no especificado"
+            ],
+            "texto_rag": "El informe presenta las 19,530 víctimas mujeres de lesiones dolosas registradas entre enero y marzo de 2026 desagregadas por entidad federativa y grupo de edad."
+          },
+          {
+            "pagina": 28,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_lesiones_dolosas_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "víctimas por cada 100 mil mujeres",
+            "tasa_nacional": 28.45,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Estado de México",
+                "tasa": 70.75,
+                "victimas": 6432
+              },
+              {
+                "entidad": "Aguascalientes",
+                "tasa": 63.81,
+                "victimas": 516
+              },
+              {
+                "entidad": "Guanajuato",
+                "tasa": 62.44,
+                "victimas": 2177
+              }
+            ],
+            "texto_rag": "La tasa nacional de lesiones dolosas de mujeres de enero a marzo de 2026 fue de 28.45 víctimas por cada 100 mil mujeres. Entre las tasas más altas mostradas se encuentran Estado de México con 70.75, Aguascalientes con 63.81 y Guanajuato con 62.44."
+          },
+          {
+            "pagina": 29,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_lesiones_culposas",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "víctimas",
+            "totales_anuales": {
+              "2015": 24906,
+              "2016": 18705,
+              "2017": 15261,
+              "2018": 16378,
+              "2019": 18076,
+              "2020": 14555,
+              "2021": 17752,
+              "2022": 21921,
+              "2023": 23446,
+              "2024": 22996,
+              "2025": 22651,
+              "2026_enero_marzo": 5572
+            },
+            "texto_rag": "Las víctimas mujeres de lesiones culposas a nivel nacional fueron 24,906 en 2015, 18,705 en 2016, 15,261 en 2017, 16,378 en 2018, 18,076 en 2019, 14,555 en 2020, 17,752 en 2021, 21,921 en 2022, 23,446 en 2023, 22,996 en 2024 y 22,651 en 2025. De enero a marzo de 2026 se registraron 5,572 víctimas."
+          },
+          {
+            "pagina": 30,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_lesiones_culposas_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 5572,
+            "resumen": {
+              "entidades_que_concentran": 4,
+              "porcentaje_concentrado": 47.4,
+              "victimas_concentradas": 2639
+            },
+            "datos_alta_confianza": [
+              {
+                "entidad": "Estado de México",
+                "victimas": 1188
+              },
+              {
+                "entidad": "Morelos",
+                "victimas": 498
+              }
+            ],
+            "texto_rag": "De enero a marzo de 2026 se registraron 5,572 víctimas mujeres de lesiones culposas a nivel nacional. Cuatro entidades federativas concentraron 47.4% del total, equivalente a 2,639 víctimas."
+          },
+          {
+            "pagina": 31,
+            "tipo_contenido": "grafica_barras_apiladas",
+            "incluir_rag": true,
+            "tema": "lesiones_culposas_por_grupo_edad_y_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 5572,
+            "grupos_edad": [
+              "0-2",
+              "3-17",
+              "18-29",
+              "30-59",
+              "60 o más",
+              "no especificado"
+            ],
+            "texto_rag": "El informe distribuye las 5,572 víctimas mujeres de lesiones culposas registradas entre enero y marzo de 2026 por entidad federativa y grupo de edad."
+          },
+          {
+            "pagina": 32,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_lesiones_culposas_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "víctimas por cada 100 mil mujeres",
+            "tasa_nacional": 8.12,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Morelos",
+                "tasa": 41.01,
+                "victimas": 498
+              },
+              {
+                "entidad": "Aguascalientes",
+                "tasa": 21.40,
+                "victimas": 171
+              },
+              {
+                "entidad": "Baja California Sur",
+                "tasa": 17.23,
+                "victimas": 78
+              }
+            ],
+            "texto_rag": "La tasa nacional de lesiones culposas de mujeres de enero a marzo de 2026 fue de 8.12 víctimas por cada 100 mil mujeres. Entre las tasas más altas mostradas se encuentran Morelos con 41.01, Aguascalientes con 21.40 y Baja California Sur con 17.23."
+          },
+          {
+            "pagina": 33,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Delitos que atentan contra la libertad personal"
+          },
+          {
+            "pagina": 34,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_secuestro",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "víctimas",
+            "totales_anuales": {
+              "2015": 344,
+              "2016": 386,
+              "2017": 369,
+              "2018": 404,
+              "2019": 412,
+              "2020": 224,
+              "2021": 192,
+              "2022": 161,
+              "2023": 241,
+              "2024": 235,
+              "2025": 178,
+              "2026_enero_marzo": 28
+            },
+            "texto_rag": "Las víctimas mujeres de secuestro a nivel nacional fueron 344 en 2015, 386 en 2016, 369 en 2017, 404 en 2018, 412 en 2019, 224 en 2020, 192 en 2021, 161 en 2022, 241 en 2023, 235 en 2024 y 178 en 2025. De enero a marzo de 2026 se registraron 28 víctimas."
+          },
+          {
+            "pagina": 35,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_secuestro_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 28,
+            "resumen": {
+              "entidades_que_concentran": 1,
+              "porcentaje_concentrado": 42.9,
+              "victimas_concentradas": 12
+            },
+            "datos_alta_confianza": [
+              {
+                "entidad": "Chihuahua",
+                "victimas": 12,
+                "porcentaje": 42.9
+              },
+              {
+                "entidad": "Tamaulipas",
+                "victimas": 3,
+                "porcentaje": 10.7
+              }
+            ],
+            "texto_rag": "De enero a marzo de 2026 se registraron 28 víctimas mujeres de secuestro a nivel nacional. Chihuahua concentró 12 víctimas, equivalentes al 42.9% del total nacional."
+          },
+          {
+            "pagina": 36,
+            "tipo_contenido": "grafica_barras_apiladas",
+            "incluir_rag": true,
+            "tema": "secuestro_por_grupo_edad_y_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 28,
+            "grupos_edad": [
+              "0-2",
+              "3-17",
+              "18-29",
+              "30-59",
+              "60 o más",
+              "no especificado"
+            ],
+            "texto_rag": "Las 28 víctimas mujeres de secuestro registradas entre enero y marzo de 2026 se presentan desagregadas por entidad federativa y grupo de edad. Chihuahua registra 12 víctimas y concentra 42.9% del total nacional."
+          },
+          {
+            "pagina": 37,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_secuestro_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "víctimas por cada 100 mil mujeres",
+            "tasa_nacional": 0.04,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Chihuahua",
+                "tasa": 0.29,
+                "victimas": 12
+              },
+              {
+                "entidad": "Tamaulipas",
+                "tasa": 0.10,
+                "victimas": 3
+              }
+            ],
+            "texto_rag": "La tasa nacional de secuestro de mujeres de enero a marzo de 2026 fue de 0.04 víctimas por cada 100 mil mujeres. Chihuahua presentó una tasa de 0.29 con 12 víctimas y Tamaulipas una tasa de 0.10 con 3 víctimas."
+          },
+          {
+            "pagina": 38,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_trafico_menores",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "víctimas",
+            "totales_anuales": {
+              "2015": 45,
+              "2016": 115,
+              "2017": 99,
+              "2018": 16,
+              "2019": 12,
+              "2020": 9,
+              "2021": 12,
+              "2022": 8,
+              "2023": 6,
+              "2024": 11,
+              "2025": 6,
+              "2026_enero_marzo": 0
+            },
+            "texto_rag": "Las víctimas mujeres de tráfico de menores a nivel nacional fueron 45 en 2015, 115 en 2016, 99 en 2017, 16 en 2018, 12 en 2019, 9 en 2020, 12 en 2021, 8 en 2022, 6 en 2023, 11 en 2024 y 6 en 2025. De enero a marzo de 2026 no se registraron víctimas en esta serie."
+          },
+          {
+            "pagina": 39,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Delitos contra el patrimonio"
+          },
+          {
+            "pagina": 40,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_extorsion",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "víctimas",
+            "totales_anuales": {
+              "2015": 2091,
+              "2016": 1912,
+              "2017": 2179,
+              "2018": 2244,
+              "2019": 3172,
+              "2020": 2864,
+              "2021": 3359,
+              "2022": 3766,
+              "2023": 3829,
+              "2024": 3935,
+              "2025": 3924,
+              "2026_enero_marzo": 742
+            },
+            "texto_rag": "Las víctimas mujeres de extorsión a nivel nacional fueron 2,091 en 2015, 1,912 en 2016, 2,179 en 2017, 2,244 en 2018, 3,172 en 2019, 2,864 en 2020, 3,359 en 2021, 3,766 en 2022, 3,829 en 2023, 3,935 en 2024 y 3,924 en 2025. De enero a marzo de 2026 se registraron 742 víctimas."
+          },
+          {
+            "pagina": 41,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_extorsion_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 742,
+            "resumen": {
+              "entidades_que_concentran": 3,
+              "porcentaje_concentrado": 46.9,
+              "victimas_concentradas": 348
+            },
+            "texto_rag": "De enero a marzo de 2026 se registraron 742 víctimas mujeres de extorsión a nivel nacional. Tres entidades federativas concentraron 46.9% del total, equivalente a 348 víctimas."
+          },
+          {
+            "pagina": 42,
+            "tipo_contenido": "grafica_barras_apiladas",
+            "incluir_rag": true,
+            "tema": "extorsion_por_grupo_edad_y_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 742,
+            "grupos_edad": [
+              "0-2",
+              "3-17",
+              "18-29",
+              "30-59",
+              "60 o más",
+              "no especificado"
+            ],
+            "texto_rag": "El informe presenta las 742 víctimas mujeres de extorsión registradas entre enero y marzo de 2026 desagregadas por entidad federativa y grupo de edad."
+          },
+          {
+            "pagina": 43,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_extorsion_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "víctimas por cada 100 mil mujeres",
+            "tasa_nacional": 1.08,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Morelos",
+                "tasa": 4.44,
+                "victimas": 54
+              },
+              {
+                "entidad": "Colima",
+                "tasa": 4.11,
+                "victimas": 16
+              },
+              {
+                "entidad": "Guanajuato",
+                "tasa": 4.07,
+                "victimas": 138
+              }
+            ],
+            "texto_rag": "La tasa nacional de extorsión de mujeres de enero a marzo de 2026 fue de 1.08 víctimas por cada 100 mil mujeres. Entre las tasas estatales más altas mostradas se encuentran Morelos con 4.44, Colima con 4.11 y Guanajuato con 4.07."
+          },
+          {
+            "pagina": 44,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Delitos contra la sociedad"
+          },
+          {
+            "pagina": 45,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_corrupcion_menores",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "víctimas",
+            "totales_anuales": {
+              "2015": 1128,
+              "2016": 1103,
+              "2017": 1186,
+              "2018": 1175,
+              "2019": 1490,
+              "2020": 1465,
+              "2021": 1548,
+              "2022": 1909,
+              "2023": 1805,
+              "2024": 2036,
+              "2025": 2373,
+              "2026_enero_marzo": 610
+            },
+            "texto_rag": "Las víctimas mujeres de corrupción de menores a nivel nacional fueron 1,128 en 2015, 1,103 en 2016, 1,186 en 2017, 1,175 en 2018, 1,490 en 2019, 1,465 en 2020, 1,548 en 2021, 1,909 en 2022, 1,805 en 2023, 2,036 en 2024 y 2,373 en 2025. De enero a marzo de 2026 se registraron 610 víctimas."
+          },
+          {
+            "pagina": 46,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_corrupcion_menores_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 610,
+            "resumen": {
+              "entidades_que_concentran": 2,
+              "porcentaje_concentrado": 42.3,
+              "victimas_concentradas": 258
+            },
+            "datos_alta_confianza": [
+              {
+                "entidad": "Guanajuato",
+                "victimas": 193,
+                "porcentaje": 31.6
+              },
+              {
+                "entidad": "Quintana Roo",
+                "victimas": 65,
+                "porcentaje": 10.7
+              }
+            ],
+            "texto_rag": "De enero a marzo de 2026 se registraron 610 víctimas mujeres de corrupción de menores a nivel nacional. Dos entidades federativas concentraron 42.3% del total, equivalente a 258 víctimas. Guanajuato registró 193 víctimas y Quintana Roo 65."
+          },
+          {
+            "pagina": 47,
+            "tipo_contenido": "grafica_barras_apiladas",
+            "incluir_rag": true,
+            "tema": "corrupcion_menores_por_grupo_edad_y_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 610,
+            "grupos_edad": [
+              "0-2",
+              "3-17",
+              "18-29",
+              "30-59",
+              "60 o más",
+              "no especificado"
+            ],
+            "texto_rag": "El informe distribuye las 610 víctimas mujeres de corrupción de menores registradas entre enero y marzo de 2026 por entidad federativa y grupo de edad."
+          },
+          {
+            "pagina": 48,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_corrupcion_menores_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "víctimas por cada 100 mil mujeres",
+            "tasa_nacional": 0.89,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Baja California Sur",
+                "tasa": 5.69,
+                "victimas": 27
+              },
+              {
+                "entidad": "Guanajuato",
+                "tasa": 5.68,
+                "victimas": 193
+              },
+              {
+                "entidad": "Quintana Roo",
+                "tasa": 5.58,
+                "victimas": 65
+              }
+            ],
+            "texto_rag": "La tasa nacional de corrupción de menores entre mujeres de enero a marzo de 2026 fue de 0.89 víctimas por cada 100 mil mujeres. Entre las tasas estatales más altas se encuentran Baja California Sur con 5.69, Guanajuato con 5.68 y Quintana Roo con 5.58."
+          },
+          {
+            "pagina": 49,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_trata_personas",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "víctimas",
+            "totales_anuales": {
+              "2015": 676,
+              "2016": 607,
+              "2017": 380,
+              "2018": 366,
+              "2019": 405,
+              "2020": 458,
+              "2021": 509,
+              "2022": 639,
+              "2023": 594,
+              "2024": 559,
+              "2025": 831,
+              "2026_enero_marzo": 156
+            },
+            "texto_rag": "Las víctimas mujeres de trata de personas a nivel nacional fueron 676 en 2015, 607 en 2016, 380 en 2017, 366 en 2018, 405 en 2019, 458 en 2020, 509 en 2021, 639 en 2022, 594 en 2023, 559 en 2024 y 831 en 2025. De enero a marzo de 2026 se registraron 156 víctimas."
+          },
+          {
+            "pagina": 50,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "victimas_mujeres_trata_personas_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 156,
+            "resumen": {
+              "entidades_que_concentran": 1,
+              "porcentaje_concentrado": 49.4,
+              "victimas_concentradas": 77
+            },
+            "datos_alta_confianza": [
+              {
+                "entidad": "Quintana Roo",
+                "victimas": 77,
+                "porcentaje": 49.4
+              }
+            ],
+            "texto_rag": "De enero a marzo de 2026 se registraron 156 víctimas mujeres de trata de personas a nivel nacional. Quintana Roo concentró 77 víctimas, equivalentes al 49.4% del total nacional."
+          },
+          {
+            "pagina": 51,
+            "tipo_contenido": "grafica_barras_apiladas",
+            "incluir_rag": true,
+            "tema": "trata_personas_por_grupo_edad_y_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 156,
+            "grupos_edad": [
+              "0-2",
+              "3-17",
+              "18-29",
+              "30-59",
+              "60 o más",
+              "no especificado"
+            ],
+            "datos_alta_confianza": [
+              {
+                "entidad": "Quintana Roo",
+                "victimas": 77,
+                "porcentaje": 49.4
+              },
+              {
+                "entidad": "Aguascalientes",
+                "victimas": 17,
+                "porcentaje": 10.9
+              }
+            ],
+            "texto_rag": "Las 156 víctimas mujeres de trata de personas registradas entre enero y marzo de 2026 se presentan desagregadas por entidad federativa y grupo de edad. Quintana Roo concentró 77 víctimas, equivalentes al 49.4% del total, y Aguascalientes registró 17 víctimas."
+          },
+          {
+            "pagina": 52,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_trata_personas_por_entidad",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "víctimas por cada 100 mil mujeres",
+            "tasa_nacional": 0.23,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Quintana Roo",
+                "tasa": 7.24,
+                "victimas": 77
+              },
+              {
+                "entidad": "Aguascalientes",
+                "tasa": 1.00,
+                "victimas": 8
+              },
+              {
+                "entidad": "Baja California",
+                "tasa": 0.53,
+                "victimas": 11
+              }
+            ],
+            "texto_rag": "La tasa nacional de víctimas mujeres de trata de personas entre enero y marzo de 2026 fue de 0.23 por cada 100 mil mujeres. Quintana Roo presentó una tasa de 7.24 con 77 víctimas."
+          },
+          {
+            "pagina": 53,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Delitos contra la familia"
+          },
+          {
+            "pagina": 54,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "delitos_violencia_familiar",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "presuntos delitos",
+            "totales_anuales": {
+              "2015": 127424,
+              "2016": 154272,
+              "2017": 169579,
+              "2018": 180185,
+              "2019": 210189,
+              "2020": 220028,
+              "2021": 253740,
+              "2022": 270544,
+              "2023": 284203,
+              "2024": 278276,
+              "2025": 266760,
+              "2026_enero_marzo": 62018
+            },
+            "nota": "La cifra muestra presuntos delitos cometidos en contra de hombres y mujeres; no se desagrega solo para mujeres.",
+            "texto_rag": "Los presuntos delitos de violencia familiar a nivel nacional fueron 127,424 en 2015, 154,272 en 2016, 169,579 en 2017, 180,185 en 2018, 210,189 en 2019, 220,028 en 2020, 253,740 en 2021, 270,544 en 2022, 284,203 en 2023, 278,276 en 2024 y 266,760 en 2025. De enero a marzo de 2026 se registraron 62,018 presuntos delitos. Estas cifras comprenden delitos contra hombres y mujeres y no están desagregadas exclusivamente para mujeres."
+          },
+          {
+            "pagina": 55,
+            "tipo_contenido": "comparativo_mensual",
+            "incluir_rag": true,
+            "tema": "comparativo_violencia_familiar",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "nacional",
+            "periodo": "enero-marzo 2026 comparado con 2025",
+            "unidad": "presuntos delitos",
+            "datos_alta_confianza": [
+              {
+                "mes": "enero",
+                "2025": 19269,
+                "2026": 18788,
+                "variacion_porcentual": -2.5,
+                "diferencia": -481
+              },
+              {
+                "mes": "febrero",
+                "2025": 20266,
+                "2026": 21596,
+                "variacion_porcentual": 6.6,
+                "diferencia": 1330
+              },
+              {
+                "mes": "marzo",
+                "2025": 23461,
+                "2026": 23795,
+                "variacion_porcentual": 1.4,
+                "diferencia": 334
+              }
+            ],
+            "nota": "La cifra muestra presuntos delitos cometidos en contra de hombres y mujeres; no se desagrega solo para mujeres.",
+            "texto_rag": "En el comparativo nacional de violencia familiar, enero de 2026 registró 18,788 presuntos delitos frente a 19,269 en enero de 2025, una disminución de 2.5%. Febrero de 2026 registró 21,596 frente a 20,266 en 2025, un aumento de 6.6%. Marzo de 2026 registró 23,795 frente a 23,461 en 2025, un aumento de 1.4%."
+          },
+          {
+            "pagina": 56,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "delitos_violencia_familiar_por_entidad",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 62018,
+            "resumen": {
+              "entidades_que_concentran": 4,
+              "porcentaje_concentrado": 34.3,
+              "delitos_concentrados": 21297
+            },
+            "nota": "La cifra muestra presuntos delitos cometidos en contra de hombres y mujeres; no se desagrega solo para mujeres.",
+            "texto_rag": "De enero a marzo de 2026 se registraron 62,018 presuntos delitos de violencia familiar a nivel nacional. Cuatro entidades federativas concentraron 34.3% del total, equivalente a 21,297 delitos. Las cifras comprenden delitos contra hombres y mujeres."
+          },
+          {
+            "pagina": 57,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_violencia_familiar_por_entidad",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "presuntos delitos por cada 100 mil habitantes",
+            "tasa_nacional": 46.14,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Colima",
+                "tasa": 137.78,
+                "delitos": 1063
+              },
+              {
+                "entidad": "Coahuila",
+                "tasa": 101.34,
+                "delitos": 3474
+              },
+              {
+                "entidad": "Baja California Sur",
+                "tasa": 92.43,
+                "delitos": 872
+              }
+            ],
+            "nota": "La tasa se calcula por cada 100 mil habitantes y corresponde a delitos contra hombres y mujeres.",
+            "texto_rag": "La tasa nacional de violencia familiar de enero a marzo de 2026 fue de 46.14 presuntos delitos por cada 100 mil habitantes. Entre las tasas estatales más altas mostradas se encuentran Colima con 137.78, Coahuila con 101.34 y Baja California Sur con 92.43. Las cifras incluyen delitos contra hombres y mujeres."
+          },
+          {
+            "pagina": 58,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "delitos_violencia_genero",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "presuntos delitos",
+            "totales_anuales": {
+              "2015": 1645,
+              "2016": 1893,
+              "2017": 2142,
+              "2018": 2255,
+              "2019": 3180,
+              "2020": 4050,
+              "2021": 4186,
+              "2022": 5524,
+              "2023": 6406,
+              "2024": 6614,
+              "2025": 6528,
+              "2026_enero_marzo": 1114
+            },
+            "nota": "La cifra muestra presuntos delitos cometidos en contra de hombres y mujeres; no se desagrega solo para mujeres.",
+            "texto_rag": "Los presuntos delitos de violencia de género a nivel nacional fueron 1,645 en 2015, 1,893 en 2016, 2,142 en 2017, 2,255 en 2018, 3,180 en 2019, 4,050 en 2020, 4,186 en 2021, 5,524 en 2022, 6,406 en 2023, 6,614 en 2024 y 6,528 en 2025. De enero a marzo de 2026 se registraron 1,114 presuntos delitos. Las cifras comprenden delitos contra hombres y mujeres."
+          },
+          {
+            "pagina": 59,
+            "tipo_contenido": "comparativo_mensual",
+            "incluir_rag": true,
+            "tema": "comparativo_violencia_genero",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "nacional",
+            "periodo": "enero-marzo 2026 comparado con 2025",
+            "unidad": "presuntos delitos",
+            "datos_alta_confianza": [
+              {
+                "mes": "enero",
+                "2025": 495,
+                "2026": 319,
+                "variacion_porcentual": -35.6,
+                "diferencia": -176
+              },
+              {
+                "mes": "febrero",
+                "2025": 497,
+                "2026": 346,
+                "variacion_porcentual": -30.4,
+                "diferencia": -151
+              },
+              {
+                "mes": "marzo",
+                "2025": 609,
+                "2026": 449,
+                "variacion_porcentual": -26.3,
+                "diferencia": -160
+              }
+            ],
+            "nota": "La cifra muestra presuntos delitos cometidos en contra de hombres y mujeres; no se desagrega solo para mujeres.",
+            "texto_rag": "En el comparativo nacional de violencia de género, enero de 2026 registró 319 presuntos delitos frente a 495 en enero de 2025, una disminución de 35.6%. Febrero registró 346 frente a 497, una disminución de 30.4%. Marzo registró 449 frente a 609, una disminución de 26.3%."
+          },
+          {
+            "pagina": 60,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "delitos_violencia_genero_por_entidad",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 1114,
+            "resumen": {
+              "entidades_que_concentran": 2,
+              "porcentaje_concentrado": 87.3,
+              "delitos_concentrados": 973
+            },
+            "texto_rag": "De enero a marzo de 2026 se registraron 1,114 presuntos delitos de violencia de género a nivel nacional. Dos entidades federativas concentraron 87.3% del total, equivalente a 973 delitos."
+          },
+          {
+            "pagina": 61,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_violencia_genero_por_entidad",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "presuntos delitos por cada 100 mil habitantes",
+            "tasa_nacional": 0.83,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Querétaro",
+                "tasa": 14.44,
+                "delitos": 390
+              },
+              {
+                "entidad": "Veracruz",
+                "tasa": 7.18,
+                "delitos": 583
+              },
+              {
+                "entidad": "Guerrero",
+                "tasa": 1.38,
+                "delitos": 51
+              }
+            ],
+            "nota": "La tasa corresponde a presuntos delitos de violencia de género por cada 100 mil habitantes. Las cifras no están desagregadas exclusivamente para mujeres.",
+            "texto_rag": "La tasa nacional de delitos de violencia de género de enero a marzo de 2026 fue de 0.83 presuntos delitos por cada 100 mil habitantes. Querétaro presentó una tasa de 14.44 con 390 delitos y Veracruz una tasa de 7.18 con 583 delitos. Estas cifras no están desagregadas exclusivamente para mujeres."
+          },
+          {
+            "pagina": 62,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Delitos contra la libertad y la seguridad sexual"
+          },
+          {
+            "pagina": 63,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "delitos_violacion_simple_equiparada",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2015-marzo 2026",
+            "unidad": "presuntos delitos",
+            "totales_anuales": {
+              "2015": 12619,
+              "2016": 13549,
+              "2017": 13520,
+              "2018": 15322,
+              "2019": 17342,
+              "2020": 16543,
+              "2021": 21189,
+              "2022": 23101,
+              "2023": 22731,
+              "2024": 21473,
+              "2025": 20280,
+              "2026_enero_marzo": 4663
+            },
+            "nota": "La cifra muestra presuntos delitos cometidos en contra de hombres y mujeres; no se desagrega solo para mujeres.",
+            "texto_rag": "Los presuntos delitos de violación simple y equiparada a nivel nacional fueron 12,619 en 2015, 13,549 en 2016, 13,520 en 2017, 15,322 en 2018, 17,342 en 2019, 16,543 en 2020, 21,189 en 2021, 23,101 en 2022, 22,731 en 2023, 21,473 en 2024 y 20,280 en 2025. De enero a marzo de 2026 se registraron 4,663 presuntos delitos. Las cifras comprenden delitos contra hombres y mujeres."
+          },
+          {
+            "pagina": 64,
+            "tipo_contenido": "comparativo_mensual",
+            "incluir_rag": true,
+            "tema": "comparativo_violacion_simple_equiparada",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "nacional",
+            "periodo": "enero-marzo 2026 comparado con 2025",
+            "unidad": "presuntos delitos",
+            "datos_alta_confianza": [
+              {
+                "mes": "enero",
+                "2025": 1400,
+                "2026": 1278,
+                "variacion_porcentual": -8.9,
+                "diferencia": -122
+              },
+              {
+                "mes": "febrero",
+                "2025": 1566,
+                "2026": 1489,
+                "variacion_porcentual": -5.0,
+                "diferencia": -78
+              },
+              {
+                "mes": "marzo",
+                "2025": 2071,
+                "2026": 1891,
+                "variacion_porcentual": -8.0,
+                "diferencia": -180
+              }
+            ],
+            "nota": "Las cifras corresponden a presuntos delitos contra hombres y mujeres; no se desagregan exclusivamente para mujeres.",
+            "texto_rag": "En el comparativo nacional de delitos de violación simple y equiparada, enero de 2026 presentó una disminución aproximada de 8.9% respecto de enero de 2025; febrero una disminución de aproximadamente 5%; y marzo una disminución de aproximadamente 8%."
+          },
+          {
+            "pagina": 65,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "delitos_violacion_simple_equiparada_por_entidad",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 4663,
+            "resumen": {
+              "entidades_que_concentran": 2,
+              "porcentaje_concentrado": 26.3,
+              "delitos_concentrados": 1225
+            },
+            "nota": "Las cifras corresponden a presuntos delitos de violación simple y equiparada y no se desagregan exclusivamente para mujeres.",
+            "texto_rag": "De enero a marzo de 2026 se registraron 4,663 presuntos delitos de violación simple y equiparada a nivel nacional. Dos entidades federativas concentraron 26.3% del total, equivalente a 1,225 delitos."
+          },
+          {
+            "pagina": 66,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_violacion_simple_equiparada_por_entidad",
+            "tipo_registro": "incidencia_delictiva",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "presuntos delitos por cada 100 mil habitantes",
+            "tasa_nacional": 3.47,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Chihuahua",
+                "tasa": 7.02,
+                "delitos": 285
+              },
+              {
+                "entidad": "Hidalgo",
+                "tasa": 7.02,
+                "delitos": 234
+              },
+              {
+                "entidad": "Quintana Roo",
+                "tasa": 6.24,
+                "delitos": 125
+              }
+            ],
+            "nota": "La tasa corresponde a presuntos delitos por cada 100 mil habitantes y no exclusivamente a mujeres.",
+            "texto_rag": "La tasa nacional de delitos de violación simple y equiparada de enero a marzo de 2026 fue de 3.47 por cada 100 mil habitantes. Entre las tasas más altas mostradas se encuentran Chihuahua e Hidalgo con 7.02 y Quintana Roo con 6.24."
+          },
+          {
+            "pagina": 67,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Llamadas de emergencia relacionadas con incidentes de violencia contra las mujeres"
+          },
+          {
+            "pagina": 68,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Panorama general de llamadas de emergencia"
+          },
+          {
+            "pagina": 69,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "participacion_incidentes_total_llamadas_procedentes",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "nacional",
+            "periodo": "enero-marzo 2026",
+            "total_llamadas_procedentes": 3712428,
+            "datos": [
+              {
+                "tipo_incidente": "Seguridad",
+                "porcentaje": 54.0,
+                "llamadas_aproximadas": "2.0 millones"
+              },
+              {
+                "tipo_incidente": "Asistencia",
+                "porcentaje": 17.0,
+                "llamadas_aproximadas": "0.63 millones"
+              },
+              {
+                "tipo_incidente": "Médico",
+                "porcentaje": 14.8,
+                "llamadas_aproximadas": "0.55 millones"
+              },
+              {
+                "tipo_incidente": "Protección Civil",
+                "porcentaje": 8.6,
+                "llamadas_aproximadas": "0.32 millones"
+              },
+              {
+                "tipo_incidente": "Otros Servicios",
+                "porcentaje": 4.6,
+                "llamadas_aproximadas": "0.17 millones"
+              },
+              {
+                "tipo_incidente": "Servicios Públicos",
+                "porcentaje": 1.1,
+                "llamadas_aproximadas": "0.04 millones"
+              }
+            ],
+            "advertencia_metodologica": "Las llamadas al 9-1-1 no equivalen a denuncias. Representan probables incidentes de emergencia reportados según la percepción de la persona que realiza la llamada.",
+            "texto_rag": "Entre enero y marzo de 2026 se registraron 3,712,428 llamadas procedentes al 9-1-1. Los incidentes de seguridad representaron 54% del total; asistencia 17%; incidentes médicos 14.8%; protección civil 8.6%; otros servicios 4.6%; y servicios públicos 1.1%. Las llamadas al 9-1-1 no deben interpretarse como denuncias."
+          },
+          {
+            "pagina": 70,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "participacion_incidentes_llamadas_seguridad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "nacional",
+            "periodo": "enero-marzo 2026",
+            "total_llamadas_seguridad": 2004921,
+            "datos": [
+              {
+                "tipo_incidente": "Otros delitos de seguridad",
+                "llamadas": 1743471,
+                "porcentaje": 87.0
+              },
+              {
+                "tipo_incidente": "Violencia familiar",
+                "llamadas": 131328,
+                "porcentaje": 6.6
+              },
+              {
+                "tipo_incidente": "Violencia contra la mujer",
+                "llamadas": 63645,
+                "porcentaje": 3.2
+              },
+              {
+                "tipo_incidente": "Violencia de pareja",
+                "llamadas": 60568,
+                "porcentaje": 3.0
+              },
+              {
+                "tipo_incidente": "Acoso u hostigamiento sexual",
+                "llamadas": 3220,
+                "porcentaje": 0.2
+              },
+              {
+                "tipo_incidente": "Abuso sexual",
+                "llamadas": 2054,
+                "porcentaje": 0.1
+              },
+              {
+                "tipo_incidente": "Violación",
+                "llamadas": 635,
+                "porcentaje": 0.0
+              }
+            ],
+            "advertencia_metodologica": "Las llamadas al 9-1-1 no son denuncias y representan probables incidentes reportados. Las estadísticas de llamadas no desagregan por sexo.",
+            "texto_rag": "De enero a marzo de 2026 hubo 2,004,921 llamadas de seguridad. De ellas, 131,328 estuvieron relacionadas con violencia familiar, 63,645 con violencia contra la mujer, 60,568 con violencia de pareja, 3,220 con acoso u hostigamiento sexual, 2,054 con abuso sexual y 635 con violación. Las llamadas al 9-1-1 no equivalen a denuncias y las estadísticas no se desagregan por sexo."
+          },
+          {
+            "pagina": 71,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Incidentes de violencia contra la mujer"
+          },
+          {
+            "pagina": 72,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "llamadas_911_violencia_contra_mujer",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2018-marzo 2026",
+            "unidad": "incidentes reportados mediante llamadas de emergencia",
+            "totales_anuales": {
+              "2018": 172210,
+              "2019": 197693,
+              "2020": 260067,
+              "2021": 291331,
+              "2022": 339451,
+              "2023": 336453,
+              "2024": 326328,
+              "2025": 285547,
+              "2026_enero_marzo": 63645
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no son denuncias ante una autoridad. Reflejan probables incidentes según la percepción de quien realiza la llamada.",
+            "texto_rag": "Las llamadas de emergencia relacionadas con incidentes de violencia contra la mujer fueron 172,210 en 2018, 197,693 en 2019, 260,067 en 2020, 291,331 en 2021, 339,451 en 2022, 336,453 en 2023, 326,328 en 2024 y 285,547 en 2025. De enero a marzo de 2026 se registraron 63,645 llamadas. Estas llamadas no equivalen a denuncias."
+          },
+          {
+            "pagina": 73,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "llamadas_911_violencia_contra_mujer_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 63645,
+            "resumen": {
+              "entidades_que_concentran": 3,
+              "porcentaje_concentrado": 56.2,
+              "incidentes_concentrados": 35795
+            },
+            "advertencia_metodologica": "Las llamadas al 9-1-1 no equivalen a denuncias.",
+            "texto_rag": "De enero a marzo de 2026 se registraron 63,645 llamadas de emergencia relacionadas con incidentes de violencia contra la mujer. Tres entidades federativas concentraron 56.2% del total, equivalente a 35,795 incidentes reportados. Estas llamadas no equivalen a denuncias."
+          },
+          {
+            "pagina": 74,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_llamadas_911_violencia_contra_mujer_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "incidentes por cada 100 mil mujeres",
+            "tasa_nacional": 92.71,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Chihuahua",
+                "tasa": 618.62,
+                "incidentes": 12536
+              },
+              {
+                "entidad": "Ciudad de México",
+                "tasa": 398.57,
+                "incidentes": 19318
+              },
+              {
+                "entidad": "Morelos",
+                "tasa": 227.19,
+                "incidentes": 2373
+              }
+            ],
+            "advertencia_metodologica": "Las llamadas al 9-1-1 no son denuncias.",
+            "texto_rag": "La tasa nacional de llamadas de emergencia relacionadas con incidentes de violencia contra la mujer de enero a marzo de 2026 fue de 92.71 por cada 100 mil mujeres. Entre las tasas más altas mostradas se encuentran Chihuahua con 618.62, Ciudad de México con 398.57 y Morelos con 227.19. Las llamadas al 9-1-1 no equivalen a denuncias."
+          },
+          {
+            "pagina": 75,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Incidentes de abuso sexual"
+          },
+          {
+            "pagina": 76,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "llamadas_911_abuso_sexual",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2018-marzo 2026",
+            "unidad": "incidentes reportados mediante llamadas de emergencia",
+            "totales_anuales": {
+              "2018": 5078,
+              "2019": 5347,
+              "2020": 5003,
+              "2021": 6169,
+              "2022": 6977,
+              "2023": 8001,
+              "2024": 8403,
+              "2025": 7922,
+              "2026_enero_marzo": 2054
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no son denuncias y no se desagregan por sexo.",
+            "texto_rag": "Las llamadas de emergencia relacionadas con incidentes de abuso sexual fueron 5,078 en 2018, 5,347 en 2019, 5,003 en 2020, 6,169 en 2021, 6,977 en 2022, 8,001 en 2023, 8,403 en 2024 y 7,922 en 2025. De enero a marzo de 2026 se registraron 2,054 llamadas. Estas llamadas no equivalen a denuncias y no se desagregan por sexo."
+          },
+          {
+            "pagina": 77,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "llamadas_911_abuso_sexual_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 2054,
+            "resumen": {
+              "entidades_que_concentran": 5,
+              "porcentaje_concentrado": 47.2,
+              "incidentes_concentrados": 969
+            },
+            "advertencia_metodologica": "Las llamadas al 9-1-1 no son denuncias y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "De enero a marzo de 2026 se registraron 2,054 llamadas de emergencia relacionadas con incidentes de abuso sexual. Cinco entidades federativas concentraron 47.2% del total, equivalente a 969 incidentes reportados."
+          },
+          {
+            "pagina": 78,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_llamadas_911_abuso_sexual_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "incidentes por cada 100 mil habitantes",
+            "tasa_nacional": 1.53,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Sonora",
+                "tasa": 6.96,
+                "incidentes": 212
+              },
+              {
+                "entidad": "Baja California Sur",
+                "tasa": 6.49,
+                "incidentes": 62
+              },
+              {
+                "entidad": "Quintana Roo",
+                "tasa": 5.71,
+                "incidentes": 124
+              }
+            ],
+            "advertencia_metodologica": "Las llamadas al 9-1-1 no son denuncias y no se desagregan por sexo.",
+            "texto_rag": "La tasa nacional de llamadas de emergencia relacionadas con incidentes de abuso sexual de enero a marzo de 2026 fue de 1.53 por cada 100 mil habitantes. Entre las tasas estatales más altas mostradas se encuentran Sonora con 6.96, Baja California Sur con 6.49 y Quintana Roo con 5.71."
+          },
+          {
+            "pagina": 79,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Incidentes de acoso u hostigamiento sexual"
+          },
+          {
+            "pagina": 80,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "llamadas_911_acoso_hostigamiento_sexual",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2018-marzo 2026",
+            "unidad": "incidentes reportados mediante llamadas de emergencia",
+            "totales_anuales": {
+              "2018": 6058,
+              "2019": 7470,
+              "2020": 8376,
+              "2021": 9505,
+              "2022": 11323,
+              "2023": 11879,
+              "2024": 12923,
+              "2025": 12985,
+              "2026_enero_marzo": 3220
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no son denuncias ante una autoridad y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "Las llamadas de emergencia relacionadas con incidentes de acoso u hostigamiento sexual fueron 6,058 en 2018, 7,470 en 2019, 8,376 en 2020, 9,505 en 2021, 11,323 en 2022, 11,879 en 2023, 12,923 en 2024 y 12,985 en 2025. De enero a marzo de 2026 se registraron 3,220 llamadas. Estas llamadas no equivalen a denuncias y las estadísticas no se desagregan por sexo."
+          },
+          {
+            "pagina": 81,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "llamadas_911_acoso_hostigamiento_sexual_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 3220,
+            "resumen": {
+              "entidades_que_concentran": 6,
+              "porcentaje_concentrado": 50.3,
+              "incidentes_concentrados": 1619
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias ante una autoridad y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "De enero a marzo de 2026 se registraron 3,220 llamadas de emergencia relacionadas con incidentes de acoso u hostigamiento sexual. Seis entidades federativas concentraron 50.3% del total, equivalente a 1,619 incidentes reportados. Las llamadas al 9-1-1 no equivalen a denuncias y las estadísticas no se desagregan por sexo."
+          },
+          {
+            "pagina": 82,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_llamadas_911_acoso_hostigamiento_sexual_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "incidentes por cada 100 mil habitantes",
+            "tasa_nacional": 2.40,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Colima",
+                "tasa": 11.69,
+                "incidentes": 90
+              },
+              {
+                "entidad": "Baja California Sur",
+                "tasa": 7.52,
+                "incidentes": 72
+              },
+              {
+                "entidad": "Chihuahua",
+                "tasa": 6.70,
+                "incidentes": 272
+              }
+            ],
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "La tasa nacional de llamadas de emergencia relacionadas con incidentes de acoso u hostigamiento sexual de enero a marzo de 2026 fue de 2.40 por cada 100 mil habitantes. Entre las tasas estatales más altas mostradas se encuentran Colima con 11.69, Baja California Sur con 7.52 y Chihuahua con 6.70."
+          },
+          {
+            "pagina": 83,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Incidentes de violación"
+          },
+          {
+            "pagina": 84,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "llamadas_911_violacion",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2018-marzo 2026",
+            "unidad": "incidentes reportados mediante llamadas de emergencia",
+            "totales_anuales": {
+              "2018": 3654,
+              "2019": 3874,
+              "2020": 3554,
+              "2021": 3585,
+              "2022": 3589,
+              "2023": 3567,
+              "2024": 3354,
+              "2025": 2697,
+              "2026_enero_marzo": 635
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias ante una autoridad y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "Las llamadas de emergencia relacionadas con incidentes de violación fueron 3,654 en 2018, 3,874 en 2019, 3,554 en 2020, 3,585 en 2021, 3,589 en 2022, 3,567 en 2023, 3,354 en 2024 y 2,697 en 2025. De enero a marzo de 2026 se registraron 635 llamadas. Estas llamadas no equivalen a denuncias y las estadísticas no se desagregan por sexo."
+          },
+          {
+            "pagina": 85,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "llamadas_911_violacion_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 635,
+            "resumen": {
+              "entidades_que_concentran": 4,
+              "porcentaje_concentrado": 38.7,
+              "incidentes_concentrados": 246
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "De enero a marzo de 2026 se registraron 635 llamadas de emergencia relacionadas con incidentes de violación. Cuatro entidades federativas concentraron 38.7% del total, equivalente a 246 incidentes reportados."
+          },
+          {
+            "pagina": 86,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_llamadas_911_violacion_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "incidentes por cada 100 mil habitantes",
+            "tasa_nacional": 0.47,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Quintana Roo",
+                "tasa": 1.63,
+                "incidentes": 35
+              },
+              {
+                "entidad": "Colima",
+                "tasa": 0.91,
+                "incidentes": 7
+              },
+              {
+                "entidad": "Chihuahua",
+                "tasa": 0.89,
+                "incidentes": 36
+              }
+            ],
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "La tasa nacional de llamadas de emergencia relacionadas con incidentes de violación de enero a marzo de 2026 fue de 0.47 por cada 100 mil habitantes. Entre las tasas estatales más altas mostradas se encuentran Quintana Roo con 1.63, Colima con 0.91 y Chihuahua con 0.89."
+          },
+          {
+            "pagina": 87,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Incidentes de violencia de pareja"
+          },
+          {
+            "pagina": 88,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "llamadas_911_violencia_pareja",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2018-marzo 2026",
+            "unidad": "incidentes reportados mediante llamadas de emergencia",
+            "totales_anuales": {
+              "2018": 295471,
+              "2019": 274487,
+              "2020": 236562,
+              "2021": 259452,
+              "2022": 260946,
+              "2023": 258683,
+              "2024": 276480,
+              "2025": 277755,
+              "2026_enero_marzo": 60568
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias ante una autoridad y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "Las llamadas de emergencia relacionadas con incidentes de violencia de pareja fueron 295,471 en 2018, 274,487 en 2019, 236,562 en 2020, 259,452 en 2021, 260,946 en 2022, 258,683 en 2023, 276,480 en 2024 y 277,755 en 2025. De enero a marzo de 2026 se registraron 60,568 llamadas. Estas llamadas no equivalen a denuncias y las estadísticas no se desagregan por sexo."
+          },
+          {
+            "pagina": 89,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "llamadas_911_violencia_pareja_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 60568,
+            "resumen": {
+              "entidades_que_concentran": 3,
+              "porcentaje_concentrado": 42.7,
+              "incidentes_concentrados": 25892
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "De enero a marzo de 2026 se registraron 60,568 llamadas de emergencia relacionadas con incidentes de violencia de pareja. Tres entidades federativas concentraron 42.7% del total, equivalente a 25,892 incidentes reportados."
+          },
+          {
+            "pagina": 90,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_llamadas_911_violencia_pareja_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "incidentes por cada 100 mil habitantes",
+            "tasa_nacional": 45.06,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Quintana Roo",
+                "tasa": 299.38,
+                "incidentes": 6416
+              },
+              {
+                "entidad": "Baja California Sur",
+                "tasa": 238.22,
+                "incidentes": 2280
+              },
+              {
+                "entidad": "Colima",
+                "tasa": 212.50,
+                "incidentes": 1638
+              }
+            ],
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "La tasa nacional de llamadas de emergencia relacionadas con incidentes de violencia de pareja de enero a marzo de 2026 fue de 45.06 por cada 100 mil habitantes. Entre las tasas estatales más altas mostradas se encuentran Quintana Roo con 299.38, Baja California Sur con 238.22 y Colima con 212.50."
+          },
+          {
+            "pagina": 91,
+            "tipo_contenido": "separador",
+            "incluir_rag": false,
+            "titulo": "Incidentes de violencia familiar"
+          },
+          {
+            "pagina": 92,
+            "tipo_contenido": "serie_temporal",
+            "incluir_rag": true,
+            "tema": "llamadas_911_violencia_familiar",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "nacional",
+            "periodo": "enero 2018-marzo 2026",
+            "unidad": "incidentes reportados mediante llamadas de emergencia",
+            "totales_anuales": {
+              "2018": 647940,
+              "2019": 718019,
+              "2020": 689388,
+              "2021": 690295,
+              "2022": 599409,
+              "2023": 579362,
+              "2024": 571267,
+              "2025": 538699,
+              "2026_enero_marzo": 131328
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias ante una autoridad y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "Las llamadas de emergencia relacionadas con incidentes de violencia familiar fueron 647,940 en 2018, 718,019 en 2019, 689,388 en 2020, 690,295 en 2021, 599,409 en 2022, 579,362 en 2023, 571,267 en 2024 y 538,699 en 2025. De enero a marzo de 2026 se registraron 131,328 llamadas. Estas llamadas no equivalen a denuncias y las estadísticas no se desagregan por sexo."
+          },
+          {
+            "pagina": 93,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "llamadas_911_violencia_familiar_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "total_nacional": 131328,
+            "resumen": {
+              "entidades_que_concentran": 6,
+              "porcentaje_concentrado": 49.4,
+              "incidentes_concentrados": 64865
+            },
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "De enero a marzo de 2026 se registraron 131,328 llamadas de emergencia relacionadas con incidentes de violencia familiar. Seis entidades federativas concentraron 49.4% del total, equivalente a 64,865 incidentes reportados."
+          },
+          {
+            "pagina": 94,
+            "tipo_contenido": "grafica_barras",
+            "incluir_rag": true,
+            "tema": "tasa_llamadas_911_violencia_familiar_por_entidad",
+            "tipo_registro": "llamadas_911",
+            "ambito_geografico": "entidad federativa",
+            "periodo": "enero-marzo 2026",
+            "unidad": "incidentes por cada 100 mil habitantes",
+            "tasa_nacional": 97.71,
+            "datos_alta_confianza": [
+              {
+                "entidad": "Sonora",
+                "tasa": 397.77,
+                "incidentes": 12287
+              },
+              {
+                "entidad": "Colima",
+                "tasa": 348.10,
+                "incidentes": 2684
+              },
+              {
+                "entidad": "Quintana Roo",
+                "tasa": 294.12,
+                "incidentes": 6304
+              }
+            ],
+            "advertencia_metodologica": "Las llamadas de emergencia al 9-1-1 no equivalen a denuncias y las estadísticas no se desagregan por sexo.",
+            "texto_rag": "La tasa nacional de llamadas de emergencia relacionadas con incidentes de violencia familiar de enero a marzo de 2026 fue de 97.71 por cada 100 mil habitantes. Entre las tasas estatales más altas mostradas se encuentran Sonora con 397.77, Colima con 348.10 y Quintana Roo con 294.12."
+          },
+          {
+            "pagina": 95,
+            "tipo_contenido": "referencia",
+            "incluir_rag": false,
+            "tema": "fuente_datos_incidente_delictiva",
+            "texto": "Para más información, el informe remite a la base de Datos Abiertos de Incidencia Delictiva del Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública.",
+            "texto_rag": "El informe remite a la base de Datos Abiertos de Incidencia Delictiva del Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública para consultar información adicional."
+          }
+        ]
+      }
