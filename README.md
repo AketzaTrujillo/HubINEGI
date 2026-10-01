@@ -5,8 +5,8 @@ sobre **violencia contra las mujeres en México** usando **datos oficiales**
 (ENDIREH, SIESVIM, INMUJERES, SESNSP) y **publicaciones de X**, con reglas estrictas
 para **no inventar cifras** y **citar siempre la fuente**.
 
-Este documento explica **cómo funciona todo** (entendible, sin dar por sabido lo
-técnico), cómo está armada la base de datos, cómo razona el chat y cómo ejecutarlo.
+Este documento explica **cómo funciona todo**: cómo está armada la base de datos,
+cómo razona el chat y cómo ejecutarlo.
 
 ---
 
