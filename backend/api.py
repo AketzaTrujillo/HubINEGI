@@ -7,6 +7,7 @@ from pydantic import BaseModel
 
 from database import ejecutar_select
 from consulta_mhub import responder
+from panel import filtros as panel_filtros, construir as panel_construir
 
 
 app = FastAPI(title="MHub API", version="0.1.0")
@@ -26,6 +27,14 @@ app.add_middleware(
 class ConsultaEntrada(BaseModel):
     pregunta: str
     contexto: Optional[dict] = None
+
+
+class PanelEntrada(BaseModel):
+    fuente: str
+    entidad: Optional[str] = None
+    anio: Optional[Any] = None
+    tipo: Optional[str] = None
+    delito: Optional[str] = None
 
 
 @app.get("/salud")
@@ -63,3 +72,26 @@ def consulta(entrada: ConsultaEntrada):
         return responder(pregunta, contexto)
     except Exception as error:
         raise HTTPException(status_code=502, detail=f"Error del asistente: {error}")
+
+
+@app.get("/filtros")
+def filtros():
+    try:
+        return panel_filtros()
+    except Exception as error:
+        raise HTTPException(status_code=502, detail=f"Error al cargar filtros: {error}")
+
+
+@app.post("/panel")
+def panel(entrada: PanelEntrada):
+    try:
+        data = panel_construir(
+            entrada.fuente, entrada.entidad, entrada.anio,
+            entrada.tipo, entrada.delito,
+        )
+    except Exception as error:
+        raise HTTPException(status_code=502, detail=f"Error al construir el panel: {error}")
+
+    if data is None:
+        raise HTTPException(status_code=400, detail="Fuente no válida.")
+    return data
