@@ -7,6 +7,7 @@ import re
 import unicodedata
 
 import semantic_loader
+import terminos_sesnsp
 
 
 OPERACIONES = {
@@ -206,6 +207,11 @@ def desde_interpretacion(interp, contexto=None, pregunta=None):
     ):
         operacion = "por_entidad"
 
+    # Indicador SESNSP por término (feminicidio, 911, etc.)
+    id_indicador = interp.get("_id_indicador")
+    if not id_indicador and not interp.get("indicador") and pregunta:
+        id_indicador = terminos_sesnsp.indicador_id(pregunta)
+
     return {
         "operacion": operacion,
         "metrica": _metrica_de_operacion(operacion),
@@ -220,4 +226,5 @@ def desde_interpretacion(interp, contexto=None, pregunta=None):
         "indicador": interp.get("indicador"),
         "tipo_violencia": tipo_violencia,
         "filtro_texto": interp.get("filtro_texto"),
+        "_id_indicador": id_indicador,
     }

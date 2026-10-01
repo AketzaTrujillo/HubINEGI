@@ -3,7 +3,35 @@
 Solo SELECT, solo tablas del catálogo, filtros parametrizados.
 Soporta indicadores (fact_indicador) y publicaciones de X (fact_publicacion).
 """
+import re
+import unicodedata
+
 from query_spec import validar_spec
+
+STOPWORDS = {
+    "de", "del", "la", "el", "los", "las", "por", "en", "y", "o", "contra",
+    "para", "un", "una", "al", "con", "que", "cual", "cuales", "cuantos",
+    "cuantas", "total", "sobre", "como", "mas", "mujeres", "mujer", "anio",
+    "anos", "ano", "datos", "dato",
+}
+
+
+def _norm(texto):
+    texto = str(texto or "").lower()
+    texto = unicodedata.normalize("NFD", texto)
+    texto = "".join(c for c in texto if unicodedata.category(c) != "Mn")
+    return texto
+
+
+def _tokens_indicador(texto):
+    tokens = []
+    for w in re.findall(r"[a-z0-9]+", _norm(texto)):
+        if len(w) < 4 or w in STOPWORDS:
+            continue
+        if w.endswith("s") and len(w) > 4:
+            w = w[:-1]
+        tokens.append(w)
+    return tokens
 
 TABLAS_INDICADOR = """
 FROM fact_indicador f
@@ -46,6 +74,9 @@ def _where_indicador(spec):
     if spec.get("filtro_texto"):
         condiciones.append("i.nombre LIKE %s")
         params.append(f"%{spec['filtro_texto']}%")
+    for token in _tokens_indicador(spec.get("indicador")):
+        condiciones.append("i.nombre LIKE %s")
+        params.append(f"%{token}%")
     return " WHERE " + " AND ".join(condiciones), params
 
 

@@ -30,6 +30,7 @@ import interprete
 import catalogo
 import graficas
 import agente
+import terminos_sesnsp
 
 
 RESPUESTA_SALUDO = (
@@ -1182,6 +1183,52 @@ def _resolver_anafora(pregunta, contexto):
     return None
 
 
+def _resolver_sesnsp(pregunta, contexto):
+    """Incidencia delictiva / llamadas 911 (fuente SESNSP) de forma determinista."""
+    id_ind = terminos_sesnsp.indicador_id(pregunta)
+    if not id_ind:
+        return None
+
+    texto = _normalizar(pregunta)
+    if any(x in texto for x in ["por año", "por ano", "cada año", "cada ano",
+                                "evolucion", "tendencia", "por anio"]):
+        operacion = "por_anio"
+    elif re.search(r"\b(19|20)\d{2}\b", texto):
+        operacion = "detalle"
+    else:
+        operacion = "por_anio"
+
+    anio = query_spec.extraer_anio(pregunta)
+    spec = {
+        "operacion": operacion,
+        "metrica": query_spec._metrica_de_operacion(operacion),
+        "fuente": "SESNSP", "entidad": None, "entidad_id": None,
+        "entidad_b": None, "anio": anio,
+        "grupo": ["anio"] if operacion == "por_anio" else [],
+        "orden": "desc", "limite": 100, "indicador": None,
+        "tipo_violencia": None, "filtro_texto": None, "_id_indicador": id_ind,
+    }
+
+    try:
+        sql, params = sql_builder.construir_sql(spec)
+        resultados = ejecutar_select(sql, params=params)
+    except Exception:
+        return None
+    if not resultados:
+        return None
+
+    instruccion = (
+        "Estos son datos de incidencia delictiva / llamadas de emergencia del "
+        "SESNSP (fuente oficial). Cita la fuente SESNSP. No son denuncias."
+    )
+    respuesta = generar_respuesta(pregunta, resultados, contexto, instruccion=instruccion)
+    grafica = graficas.construir_grafica(spec, resultados)
+    return _respuesta_con_contexto(
+        respuesta, pregunta, contexto, sql=sql, resultados=resultados,
+        spec=spec, grafica=grafica, tema=_tema_desde_spec(spec, resultados),
+    )
+
+
 def _agente_activo():
     valor = os.environ.get("MHUB_AGENTE", "auto").strip().lower()
     if valor in ("0", "false", "no", "off"):
@@ -1303,6 +1350,11 @@ def responder(pregunta, contexto=None):
     if tipo == "FAQ_CORPUS" and ruta.get("fragmentos"):
         respuesta = generar_respuesta_corpus(pregunta, ruta["fragmentos"])
         return _respuesta_con_contexto(respuesta, pregunta, contexto)
+
+    # 5d. Incidencia delictiva / llamadas 911 (SESNSP)
+    sesnsp = _resolver_sesnsp(pregunta, contexto)
+    if sesnsp:
+        return sesnsp
 
     # 6. Agente (Fase 10): plan -> herramienta -> evaluación -> responder
     if _agente_activo():

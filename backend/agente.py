@@ -15,6 +15,7 @@ import sql_builder
 import semantic_loader
 import catalogo
 import faq_store
+import terminos_sesnsp
 from ollama_service import preguntar_json
 
 MAX_PASOS = 3
@@ -51,6 +52,12 @@ REGLAS:
 - Cuando los datos respondan, usa "responder" con una respuesta breve y cita la fuente.
 - Al responder, puedes usar Markdown (negritas, listas y tablas) para organizar la respuesta.
 - Usa solo lo que devuelvan las herramientas. No inventes teléfonos, cifras ni entidades.
+
+EJEMPLOS:
+- "feminicidios por año" -> {"accion":"consultar","args":{"operacion":"por_anio","indicador":"feminicidio"}}
+- "cuántos feminicidios en 2021" -> {"accion":"consultar","args":{"operacion":"detalle","indicador":"feminicidio","anio":2021}}
+- "homicidios dolosos de mujeres por año" -> {"accion":"consultar","args":{"operacion":"por_anio","indicador":"homicidio doloso"}}
+- "llamadas 911 por violencia contra la mujer por año" -> {"accion":"consultar","args":{"operacion":"por_anio","indicador":"llamadas 911 violencia contra la mujer"}}
 """
 
 
@@ -69,6 +76,18 @@ def _contexto_texto(contexto):
         for t in historial[-2:]:
             lineas.append(f"- U: {t.get('pregunta')}")
             lineas.append(f"  M: {str(t.get('respuesta') or '')[:150]}")
+    try:
+        ind = database.ejecutar_select(
+            "SELECT nombre FROM dim_indicador "
+            "WHERE id_fuente = (SELECT id_fuente FROM fuentes WHERE codigo = 'SESNSP')"
+        )
+        if ind:
+            lineas.append(
+                "INDICADORES SESNSP DISPONIBLES (incidencia delictiva y llamadas 911, "
+                "nacionales por año): " + "; ".join(i["nombre"] for i in ind)
+            )
+    except Exception:
+        pass
     return "\n".join(lineas)
 
 
@@ -103,7 +122,7 @@ PREGUNTA DEL USUARIO: {pregunta}
         return None
 
 
-def _spec_desde_args(args):
+def _spec_desde_args(args, pregunta=None):
     import consulta_mhub as cm
 
     operacion = args.get("operacion") or "detalle"
@@ -146,6 +165,10 @@ def _spec_desde_args(args):
     if not isinstance(grupo, list):
         grupo = []
 
+    id_indicador = None
+    if not args.get("indicador") and pregunta:
+        id_indicador = terminos_sesnsp.indicador_id(pregunta)
+
     spec = {
         "operacion": operacion,
         "metrica": query_spec._metrica_de_operacion(operacion),
@@ -160,16 +183,17 @@ def _spec_desde_args(args):
         "indicador": args.get("indicador"),
         "tipo_violencia": tipo_res,
         "filtro_texto": filtro_texto,
+        "_id_indicador": id_indicador,
     }
     return cm._preparar_ranking(spec)
 
 
-def _ejecutar_accion(accion, args, contexto):
+def _ejecutar_accion(accion, args, contexto, pregunta=None):
     args = args or {}
 
     if accion == "consultar":
         try:
-            spec = _spec_desde_args(args)
+            spec = _spec_desde_args(args, pregunta)
             valido, error = query_spec.validar_spec(spec)
             if not valido:
                 return {"ok": False, "error": error}
@@ -271,7 +295,7 @@ def ejecutar(pregunta, contexto=None):
         if accion not in ("consultar", "catalogo", "cobertura", "definicion"):
             return None
 
-        obs = _ejecutar_accion(accion, args, contexto)
+        obs = _ejecutar_accion(accion, args, contexto, pregunta)
         if accion == "consultar" and obs.get("ok"):
             ultimo = {"spec": obs["spec"], "sql": obs["sql"], "filas": obs["filas"]}
 
