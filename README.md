@@ -142,7 +142,7 @@ python run_sql.py 07_tipo_violencia.sql --database HUBDATOS
 ```bash
 cd ../ingestion/migracion
 python etl_star_schema.py            # migra ENDIREH/SIESVIM/INMUJERES/X al esquema en estrella
-python migrar_metadata_semantica.py  # pasa el "diccionario" a mhub_meta
+python migrar_metadata_semantica.py  # pasa el diccionario de datos a mhub_meta
 python cargar_corpus_faq.py          # carga los documentos para FAQ / rutas
 python poblar_tipo_violencia.py      # llena las relaciones indicador↔tipo de violencia
 python cargar_sesnsp.py              # series de incidencia delictiva y 911 (SESNSP)
@@ -190,7 +190,7 @@ Contrato (endpoints que usa el front):
 | `GET` | `/filtros` | — | opciones del Panel por fuente |
 | `POST` | `/panel` | `{fuente, entidad, anio, tipo, delito}` | KPIs + bloques + texto |
 
-El **`contexto`** que devuelve `/consulta` es la "memoria" de la conversación: el
+El **`contexto`** que devuelve `/consulta` es la memoria de la conversación: el
 front lo guarda y lo reenvía en el siguiente mensaje para que el chat **siga el hilo**.
 
 ---
@@ -219,7 +219,7 @@ flowchart LR
   RES --> F
 ```
 
-En palabras: el front manda la pregunta → el **orquestador** (`consulta_mhub.py`)
+En resumen: el front manda la pregunta → el **orquestador** (`consulta_mhub.py`)
 decide el camino → o responde con una **regla fija**, o **razona** (agente/intérprete)
 y consulta la base por medio del **constructor de SQL** → se **redacta** la respuesta
 y se devuelve.
@@ -228,10 +228,10 @@ y se devuelve.
 
 ## 6. La base de datos explicada
 
-### 6.1 La idea: un "esquema en estrella"
+### 6.1 El esquema en estrella
 
-Imagina un **centro** con los números (los hechos) y **alrededor** varios "catálogos"
-que describen *qué* es ese número (dimensiones).
+El diseño tiene dos tipos de tablas: los **hechos** (los números) al centro y las
+**dimensiones** (*qué*, *dónde*, *cuándo*, *de quién*, *unidad*) alrededor.
 
 - **Hechos**: una fila = un valor concreto ("Jalisco, 2021, indicador X = 37.58").
 - **Dimensiones**: el *qué* (indicador), el *dónde* (entidad), el *cuándo* (año),
@@ -240,7 +240,7 @@ que describen *qué* es ese número (dimensiones).
 La ventaja: una pregunta como "promedio de ENDIREH por entidad" se resuelve con
 **una sola tabla de hechos** cruzada con dimensiones, sin repetir estructuras por
 cada fuente. Antes había **tres tablas de indicadores** distintas (ENDIREH, SIESVIM,
-INMUJERES) que obligaban a "pegar" consultas; ahora son **una sola**.
+INMUJERES) que obligaban a combinar consultas; ahora son **una sola**.
 
 ### 6.2 Diagrama del esquema
 
@@ -281,7 +281,7 @@ erDiagram
 ### 6.4 `mhub_meta`: la metadata semántica
 
 Segunda base que **describe** la primera para que el LLM la entienda. En vez de
-tener el "diccionario" como texto en el código, vive en tablas:
+tener el diccionario de datos como texto en el código, vive en tablas:
 
 | Tabla | Contiene |
 |-------|----------|
@@ -352,7 +352,7 @@ Estas reglas son la **primera puerta**, no la única. Si no coinciden, se **razo
 ### 7.3 Paso 2 — El intérprete (LLM → JSON)
 
 `interprete.py` le pide al LLM que convierta la pregunta en un **JSON** con la
-intención y los "slots":
+intención y los campos:
 
 ```json
 {
@@ -367,11 +367,11 @@ intención y los "slots":
 
 - Se apoya en **few-shot** (ejemplos dentro del prompt) y en `sem_*`.
 - Un **vocabulario difuso** (`vocabulario.py`, con coincidencia tolerante a errores)
-  le da una "pista" por si el usuario escribe mal ("tpos de violncia").
+  le da una pista por si el usuario escribe mal ("tpos de violncia").
 - El resultado **se valida** contra la base: si el LLM inventa una entidad o un año,
   se descarta.
 
-### 7.4 Paso 3 — La "spec" y el constructor de SQL
+### 7.4 Paso 3 — La especificación y el constructor de SQL
 
 La intención se convierte en una **spec** (`query_spec.py`): una descripción
 estructurada de la consulta. Luego `sql_builder.py` arma el **SQL de forma
@@ -422,7 +422,7 @@ Pregunta: **"promedio de ENDIREH para Jalisco en 2021"**
 
 ## 8. El agente (razonamiento en ciclo)
 
-Cuando está activo (`agente.py`), en vez de "un solo disparo", el sistema **razona
+Cuando está activo (`agente.py`), en vez de responder de una sola vez, el sistema **razona
 en un ciclo**:
 
 ```mermaid
@@ -506,7 +506,7 @@ front lo deshabilita.
 | `catalogo.py` | Catálogos (tipos de violencia, fuentes, entidades…) |
 | `faq_store.py` | FAQ, glosario y búsqueda en el corpus (FULLTEXT) |
 | `terminos_sesnsp.py` | Términos SESNSP → indicador (feminicidio, 911…) |
-| `query_spec.py` | Construye y valida la "spec" de consulta |
+| `query_spec.py` | Construye y valida la especificación de consulta |
 | `sql_builder.py` | Convierte la spec en **SQL seguro** |
 | `agente.py` | Agente con herramientas y ciclo de razonamiento |
 | `graficas.py` | Especificación de gráficas |
@@ -550,7 +550,7 @@ preguntas frecuentes, catálogos, rutas de atención, SECNSP y comparaciones.
 
 ## 13. Glosario
 
-- **LLM**: modelo de lenguaje grande (el "cerebro" que entiende y redacta).
+- **LLM**: modelo de lenguaje grande (el modelo que entiende y redacta).
 - **NL / lenguaje natural**: cómo escribe una persona ("promedio de…"), no código.
 - **Esquema en estrella**: hechos al centro, dimensiones alrededor (ver §6).
 - **Hechos / dimensiones**: los números / lo que los describe (qué, dónde, cuándo).
@@ -574,7 +574,7 @@ preguntas frecuentes, catálogos, rutas de atención, SECNSP y comparaciones.
 - **Anti-invención**: toda cifra sale de la base o del corpus; siempre se cita la fuente.
 - **Local por defecto**: el sistema funciona offline y sin enviar datos a la nube.
 - **Dos bases**: separar datos (`HUBDATOS`) de metadata (`mhub_meta`) permite
-  evolucionar el "diccionario" con `INSERT`, sin tocar el código.
+  evolucionar el diccionario de datos con `INSERT`, sin tocar el código.
 - **SESNSP y los PDFs son texto**: primero entraron como **corpus** (para FAQ y
   rutas); de ahí se **extrajeron series** al esquema cuando era posible.
 
