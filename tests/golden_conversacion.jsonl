@@ -1,0 +1,11 @@
+{"pregunta": "tienes datos más recientes", "tema_tipo": "ranking", "contiene": "más reciente"}
+{"pregunta": "hasta qué año tienes", "tema_tipo": "ranking", "contiene": "más reciente"}
+{"pregunta": "de dónde sale ese porcentaje", "tema_tipo": "ranking", "contiene": "indicador"}
+{"pregunta": "en qué se basa ese dato", "tema_tipo": "ranking", "contiene": "indicador"}
+{"pregunta": "cuáles son esos tipos de violencia", "tema": {"tema": "catalogo", "recurso": "tipos_violencia"}, "contiene": "tipos de violencia"}
+{"pregunta": "de dónde son esos registros", "tema": {"tema": "publicacion", "fuente": "X", "entidad": "Jalisco"}, "contiene": "X"}
+{"pregunta": "estoy sufriendo violencia, donde puedo pedir ayuda", "tipo": "RUTAS"}
+{"pregunta": "necesito ayuda, me golpea mi pareja", "tipo": "RUTAS"}
+{"pregunta": "a donde puedo denunciar", "tipo": "RUTAS"}
+{"pregunta": "cual es el estado con mas violencia", "operacion_esperada": "por_entidad"}
+{"pregunta": "que fuentes hay", "tipo": "CATALOGO", "recurso": "fuentes"}

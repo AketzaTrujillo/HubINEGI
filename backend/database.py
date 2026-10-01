@@ -53,16 +53,19 @@ def _obtener_config():
     return _config
 
 
-def obtener_conexion():
-    return mysql.connector.connect(**_obtener_config())
+def obtener_conexion(database=None):
+    config = dict(_obtener_config())
+    if database:
+        config["database"] = database
+    return mysql.connector.connect(**config)
 
 
-def ejecutar_select(sql):
-    conexion = obtener_conexion()
+def ejecutar_select(sql, database=None, params=None):
+    conexion = obtener_conexion(database)
 
     cursor = conexion.cursor(dictionary=True)
 
-    cursor.execute(sql)
+    cursor.execute(sql, params or ())
 
     resultados = cursor.fetchall()
 

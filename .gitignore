@@ -13,6 +13,7 @@ __pycache__/
 
 # logs
 *.log
+logs/
 
 # archivos temporales
 tmp/

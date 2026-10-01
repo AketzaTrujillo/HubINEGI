@@ -1,0 +1,14 @@
+{"pregunta": "cuántas publicaciones hay de X en Jalisco", "operacion": "conteo", "fuente": "X", "entidad": "Jalisco"}
+{"pregunta": "dame el promedio de ENDIREH en Jalisco para 2021", "operacion": "promedio", "fuente": "ENDIREH", "entidad": "Jalisco", "anio": 2021}
+{"pregunta": "el valor más alto de SIESVIM del año 2021", "operacion": "maximo", "fuente": "SIESVIM", "anio": 2021}
+{"pregunta": "el más bajo de SIESVIM en 2021", "operacion": "minimo", "fuente": "SIESVIM", "anio": 2021}
+{"pregunta": "qué tipo de violencia predomina en México", "operacion": "por_tipo_violencia"}
+{"pregunta": "qué años hay para Puebla", "operacion": "anios_disponibles", "entidad": "Puebla"}
+{"pregunta": "muéstrame los indicadores de Puebla", "operacion": "detalle", "entidad": "Puebla"}
+{"pregunta": "cuántos indicadores tiene ENDIREH en Puebla", "operacion": "conteo", "fuente": "ENDIREH", "entidad": "Puebla"}
+{"pregunta": "promedio de INMUJERES en 2021", "operacion": "promedio", "fuente": "INMUJERES", "anio": 2021}
+{"pregunta": "publicaciones de X por año en Jalisco", "operacion": "por_anio", "fuente": "X", "entidad": "Jalisco"}
+{"pregunta": "háblame de SIESVIM", "intencion": ["definicion", "consulta"]}
+{"pregunta": "código python para ordenar una lista", "intencion": "fuera_de_tema"}
+{"pregunta": "no entiendo lo anterior", "contexto": {"historial": [{"pregunta": "promedio de ENDIREH para Jalisco en 2021", "respuesta": "Fue 37.58%.", "spec": {"operacion": "promedio", "fuente": "ENDIREH", "entidad": "Jalisco", "anio": 2021}}]}, "intencion": "explicar"}
+{"pregunta": "y en Puebla", "contexto": {"historial": [{"pregunta": "cuántas publicaciones de X hay en Jalisco", "respuesta": "22.", "spec": {"operacion": "conteo", "fuente": "X", "entidad": "Jalisco"}}], "spec": {"operacion": "conteo", "fuente": "X", "entidad": "Jalisco"}}, "entidad": "Puebla"}

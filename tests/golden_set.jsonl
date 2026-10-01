@@ -1,0 +1,31 @@
+{"pregunta": "hola", "tipo": "CONVERSACION"}
+{"pregunta": "buenos dias", "tipo": "CONVERSACION"}
+{"pregunta": "gracias", "tipo": "CONVERSACION"}
+{"pregunta": "¿qué es ENDIREH?", "tipo": "FAQ", "faq": "ENDIREH"}
+{"pregunta": "¿qué es SIESVIM?", "tipo": "FAQ", "faq": "SIESVIM"}
+{"pregunta": "¿qué es INMUJERES?", "tipo": "FAQ", "faq": "INMUJERES"}
+{"pregunta": "¿qué es prevalencia?", "tipo": "FAQ", "faq": "prevalencia"}
+{"pregunta": "¿qué es incidencia?", "tipo": "FAQ", "faq": "incidencia"}
+{"pregunta": "¿qué es subregistro?", "tipo": "FAQ", "faq": "subregistro"}
+{"pregunta": "¿qué fuentes usa MHub?", "tipo": "FAQ", "faq": "fuentes"}
+{"pregunta": "¿qué es BANAVIM?", "tipo": "FAQ", "faq": "BANAVIM"}
+{"pregunta": "¿qué es un CJM?", "tipo": ["FAQ", "FAQ_CORPUS"]}
+{"pregunta": "promedio de ENDIREH para Jalisco en 2021", "tipo": "CONSULTA_AGREGACION", "operacion": "promedio", "fuente": "ENDIREH", "entidad": "Jalisco", "anio": 2021}
+{"pregunta": "valor más alto de SIESVIM en 2021", "tipo": "CONSULTA_AGREGACION", "operacion": "maximo", "fuente": "SIESVIM", "anio": 2021}
+{"pregunta": "valor más bajo de SIESVIM en 2021", "tipo": "CONSULTA_AGREGACION", "operacion": "minimo", "fuente": "SIESVIM", "anio": 2021}
+{"pregunta": "cuántas publicaciones de X hay en Jalisco", "tipo": "CONSULTA_AGREGACION", "operacion": "conteo", "fuente": "X", "entidad": "Jalisco"}
+{"pregunta": "cuántas publicaciones de X hay en Jalisco por año", "tipo": "CONSULTA_AGREGACION", "operacion": "por_anio", "fuente": "X", "entidad": "Jalisco"}
+{"pregunta": "indicadores de Puebla", "tipo": "CONSULTA_DETALLE", "entidad": "Puebla"}
+{"pregunta": "indicadores de ENDIREH para Puebla", "tipo": "CONSULTA_DETALLE", "fuente": "ENDIREH", "entidad": "Puebla"}
+{"pregunta": "indicadores de Jalisco en 2021", "tipo": "CONSULTA_DETALLE", "entidad": "Jalisco", "anio": 2021}
+{"pregunta": "promedio de INMUJERES en 2021", "tipo": "CONSULTA_AGREGACION", "operacion": "promedio", "fuente": "INMUJERES", "anio": 2021}
+{"pregunta": "cuántos indicadores de ENDIREH hay para Puebla", "tipo": "CONSULTA_AGREGACION", "operacion": "conteo", "fuente": "ENDIREH", "entidad": "Puebla"}
+{"pregunta": "¿y cuántas de cada año?", "contexto": {"pregunta": "cuántas publicaciones de X hay en Jalisco", "spec": {"operacion": "conteo", "metrica": "conteo", "fuente": "X", "entidad": "Jalisco", "entidad_id": 16, "anio": null, "grupo": [], "orden": "desc", "limite": 100, "indicador": null}}, "tipo": "CONSULTA_AGREGACION", "operacion": "por_anio", "fuente": "X", "entidad": "Jalisco"}
+{"pregunta": "y en Puebla", "contexto": {"pregunta": "cuántas publicaciones de X hay en Jalisco", "spec": {"operacion": "conteo", "metrica": "conteo", "fuente": "X", "entidad": "Jalisco", "entidad_id": 16, "anio": null, "grupo": [], "orden": "desc", "limite": 100, "indicador": null}}, "tipo": "CONSULTA_AGREGACION", "operacion": "conteo", "fuente": "X", "entidad": "Puebla"}
+{"pregunta": "Y eso qué significa?", "contexto": {"pregunta": "promedio de ENDIREH para Jalisco en 2021", "respuesta": "El promedio fue 37.58%.", "sql": "SELECT AVG(valor)...", "spec": {"operacion": "promedio", "metrica": "promedio", "fuente": "ENDIREH", "entidad": "Jalisco", "entidad_id": 16, "anio": 2021, "grupo": [], "orden": "desc", "limite": 100}}, "tipo": "EXPLICAR"}
+{"pregunta": "No entiendo, explícamelo", "contexto": {"pregunta": "valor más alto de SIESVIM en 2021", "respuesta": "Fue 97.90%.", "spec": {"operacion": "maximo", "metrica": "maximo", "fuente": "SIESVIM", "entidad": null, "entidad_id": null, "anio": 2021, "grupo": [], "orden": "desc", "limite": 100}}, "tipo": "EXPLICAR"}
+{"pregunta": "Muéstrame los indicadores", "contexto": {"pregunta": "promedio de ENDIREH para Jalisco en 2021", "respuesta": "El promedio fue 37.58%.", "spec": {"operacion": "promedio", "metrica": "promedio", "fuente": "ENDIREH", "entidad": "Jalisco", "entidad_id": 16, "anio": 2021, "grupo": [], "orden": "desc", "limite": 100}}, "tipo": "SEGUIR"}
+{"pregunta": "¿Qué cosas puedo preguntar?", "tipo": "AYUDA"}
+{"pregunta": "¿Qué datos tienes?", "tipo": "AYUDA"}
+{"pregunta": "indicadores", "tipo": "CLARIFICACION"}
+{"pregunta": "dame el código de hola mundo en C", "tipo": "CLARIFICACION"}
