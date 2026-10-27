@@ -1,0 +1,1529 @@
+{
+  "modo": "fulltext",
+  "topk": 3,
+  "resumen": {
+    "p1": 0.1333,
+    "p3": 0.0889,
+    "r3": 0.15,
+    "mrr": 0.1889,
+    "ndcg3": 0.1344,
+    "n": 30,
+    "fuera_de_alcance_con_resultados": 6,
+    "latencia_p50_ms": 8.13,
+    "latencia_p95_ms": 22.05
+  },
+  "casos": [
+    {
+      "id": "T01",
+      "pregunta": "¿Qué es el Banco Nacional de Datos e Información sobre Casos de Violencia contra las Mujeres?",
+      "categoria": "termino_exacto",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 984,
+          "id_documento": 8,
+          "documento": "Lineamientos BANAVIM",
+          "pagina": 2,
+          "score": 31.582767,
+          "relevante": true
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 1011,
+          "id_documento": 8,
+          "documento": "Lineamientos BANAVIM",
+          "pagina": 10,
+          "score": 26.831751,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 991,
+          "id_documento": 8,
+          "documento": "Lineamientos BANAVIM",
+          "pagina": 4,
+          "score": 25.235907,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 1.0,
+        "p3": 0.3333333333333333,
+        "r3": 0.5,
+        "mrr": 1.0,
+        "ndcg3": 0.6131471927654584
+      },
+      "latencia_ms": 110.32
+    },
+    {
+      "id": "T02",
+      "pregunta": "¿Qué son los Centros de Justicia para las Mujeres?",
+      "categoria": "termino_exacto",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2688,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 75,
+          "score": 6.363206,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 3,
+          "id_documento": 1,
+          "documento": "Modelo CJM Secretariado Ejecutivo",
+          "pagina": 7,
+          "score": 5.99319,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2689,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 76,
+          "score": 5.288145,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 22.05
+    },
+    {
+      "id": "T03",
+      "pregunta": "¿Qué es la violencia familiar?",
+      "categoria": "termino_exacto",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2369,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 303,
+          "score": 6.110756,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2351,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 294,
+          "score": 5.079566,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2367,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 302,
+          "score": 5.07066,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 11.54
+    },
+    {
+      "id": "T04",
+      "pregunta": "¿Qué es el Modelo de Atención para mujeres que viven violencias?",
+      "categoria": "termino_exacto",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 1030,
+          "id_documento": 9,
+          "documento": "Modelo de Atención",
+          "pagina": 11,
+          "score": 11.062474,
+          "relevante": true
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 1088,
+          "id_documento": 9,
+          "documento": "Modelo de Atención",
+          "pagina": 47,
+          "score": 7.615622,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 1078,
+          "id_documento": 9,
+          "documento": "Modelo de Atención",
+          "pagina": 39,
+          "score": 7.588039,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 1.0,
+        "p3": 0.3333333333333333,
+        "r3": 0.5,
+        "mrr": 1.0,
+        "ndcg3": 0.6131471927654584
+      },
+      "latencia_ms": 16.03
+    },
+    {
+      "id": "T05",
+      "pregunta": "¿Qué es el Modelo de Prevención de Violencias contra las Mujeres?",
+      "categoria": "termino_exacto",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 1692,
+          "id_documento": 11,
+          "documento": "Modelo de Prevención de Violencias contra las Mujeres",
+          "pagina": 5,
+          "score": 7.816379,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 1702,
+          "id_documento": 11,
+          "documento": "Modelo de Prevención de Violencias contra las Mujeres",
+          "pagina": 12,
+          "score": 6.666665,
+          "relevante": true
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 1502,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 67,
+          "score": 5.893126,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.3333333333333333,
+        "r3": 0.5,
+        "mrr": 0.5,
+        "ndcg3": 0.38685280723454163
+      },
+      "latencia_ms": 13.26
+    },
+    {
+      "id": "T06",
+      "pregunta": "¿Qué es el Modelo Integral para la Sanción de las Violencias contra las Mujeres?",
+      "categoria": "termino_exacto",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 1542,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 93,
+          "score": 9.349493,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 1586,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 117,
+          "score": 9.33414,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 1380,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 9,
+          "score": 9.107714,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 14.83
+    },
+    {
+      "id": "T07",
+      "pregunta": "¿Qué es el Programa de Apoyo para Espacios de Refugio Especializados?",
+      "categoria": "termino_exacto",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 572,
+          "id_documento": 4,
+          "documento": "Apoyo para Espacios de Refugio Especializados para Mujeres Víctimas de Violencia de Género",
+          "pagina": 40,
+          "score": 18.402294,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 636,
+          "id_documento": 4,
+          "documento": "Apoyo para Espacios de Refugio Especializados para Mujeres Víctimas de Violencia de Género",
+          "pagina": 68,
+          "score": 15.256537,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 637,
+          "id_documento": 4,
+          "documento": "Apoyo para Espacios de Refugio Especializados para Mujeres Víctimas de Violencia de Género",
+          "pagina": 68,
+          "score": 15.256537,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 10.98
+    },
+    {
+      "id": "T08",
+      "pregunta": "¿Qué es el Directorio Nacional de los Centros de Justicia para las Mujeres?",
+      "categoria": "termino_exacto",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 1684,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 171,
+          "score": 17.100002,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 734,
+          "id_documento": 5,
+          "documento": "Directorio Nacional de los CJM",
+          "pagina": 1,
+          "score": 8.441944,
+          "relevante": true
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 1375,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 4,
+          "score": 8.206762,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.3333333333333333,
+        "r3": 0.5,
+        "mrr": 0.5,
+        "ndcg3": 0.38685280723454163
+      },
+      "latencia_ms": 14.47
+    },
+    {
+      "id": "P01",
+      "pregunta": "No tengo dinero ni a dónde ir con mis hijos, ¿me pueden ayudar?",
+      "categoria": "parafrasis",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2495,
+          "id_documento": 13,
+          "documento": "Qué te agrada en las relaciones",
+          "pagina": 46,
+          "score": 20.778065,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2953,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 194,
+          "score": 16.762577,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2927,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 181,
+          "score": 13.336007,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 9.63
+    },
+    {
+      "id": "P02",
+      "pregunta": "Estoy en peligro ahora, ¿a quién puedo llamar?",
+      "categoria": "parafrasis",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 3169,
+          "id_documento": 15,
+          "documento": "No Estás Sola (CONAVIM)",
+          "pagina": 3,
+          "score": 37.715298,
+          "relevante": true
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2459,
+          "id_documento": 13,
+          "documento": "Qué te agrada en las relaciones",
+          "pagina": 27,
+          "score": 22.715906,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2394,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 316,
+          "score": 12.509731,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 1.0,
+        "p3": 0.3333333333333333,
+        "r3": 0.5,
+        "mrr": 1.0,
+        "ndcg3": 0.6131471927654584
+      },
+      "latencia_ms": 6.97
+    },
+    {
+      "id": "P03",
+      "pregunta": "Quiero dejar a mi pareja que me golpea, ¿qué opciones tengo?",
+      "categoria": "parafrasis",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2495,
+          "id_documento": 13,
+          "documento": "Qué te agrada en las relaciones",
+          "pagina": 46,
+          "score": 22.592276,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2864,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 154,
+          "score": 20.211941,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2479,
+          "id_documento": 13,
+          "documento": "Qué te agrada en las relaciones",
+          "pagina": 36,
+          "score": 18.492188,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 9.85
+    },
+    {
+      "id": "P04",
+      "pregunta": "Me da miedo denunciar, ¿me pueden acompañar en el proceso?",
+      "categoria": "parafrasis",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 3037,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 230,
+          "score": 12.121887,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2902,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 170,
+          "score": 10.94654,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 1261,
+          "id_documento": 9,
+          "documento": "Modelo de Atención",
+          "pagina": 137,
+          "score": 9.771192,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 6.82
+    },
+    {
+      "id": "P05",
+      "pregunta": "Mi vecino golpea a su esposa, ¿qué puedo hacer?",
+      "categoria": "parafrasis",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 3169,
+          "id_documento": 15,
+          "documento": "No Estás Sola (CONAVIM)",
+          "pagina": 3,
+          "score": 28.163773,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2459,
+          "id_documento": 13,
+          "documento": "Qué te agrada en las relaciones",
+          "pagina": 27,
+          "score": 18.809986,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2871,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 157,
+          "score": 12.744723,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 8.11
+    },
+    {
+      "id": "P06",
+      "pregunta": "Necesito ayuda legal gratuita porque mi esposo me quitó todo",
+      "categoria": "parafrasis",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2964,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 199,
+          "score": 30.782385,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 3058,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 237,
+          "score": 24.779007,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 1050,
+          "id_documento": 9,
+          "documento": "Modelo de Atención",
+          "pagina": 22,
+          "score": 16.528624,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 6.78
+    },
+    {
+      "id": "P07",
+      "pregunta": "Vivo en una comunidad indígena y sufro violencia, ¿dónde acudo?",
+      "categoria": "parafrasis",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2563,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 24,
+          "score": 13.611604,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2768,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 102,
+          "score": 11.056487,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2562,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 24,
+          "score": 9.616004,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 9.38
+    },
+    {
+      "id": "P08",
+      "pregunta": "¿Cómo sé si mi pareja me controla el dinero?",
+      "categoria": "parafrasis",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2953,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 194,
+          "score": 16.871304,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2435,
+          "id_documento": 13,
+          "documento": "Qué te agrada en las relaciones",
+          "pagina": 14,
+          "score": 14.065169,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2927,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 181,
+          "score": 13.464594,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 7.75
+    },
+    {
+      "id": "S01",
+      "pregunta": "¿Qué significa CJM?",
+      "categoria": "sigla",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2001,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 43,
+          "score": 7.953512,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2003,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 44,
+          "score": 6.207834,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2248,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 237,
+          "score": 5.321637,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 8.13
+    },
+    {
+      "id": "S02",
+      "pregunta": "¿Qué significa BANAVIM?",
+      "categoria": "sigla",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 625,
+          "id_documento": 4,
+          "documento": "Apoyo para Espacios de Refugio Especializados para Mujeres Víctimas de Violencia de Género",
+          "pagina": 62,
+          "score": 12.285807,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 1044,
+          "id_documento": 9,
+          "documento": "Modelo de Atención",
+          "pagina": 18,
+          "score": 6.178526,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 1567,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 107,
+          "score": 6.169621,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 7.02
+    },
+    {
+      "id": "S03",
+      "pregunta": "¿Qué significa SESNSP?",
+      "categoria": "sigla",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 192,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 35,
+          "score": 12.965371,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 190,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 34,
+          "score": 8.661392,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 196,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 37,
+          "score": 8.652486,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 7.18
+    },
+    {
+      "id": "S04",
+      "pregunta": "¿Qué significa CONAVIM?",
+      "categoria": "sigla",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2661,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 66,
+          "score": 13.315704,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 1649,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 149,
+          "score": 9.999024,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 1651,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 150,
+          "score": 9.994572,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 7.73
+    },
+    {
+      "id": "S05",
+      "pregunta": "¿Qué significa AVGM?",
+      "categoria": "sigla",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 3017,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 223,
+          "score": 16.541983,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 3008,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 219,
+          "score": 8.286576,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2662,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 66,
+          "score": 8.273217,
+          "relevante": true
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.3333333333333333,
+        "r3": 0.5,
+        "mrr": 0.3333333333333333,
+        "ndcg3": 0.3065735963827292
+      },
+      "latencia_ms": 7.22
+    },
+    {
+      "id": "S06",
+      "pregunta": "¿Qué significa PAIMEF?",
+      "categoria": "sigla",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 1038,
+          "id_documento": 9,
+          "documento": "Modelo de Atención",
+          "pagina": 15,
+          "score": 11.188746,
+          "relevante": true
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 1370,
+          "id_documento": 9,
+          "documento": "Modelo de Atención",
+          "pagina": 198,
+          "score": 11.166482,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 1416,
+          "id_documento": 10,
+          "documento": "Modelo de Sanción",
+          "pagina": 25,
+          "score": 5.605505,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 1.0,
+        "p3": 0.3333333333333333,
+        "r3": 0.5,
+        "mrr": 1.0,
+        "ndcg3": 0.6131471927654584
+      },
+      "latencia_ms": 7.19
+    },
+    {
+      "id": "R01",
+      "pregunta": "¿Cuáles son los pasos de la atención presencial en un CJM?",
+      "categoria": "procedimiento",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 59,
+          "id_documento": 1,
+          "documento": "Modelo CJM Secretariado Ejecutivo",
+          "pagina": 40,
+          "score": 15.90834,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 317,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 116,
+          "score": 12.449166,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2012,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 49,
+          "score": 10.066481,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 9.34
+    },
+    {
+      "id": "R02",
+      "pregunta": "¿Cómo se elabora el plan de seguridad de una usuaria?",
+      "categoria": "procedimiento",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 303,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 102,
+          "score": 18.319248,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2119,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 127,
+          "score": 18.253534,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 113,
+          "id_documento": 1,
+          "documento": "Modelo CJM Secretariado Ejecutivo",
+          "pagina": 81,
+          "score": 17.829727,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 9.09
+    },
+    {
+      "id": "R03",
+      "pregunta": "¿Cómo se solicita una orden de protección?",
+      "categoria": "procedimiento",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 348,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 142,
+          "score": 14.409649,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 326,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 122,
+          "score": 13.984988,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 328,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 124,
+          "score": 13.677144,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 8.9
+    },
+    {
+      "id": "R04",
+      "pregunta": "¿Cuánto duran las órdenes de protección?",
+      "categoria": "procedimiento",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 143,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 3,
+          "score": 13.279664,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 104,
+          "id_documento": 1,
+          "documento": "Modelo CJM Secretariado Ejecutivo",
+          "pagina": 73,
+          "score": 11.790409,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 321,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 118,
+          "score": 10.721348,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 8.12
+    },
+    {
+      "id": "R05",
+      "pregunta": "¿Cómo ingresa una mujer a un refugio?",
+      "categoria": "procedimiento",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 500,
+          "id_documento": 4,
+          "documento": "Apoyo para Espacios de Refugio Especializados para Mujeres Víctimas de Violencia de Género",
+          "pagina": 15,
+          "score": 10.325021,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 572,
+          "id_documento": 4,
+          "documento": "Apoyo para Espacios de Refugio Especializados para Mujeres Víctimas de Violencia de Género",
+          "pagina": 40,
+          "score": 10.009535,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 94,
+          "id_documento": 1,
+          "documento": "Modelo CJM Secretariado Ejecutivo",
+          "pagina": 66,
+          "score": 9.385864,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 8.17
+    },
+    {
+      "id": "R06",
+      "pregunta": "¿Cómo se realiza la entrevista inicial en el CJM?",
+      "categoria": "procedimiento",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 245,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 65,
+          "score": 19.223289,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2114,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 124,
+          "score": 19.182045,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2110,
+          "id_documento": 12,
+          "documento": "Protocolo de Atención de los CJM",
+          "pagina": 121,
+          "score": 17.116364,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 7.42
+    },
+    {
+      "id": "R07",
+      "pregunta": "¿Cómo se mide el riesgo de una mujer en situación de violencia?",
+      "categoria": "procedimiento",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 275,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 81,
+          "score": 7.589193,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 1759,
+          "id_documento": 11,
+          "documento": "Modelo de Prevención de Violencias contra las Mujeres",
+          "pagina": 39,
+          "score": 7.384098,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 273,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 80,
+          "score": 7.212598,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 10.26
+    },
+    {
+      "id": "R08",
+      "pregunta": "¿Cómo se da seguimiento a una orden de protección?",
+      "categoria": "procedimiento",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 348,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 142,
+          "score": 15.320504,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 328,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 124,
+          "score": 14.587999,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 335,
+          "id_documento": 2,
+          "documento": "Protocolo Estandarizado CJM",
+          "pagina": 130,
+          "score": 13.867898,
+          "relevante": true
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.3333333333333333,
+        "r3": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg3": 0.5
+      },
+      "latencia_ms": 8.74
+    },
+    {
+      "id": "F01",
+      "pregunta": "¿Cuál es la capital de Francia?",
+      "categoria": "fuera_de_alcance",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 1095,
+          "id_documento": 9,
+          "documento": "Modelo de Atención",
+          "pagina": 50,
+          "score": 10.085716,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2713,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 84,
+          "score": 10.085716,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 36,
+          "id_documento": 1,
+          "documento": "Modelo CJM Secretariado Ejecutivo",
+          "pagina": 27,
+          "score": 3.705254,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 5.74
+    },
+    {
+      "id": "F02",
+      "pregunta": "¿Cómo se prepara un pastel de chocolate?",
+      "categoria": "fuera_de_alcance",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2844,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 141,
+          "score": 12.250605,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 2543,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 17,
+          "score": 0.648989,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 3074,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 243,
+          "score": 0.567865,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 6.61
+    },
+    {
+      "id": "F03",
+      "pregunta": "¿Quién ganó el mundial de fútbol de 2022?",
+      "categoria": "fuera_de_alcance",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 760,
+          "id_documento": 7,
+          "documento": "Ley General de Acceso de las Mujeres a una Vida Libre de Violencia",
+          "pagina": 2,
+          "score": 18.92658,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 765,
+          "id_documento": 7,
+          "documento": "Ley General de Acceso de las Mujeres a una Vida Libre de Violencia",
+          "pagina": 4,
+          "score": 10.815188,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2438,
+          "id_documento": 13,
+          "documento": "Qué te agrada en las relaciones",
+          "pagina": 16,
+          "score": 10.121777,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 5.89
+    },
+    {
+      "id": "F04",
+      "pregunta": "¿Qué es la fotosíntesis?",
+      "categoria": "fuera_de_alcance",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2854,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 149,
+          "score": 0.097962,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 3064,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 239,
+          "score": 0.093509,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 2859,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 151,
+          "score": 0.089057,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 7.42
+    },
+    {
+      "id": "F05",
+      "pregunta": "¿Cómo instalo Python en Windows?",
+      "categoria": "fuera_de_alcance",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2543,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 17,
+          "score": 0.648989,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 3074,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 243,
+          "score": 0.567865,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 3089,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 248,
+          "score": 0.567865,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 6.84
+    },
+    {
+      "id": "F06",
+      "pregunta": "¿Cuál es el precio del dólar hoy?",
+      "categoria": "fuera_de_alcance",
+      "resultados": [
+        {
+          "rank": 1,
+          "id_fragmento": 2958,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 196,
+          "score": 19.302179,
+          "relevante": false
+        },
+        {
+          "rank": 2,
+          "id_fragmento": 3029,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 227,
+          "score": 12.220875,
+          "relevante": false
+        },
+        {
+          "rank": 3,
+          "id_fragmento": 3065,
+          "id_documento": 14,
+          "documento": "Violencia de Género en Zonas Indígenas",
+          "pagina": 239,
+          "score": 12.173828,
+          "relevante": false
+        }
+      ],
+      "metricas": {
+        "p1": 0.0,
+        "p3": 0.0,
+        "r3": 0.0,
+        "mrr": 0.0,
+        "ndcg3": 0.0
+      },
+      "latencia_ms": 7.88
+    }
+  ]
+}

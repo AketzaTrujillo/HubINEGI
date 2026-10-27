@@ -1,0 +1,23 @@
+{
+  "generado": "2026-10-27 14:52:00",
+  "pruebas": [
+    {
+      "nombre": "run_golden.py",
+      "ok": 31,
+      "total": 31,
+      "entorno": "Python 3.14.0, MySQL 8.0.36, sin LLM"
+    },
+    {
+      "nombre": "run_conversacion.py",
+      "ok": 11,
+      "total": 11,
+      "entorno": "Python 3.14.0, sin LLM"
+    },
+    {
+      "nombre": "run_interprete.py",
+      "ok": 14,
+      "total": 14,
+      "entorno": "Ollama local, qwen2.5:7b, MHUB_LLM_PROVIDER=local"
+    }
+  ]
+}
