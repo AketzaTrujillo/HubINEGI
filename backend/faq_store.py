@@ -1,5 +1,6 @@
 """Acceso al catálogo de FAQ y al corpus documental (Fase 3)."""
 import difflib
+import os
 import re
 import unicodedata
 
@@ -118,16 +119,26 @@ def _buscar_corpus_fulltext(texto, limite=3):
 
 
 def buscar_corpus(texto, limite=None, modo=None):
-    """Delega en corpus_search y conserva FULLTEXT como respaldo."""
+    """Delega en corpus_search v1 o v2 y conserva FULLTEXT como respaldo."""
     n = normalizar(texto)
     if len(n) < 4:
         return []
+
+    version = (os.environ.get("MHUB_CORPUS_VERSION") or "v1").strip().lower()
     try:
+        if version == "v2":
+            import corpus_search_v2
+            return corpus_search_v2.buscar_corpus(texto, limite=limite, modo=modo)
         import corpus_search
         return corpus_search.buscar_corpus(texto, limite=limite, modo=modo)
     except Exception as error:
-        print(f"[faq_store] corpus_search no disponible ({error}); uso FULLTEXT")
-        return _buscar_corpus_fulltext(texto, limite=limite or 3)
+        print(f"[faq_store] corpus_search {version} no disponible ({error})")
+        try:
+            import corpus_search
+            return corpus_search.buscar_corpus(texto, limite=limite, modo=modo)
+        except Exception as error_v1:
+            print(f"[faq_store] fallback v1 también falló ({error_v1}); uso FULLTEXT")
+            return _buscar_corpus_fulltext(texto, limite=limite or 3)
 
 
 def cargar_glosario():

@@ -5,3 +5,4 @@ requests>=2.32
 sentence-transformers==6.2.0
 torch==2.14.1
 numpy>=2.0
+snowballstemmer>=2.2

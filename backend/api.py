@@ -12,6 +12,24 @@ from panel import filtros as panel_filtros, construir as panel_construir
 
 app = FastAPI(title="MHub API", version="0.1.0")
 
+
+@app.on_event("startup")
+def _precargar_corpus():
+    """Precarga opcional del índice/modelo para evitar la primera consulta lenta."""
+    if os.environ.get("MHUB_PRECARGAR", "0").strip().lower() not in ("1", "true", "si"):
+        return
+    version = (os.environ.get("MHUB_CORPUS_VERSION") or "v1").strip().lower()
+    try:
+        if version == "v2":
+            import corpus_search_v2
+            corpus_search_v2.precargar()
+        elif os.environ.get("MHUB_CORPUS_MODE", "fulltext").lower() != "fulltext":
+            import corpus_search
+            corpus_search.cargar_indice()
+            corpus_search.cargar_modelo()
+    except Exception as error:
+        print(f"[api] precarga de corpus falló: {error}")
+
 _origins = os.environ.get("MHUB_CORS_ORIGINS", "*").strip()
 _allow_origins = ["*"] if _origins == "*" else [o.strip() for o in _origins.split(",") if o.strip()]
 
