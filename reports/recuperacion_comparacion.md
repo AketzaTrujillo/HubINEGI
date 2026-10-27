@@ -1,6 +1,6 @@
 # Comparación de recuperación: FULLTEXT, embeddings e híbrida
 
-**Fecha:** 2026-10-27 14:47:20  
+**Fecha:** 2026-10-27 14:51:42  
 **Golden set:** 36 preguntas (30 dentro de alcance, 6 fuera de alcance)  
 **Top-k:** 3  
 **Versión oficial:** `FULLTEXT` (esta evaluación no cambia la versión oficial).
@@ -11,15 +11,17 @@ Se evaluaron los tres modos sobre el mismo golden set de 36 preguntas. La tabla 
 
 | Modo | P@1 | P@3 | R@3 | MRR | nDCG@3 | DocHit@3 | Latencia p50 | Latencia p95 | Fallback |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `fulltext` | 0.133 | 0.089 | 0.150 | 0.189 | 0.134 | 0.600 | 8.2 ms | 14.6 ms | 0.0% |
-| `embedding` | 0.033 | 0.044 | 0.083 | 0.078 | 0.065 | 0.533 | 16.7 ms | 18.3 ms | 0.0% |
-| `hybrid` | 0.100 | 0.100 | 0.183 | 0.167 | 0.144 | 0.633 | 26.2 ms | 33.5 ms | 0.0% |
+| `fulltext` | 0.133 | 0.089 | 0.150 | 0.189 | 0.134 | 0.600 | 7.3 ms | 14.0 ms | 0.0% |
+| `embedding` | 0.033 | 0.044 | 0.083 | 0.078 | 0.065 | 0.533 | 16.6 ms | 21.3 ms | 0.0% |
+| `hybrid` | 0.100 | 0.100 | 0.183 | 0.167 | 0.144 | 0.633 | 25.8 ms | 36.5 ms | 0.0% |
 
 - **Mejor P@1:** `fulltext`.
 - **Mejor P@3:** `hybrid`.
 - **Mejor R@3:** `hybrid`.
 - **Menor latencia p95:** `fulltext`.
-- **Recomendación técnica:** `fulltext`. hybrid mejora P@3 12.5% y R@3 22.2% en términos relativos, pero no cumple todas las condiciones: P@1 cae 25.0%, p95 sube 19 ms, fallback 0.0%.
+- **Recomendación técnica:** `fulltext`. hybrid mejora P@3 12.5% y R@3 22.2% en términos relativos, pero no cumple todas las condiciones: P@1 cae 25.0%, p95 sube 23 ms, fallback 0.0%.
+
+**Embeddings:** 3170 de 3170 fragmentos verificados, 384 dimensiones, 0 dimensiones incorrectas y 0 hashes desactualizados.
 
 ## 2. Configuración
 
@@ -27,6 +29,7 @@ Se evaluaron los tres modos sobre el mismo golden set de 36 preguntas. La tabla 
 |---|---|
 | Modelo de embeddings | `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` |
 | Dimensiones | 384 |
+| Embeddings verificados | 3170 / 3170 (0 nulos, 0 hashes desactualizados) |
 | Top-k | 3 |
 | Repeticiones por pregunta | 3 |
 | Python | 3.14.0 |
@@ -36,10 +39,10 @@ Se evaluaron los tres modos sobre el mismo golden set de 36 preguntas. La tabla 
 | Equipo | DESKTOP-8JMS32F |
 | Sistema | Windows-11-10.0.26200-SP0 |
 | CPU lógicas | 16 |
-| Carga del índice | 0.58 s |
-| Carga del modelo | 12.01 s |
-| Primera consulta (embedding) | 18.2 ms |
-| Arranque en frío (carga + primera consulta) | 12.03 s |
+| Carga del índice | 0.60 s |
+| Carga del modelo | 11.85 s |
+| Primera consulta (embedding) | 19.8 ms |
+| Arranque en frío (carga + primera consulta) | 11.87 s |
 
 La carga del modelo incluye la importación de torch y sentence-transformers y la construcción del modelo. La primera consulta de la tabla ya tiene el modelo cargado; el arranque en frío completo es la suma de la carga y esa primera consulta. La latencia por consulta se midió después de tres consultas de calentamiento, con la mediana de tres repeticiones por pregunta.
 
@@ -47,9 +50,9 @@ La carga del modelo incluye la importación de torch y sentence-transformers y l
 
 | Modo | P@1 | P@3 | R@3 | MRR | nDCG@3 | DocHit@3 | Latencia p50 | Latencia p95 | Fallback |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `fulltext` | 0.133 | 0.089 | 0.150 | 0.189 | 0.134 | 0.600 | 8.2 ms | 14.6 ms | 0.0% |
-| `embedding` | 0.033 | 0.044 | 0.083 | 0.078 | 0.065 | 0.533 | 16.7 ms | 18.3 ms | 0.0% |
-| `hybrid` | 0.100 | 0.100 | 0.183 | 0.167 | 0.144 | 0.633 | 26.2 ms | 33.5 ms | 0.0% |
+| `fulltext` | 0.133 | 0.089 | 0.150 | 0.189 | 0.134 | 0.600 | 7.3 ms | 14.0 ms | 0.0% |
+| `embedding` | 0.033 | 0.044 | 0.083 | 0.078 | 0.065 | 0.533 | 16.6 ms | 21.3 ms | 0.0% |
+| `hybrid` | 0.100 | 0.100 | 0.183 | 0.167 | 0.144 | 0.633 | 25.8 ms | 36.5 ms | 0.0% |
 
 > P@k y R@3 se calculan solo sobre las preguntas con respuesta en el corpus. DocHit@3 indica si al menos un documento relevante aparece en el top-3. La tasa de fallback es la proporción de consultas que tuvieron que usar FULLTEXT porque el modelo o el índice no estaban disponibles.
 
@@ -84,8 +87,8 @@ El corpus no contiene respuestas a estas preguntas. Ningún modo implementa abst
 
 | Comparación | P@1 | P@3 | R@3 | MRR | nDCG@3 | Δ p95 |
 |---|---:|---:|---:|---:|---:|---:|
-| hybrid vs fulltext | -25.0% | 12.5% | 22.2% | -11.8% | 6.8% | +18.9 ms |
-| embedding vs fulltext | -75.0% | -50.0% | -44.4% | -58.8% | -52.0% | +3.7 ms |
+| hybrid vs fulltext | -25.0% | 12.5% | 22.2% | -11.8% | 6.8% | +22.6 ms |
+| embedding vs fulltext | -75.0% | -50.0% | -44.4% | -58.8% | -52.0% | +7.3 ms |
 
 ## 6. Dónde gana cada modo
 
@@ -149,7 +152,7 @@ En el conjunto general, hybrid tiene P@3 0.100 y R@3 0.183; FULLTEXT tiene P@3 0
 
 **Recomendación técnica:** `fulltext`.
 
-- hybrid mejora P@3 12.5% y R@3 22.2% en términos relativos, pero no cumple todas las condiciones: P@1 cae 25.0%, p95 sube 19 ms, fallback 0.0%.
+- hybrid mejora P@3 12.5% y R@3 22.2% en términos relativos, pero no cumple todas las condiciones: P@1 cae 25.0%, p95 sube 23 ms, fallback 0.0%.
 - embedding no supera a fulltext en P@3 y R@3.
 - embedding reduce P@1 en término exacto de 0.250 a 0.125.
 - Se recomienda mantener FULLTEXT como modo oficial.

@@ -1,0 +1,19 @@
+{
+  "fecha": "2026-10-27 14:41:50",
+  "total_fragmentos": 3170,
+  "embeddings_no_nulos": 3170,
+  "dimensiones": 384,
+  "dimensiones_incorrectas": 0,
+  "hashes_desactualizados": 0,
+  "modelo": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "norma_l2": {
+    "min": 1.0,
+    "media": 1.0,
+    "max": 1.0
+  },
+  "muestra_similitud": {
+    "fragmentos_contiguos": 0.6987,
+    "fragmentos_distantes": 0.4574
+  },
+  "resultado": "OK"
+}

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-27 14:47:20",
+  "generado": "2026-10-27 14:51:42",
   "config": {
     "topk": 3,
     "reps": 3,
@@ -24,6 +24,25 @@
       "procedimiento": 8,
       "fuera_de_alcance": 6
     }
+  },
+  "embeddings": {
+    "fecha": "2026-10-27 14:41:50",
+    "total_fragmentos": 3170,
+    "embeddings_no_nulos": 3170,
+    "dimensiones": 384,
+    "dimensiones_incorrectas": 0,
+    "hashes_desactualizados": 0,
+    "modelo": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "norma_l2": {
+      "min": 1.0,
+      "media": 1.0,
+      "max": 1.0
+    },
+    "muestra_similitud": {
+      "fragmentos_contiguos": 0.6987,
+      "fragmentos_distantes": 0.4574
+    },
+    "resultado": "OK"
   },
   "modos": {
     "fulltext": {
@@ -83,12 +102,12 @@
         }
       },
       "latencia": {
-        "p50_ms": 8.22,
-        "p95_ms": 14.6,
-        "media_ms": 8.81,
-        "min_ms": 5.24,
-        "max_ms": 14.88,
-        "primera_consulta_ms": 69.3,
+        "p50_ms": 7.26,
+        "p95_ms": 13.98,
+        "media_ms": 8.08,
+        "min_ms": 5.01,
+        "max_ms": 14.19,
+        "primera_consulta_ms": 54.51,
         "carga_indice_s": 0.0,
         "carga_modelo_s": 0.0,
         "repeticiones_por_pregunta": 3
@@ -163,7 +182,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 14.43,
+          "latencia_mediana_ms": 14.19,
           "fallback": false
         },
         {
@@ -229,7 +248,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 14.6,
+          "latencia_mediana_ms": 13.6,
           "fallback": false
         },
         {
@@ -295,7 +314,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 9.4,
+          "latencia_mediana_ms": 8.0,
           "fallback": false
         },
         {
@@ -361,7 +380,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 12.68,
+          "latencia_mediana_ms": 11.25,
           "fallback": false
         },
         {
@@ -427,7 +446,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 12.89,
+          "latencia_mediana_ms": 11.24,
           "fallback": false
         },
         {
@@ -493,7 +512,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 14.47,
+          "latencia_mediana_ms": 13.98,
           "fallback": false
         },
         {
@@ -559,7 +578,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 9.99,
+          "latencia_mediana_ms": 10.95,
           "fallback": false
         },
         {
@@ -625,7 +644,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 14.88,
+          "latencia_mediana_ms": 13.77,
           "fallback": false
         },
         {
@@ -691,7 +710,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 7.79,
+          "latencia_mediana_ms": 7.14,
           "fallback": false
         },
         {
@@ -757,7 +776,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 5.55,
+          "latencia_mediana_ms": 5.01,
           "fallback": false
         },
         {
@@ -823,7 +842,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 8.25,
+          "latencia_mediana_ms": 8.01,
           "fallback": false
         },
         {
@@ -889,7 +908,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 5.93,
+          "latencia_mediana_ms": 5.68,
           "fallback": false
         },
         {
@@ -950,7 +969,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 7.88,
+          "latencia_mediana_ms": 7.05,
           "fallback": false
         },
         {
@@ -1016,7 +1035,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 6.32,
+          "latencia_mediana_ms": 5.46,
           "fallback": false
         },
         {
@@ -1082,7 +1101,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 8.8,
+          "latencia_mediana_ms": 7.83,
           "fallback": false
         },
         {
@@ -1148,7 +1167,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 6.89,
+          "latencia_mediana_ms": 6.25,
           "fallback": false
         },
         {
@@ -1209,7 +1228,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 8.0,
+          "latencia_mediana_ms": 7.25,
           "fallback": false
         },
         {
@@ -1275,7 +1294,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 9.82,
+          "latencia_mediana_ms": 7.0,
           "fallback": false
         },
         {
@@ -1336,7 +1355,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 10.14,
+          "latencia_mediana_ms": 6.98,
           "fallback": false
         },
         {
@@ -1402,7 +1421,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 8.28,
+          "latencia_mediana_ms": 7.26,
           "fallback": false
         },
         {
@@ -1468,7 +1487,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 7.75,
+          "latencia_mediana_ms": 7.07,
           "fallback": false
         },
         {
@@ -1534,7 +1553,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 7.57,
+          "latencia_mediana_ms": 7.51,
           "fallback": false
         },
         {
@@ -1600,7 +1619,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 8.85,
+          "latencia_mediana_ms": 8.19,
           "fallback": false
         },
         {
@@ -1661,7 +1680,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 8.58,
+          "latencia_mediana_ms": 8.02,
           "fallback": false
         },
         {
@@ -1727,7 +1746,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 8.5,
+          "latencia_mediana_ms": 7.86,
           "fallback": false
         },
         {
@@ -1788,7 +1807,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 8.37,
+          "latencia_mediana_ms": 8.02,
           "fallback": false
         },
         {
@@ -1854,7 +1873,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 8.18,
+          "latencia_mediana_ms": 7.34,
           "fallback": false
         },
         {
@@ -1920,7 +1939,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 6.86,
+          "latencia_mediana_ms": 6.62,
           "fallback": false
         },
         {
@@ -1986,7 +2005,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 9.1,
+          "latencia_mediana_ms": 8.65,
           "fallback": false
         },
         {
@@ -2047,7 +2066,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 8.22,
+          "latencia_mediana_ms": 7.79,
           "fallback": false
         },
         {
@@ -2102,7 +2121,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 5.6,
+          "latencia_mediana_ms": 5.35,
           "fallback": false
         },
         {
@@ -2157,7 +2176,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 6.38,
+          "latencia_mediana_ms": 5.96,
           "fallback": false
         },
         {
@@ -2212,7 +2231,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 5.24,
+          "latencia_mediana_ms": 5.29,
           "fallback": false
         },
         {
@@ -2267,7 +2286,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 7.28,
+          "latencia_mediana_ms": 7.1,
           "fallback": false
         },
         {
@@ -2322,7 +2341,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 6.44,
+          "latencia_mediana_ms": 5.63,
           "fallback": false
         },
         {
@@ -2377,7 +2396,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 7.08,
+          "latencia_mediana_ms": 6.61,
           "fallback": false
         }
       ]
@@ -2439,14 +2458,14 @@
         }
       },
       "latencia": {
-        "p50_ms": 16.72,
-        "p95_ms": 18.29,
-        "media_ms": 16.35,
-        "min_ms": 13.7,
-        "max_ms": 19.31,
-        "primera_consulta_ms": 18.18,
-        "carga_indice_s": 0.58,
-        "carga_modelo_s": 12.01,
+        "p50_ms": 16.63,
+        "p95_ms": 21.26,
+        "media_ms": 17.05,
+        "min_ms": 14.42,
+        "max_ms": 22.44,
+        "primera_consulta_ms": 19.77,
+        "carga_indice_s": 0.6,
+        "carga_modelo_s": 11.85,
         "repeticiones_por_pregunta": 3
       },
       "fallback": {
@@ -2519,7 +2538,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 19.31,
+          "latencia_mediana_ms": 21.26,
           "fallback": false
         },
         {
@@ -2585,7 +2604,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 18.02,
+          "latencia_mediana_ms": 17.98,
           "fallback": false
         },
         {
@@ -2651,7 +2670,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 15.92,
+          "latencia_mediana_ms": 16.63,
           "fallback": false
         },
         {
@@ -2717,7 +2736,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 17.46,
+          "latencia_mediana_ms": 16.89,
           "fallback": false
         },
         {
@@ -2783,7 +2802,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 18.29,
+          "latencia_mediana_ms": 19.03,
           "fallback": false
         },
         {
@@ -2849,7 +2868,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 18.06,
+          "latencia_mediana_ms": 19.37,
           "fallback": false
         },
         {
@@ -2915,7 +2934,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 16.69,
+          "latencia_mediana_ms": 18.22,
           "fallback": false
         },
         {
@@ -2981,7 +3000,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 17.1,
+          "latencia_mediana_ms": 20.14,
           "fallback": false
         },
         {
@@ -3047,7 +3066,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 17.56,
+          "latencia_mediana_ms": 17.84,
           "fallback": false
         },
         {
@@ -3113,7 +3132,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 16.97,
+          "latencia_mediana_ms": 18.07,
           "fallback": false
         },
         {
@@ -3179,7 +3198,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 16.99,
+          "latencia_mediana_ms": 16.69,
           "fallback": false
         },
         {
@@ -3245,7 +3264,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 17.24,
+          "latencia_mediana_ms": 15.4,
           "fallback": false
         },
         {
@@ -3306,7 +3325,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 16.98,
+          "latencia_mediana_ms": 16.58,
           "fallback": false
         },
         {
@@ -3372,7 +3391,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 16.22,
+          "latencia_mediana_ms": 16.05,
           "fallback": false
         },
         {
@@ -3438,7 +3457,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 17.34,
+          "latencia_mediana_ms": 17.06,
           "fallback": false
         },
         {
@@ -3504,7 +3523,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 16.22,
+          "latencia_mediana_ms": 15.69,
           "fallback": false
         },
         {
@@ -3565,7 +3584,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 15.21,
+          "latencia_mediana_ms": 14.73,
           "fallback": false
         },
         {
@@ -3631,7 +3650,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 15.05,
+          "latencia_mediana_ms": 14.55,
           "fallback": false
         },
         {
@@ -3692,7 +3711,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 14.25,
+          "latencia_mediana_ms": 14.42,
           "fallback": false
         },
         {
@@ -3758,7 +3777,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 14.86,
+          "latencia_mediana_ms": 14.93,
           "fallback": false
         },
         {
@@ -3824,7 +3843,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 14.27,
+          "latencia_mediana_ms": 16.14,
           "fallback": false
         },
         {
@@ -3890,7 +3909,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 14.57,
+          "latencia_mediana_ms": 14.84,
           "fallback": false
         },
         {
@@ -3956,7 +3975,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 16.73,
+          "latencia_mediana_ms": 17.57,
           "fallback": false
         },
         {
@@ -4017,7 +4036,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 15.95,
+          "latencia_mediana_ms": 18.55,
           "fallback": false
         },
         {
@@ -4083,7 +4102,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 14.97,
+          "latencia_mediana_ms": 14.53,
           "fallback": false
         },
         {
@@ -4144,7 +4163,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 17.35,
+          "latencia_mediana_ms": 16.32,
           "fallback": false
         },
         {
@@ -4210,7 +4229,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 17.21,
+          "latencia_mediana_ms": 16.1,
           "fallback": false
         },
         {
@@ -4276,7 +4295,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 16.72,
+          "latencia_mediana_ms": 17.13,
           "fallback": false
         },
         {
@@ -4342,7 +4361,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 17.26,
+          "latencia_mediana_ms": 20.46,
           "fallback": false
         },
         {
@@ -4403,7 +4422,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 17.08,
+          "latencia_mediana_ms": 17.33,
           "fallback": false
         },
         {
@@ -4458,7 +4477,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 14.28,
+          "latencia_mediana_ms": 14.9,
           "fallback": false
         },
         {
@@ -4513,7 +4532,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 14.46,
+          "latencia_mediana_ms": 15.84,
           "fallback": false
         },
         {
@@ -4568,7 +4587,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 15.04,
+          "latencia_mediana_ms": 22.44,
           "fallback": false
         },
         {
@@ -4623,7 +4642,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 15.7,
+          "latencia_mediana_ms": 15.86,
           "fallback": false
         },
         {
@@ -4678,7 +4697,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 13.7,
+          "latencia_mediana_ms": 15.15,
           "fallback": false
         },
         {
@@ -4733,7 +4752,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 17.5,
+          "latencia_mediana_ms": 18.95,
           "fallback": false
         }
       ]
@@ -4795,12 +4814,12 @@
         }
       },
       "latencia": {
-        "p50_ms": 26.19,
-        "p95_ms": 33.48,
-        "media_ms": 26.69,
-        "min_ms": 21.04,
-        "max_ms": 37.39,
-        "primera_consulta_ms": 28.84,
+        "p50_ms": 25.79,
+        "p95_ms": 36.54,
+        "media_ms": 27.14,
+        "min_ms": 20.95,
+        "max_ms": 37.1,
+        "primera_consulta_ms": 29.25,
         "carga_indice_s": 0.0,
         "carga_modelo_s": 0.0,
         "repeticiones_por_pregunta": 3
@@ -4875,7 +4894,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 37.39,
+          "latencia_mediana_ms": 33.83,
           "fallback": false
         },
         {
@@ -4941,7 +4960,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 31.42,
+          "latencia_mediana_ms": 34.8,
           "fallback": false
         },
         {
@@ -5007,7 +5026,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 23.88,
+          "latencia_mediana_ms": 26.79,
           "fallback": false
         },
         {
@@ -5073,7 +5092,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 29.86,
+          "latencia_mediana_ms": 33.54,
           "fallback": false
         },
         {
@@ -5139,7 +5158,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 31.85,
+          "latencia_mediana_ms": 33.07,
           "fallback": false
         },
         {
@@ -5205,7 +5224,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 33.48,
+          "latencia_mediana_ms": 36.54,
           "fallback": false
         },
         {
@@ -5271,7 +5290,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 28.47,
+          "latencia_mediana_ms": 31.21,
           "fallback": false
         },
         {
@@ -5337,7 +5356,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 33.47,
+          "latencia_mediana_ms": 32.56,
           "fallback": false
         },
         {
@@ -5403,7 +5422,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 24.85,
+          "latencia_mediana_ms": 26.42,
           "fallback": false
         },
         {
@@ -5469,7 +5488,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 23.88,
+          "latencia_mediana_ms": 22.64,
           "fallback": false
         },
         {
@@ -5535,7 +5554,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 28.49,
+          "latencia_mediana_ms": 26.61,
           "fallback": false
         },
         {
@@ -5601,7 +5620,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 27.83,
+          "latencia_mediana_ms": 23.09,
           "fallback": false
         },
         {
@@ -5662,7 +5681,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 27.8,
+          "latencia_mediana_ms": 25.06,
           "fallback": false
         },
         {
@@ -5728,7 +5747,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 25.05,
+          "latencia_mediana_ms": 22.86,
           "fallback": false
         },
         {
@@ -5794,7 +5813,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 27.5,
+          "latencia_mediana_ms": 26.53,
           "fallback": false
         },
         {
@@ -5860,7 +5879,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 26.19,
+          "latencia_mediana_ms": 23.52,
           "fallback": false
         },
         {
@@ -5921,7 +5940,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 23.99,
+          "latencia_mediana_ms": 22.78,
           "fallback": false
         },
         {
@@ -5987,7 +6006,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 24.63,
+          "latencia_mediana_ms": 25.02,
           "fallback": false
         },
         {
@@ -6048,7 +6067,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 25.45,
+          "latencia_mediana_ms": 25.4,
           "fallback": false
         },
         {
@@ -6114,7 +6133,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 24.66,
+          "latencia_mediana_ms": 25.77,
           "fallback": false
         },
         {
@@ -6180,7 +6199,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 24.54,
+          "latencia_mediana_ms": 25.26,
           "fallback": false
         },
         {
@@ -6246,7 +6265,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 22.85,
+          "latencia_mediana_ms": 23.89,
           "fallback": false
         },
         {
@@ -6312,7 +6331,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 26.75,
+          "latencia_mediana_ms": 27.07,
           "fallback": false
         },
         {
@@ -6373,7 +6392,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 26.56,
+          "latencia_mediana_ms": 25.59,
           "fallback": false
         },
         {
@@ -6439,7 +6458,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 26.7,
+          "latencia_mediana_ms": 28.37,
           "fallback": false
         },
         {
@@ -6500,7 +6519,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 27.24,
+          "latencia_mediana_ms": 28.56,
           "fallback": false
         },
         {
@@ -6566,7 +6585,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 26.34,
+          "latencia_mediana_ms": 37.1,
           "fallback": false
         },
         {
@@ -6632,7 +6651,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 24.39,
+          "latencia_mediana_ms": 27.13,
           "fallback": false
         },
         {
@@ -6698,7 +6717,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 2
           },
-          "latencia_mediana_ms": 28.79,
+          "latencia_mediana_ms": 29.79,
           "fallback": false
         },
         {
@@ -6759,7 +6778,7 @@
             "doc_hit3": 1.0,
             "n_relevantes": 1
           },
-          "latencia_mediana_ms": 26.81,
+          "latencia_mediana_ms": 27.43,
           "fallback": false
         },
         {
@@ -6814,7 +6833,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 21.04,
+          "latencia_mediana_ms": 20.95,
           "fallback": false
         },
         {
@@ -6869,7 +6888,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 23.35,
+          "latencia_mediana_ms": 22.88,
           "fallback": false
         },
         {
@@ -6924,7 +6943,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 23.76,
+          "latencia_mediana_ms": 23.41,
           "fallback": false
         },
         {
@@ -6979,7 +6998,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 25.12,
+          "latencia_mediana_ms": 25.79,
           "fallback": false
         },
         {
@@ -7034,7 +7053,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 22.12,
+          "latencia_mediana_ms": 21.86,
           "fallback": false
         },
         {
@@ -7089,7 +7108,7 @@
             "doc_hit3": 0.0,
             "n_relevantes": 0
           },
-          "latencia_mediana_ms": 24.45,
+          "latencia_mediana_ms": 24.09,
           "fallback": false
         }
       ]
@@ -7102,7 +7121,7 @@
       "r3_rel": 0.22222222222222218,
       "mrr_rel": -0.11764705882352956,
       "ndcg_rel": 0.06786872659769205,
-      "latencia_p95_delta_ms": 18.879999999999995
+      "latencia_p95_delta_ms": 22.56
     },
     "embedding_vs_fulltext": {
       "p1_rel": -0.75,
@@ -7110,7 +7129,7 @@
       "r3_rel": -0.4444444444444445,
       "mrr_rel": -0.5882352941176471,
       "ndcg_rel": -0.5195718385418564,
-      "latencia_p95_delta_ms": 3.6899999999999995
+      "latencia_p95_delta_ms": 7.280000000000001
     }
   },
   "mejor": {
@@ -7124,7 +7143,7 @@
   "recomendacion": {
     "modo": "fulltext",
     "motivos": [
-      "hybrid mejora P@3 12.5% y R@3 22.2% en términos relativos, pero no cumple todas las condiciones: P@1 cae 25.0%, p95 sube 19 ms, fallback 0.0%.",
+      "hybrid mejora P@3 12.5% y R@3 22.2% en términos relativos, pero no cumple todas las condiciones: P@1 cae 25.0%, p95 sube 23 ms, fallback 0.0%.",
       "embedding no supera a fulltext en P@3 y R@3.",
       "embedding reduce P@1 en término exacto de 0.250 a 0.125.",
       "Se recomienda mantener FULLTEXT como modo oficial."
