@@ -582,3 +582,43 @@ preguntas frecuentes, catálogos, rutas de atención, SECNSP y comparaciones.
 
 > El README del **frontend** (cómo se ejecuta y cómo usa estos endpoints) se
 > encuentra en su propio repositorio.
+
+---
+
+## 15. Rama experimental: recuperación híbrida
+
+La versión oficial sigue usando `FULLTEXT`. La rama
+`experimento/recuperacion-hibrida` agrega, sin cambiar el comportamiento
+oficial, tres modos de recuperación del corpus documental:
+
+| Modo | Descripción |
+|---|---|
+| `fulltext` | `MATCH ... AGAINST` de MySQL (oficial) |
+| `embedding` | similitud vectorial con `sentence-transformers` |
+| `hybrid` | Reciprocal Rank Fusion de ambos rankings |
+
+El modo se elige con `MHUB_CORPUS_MODE` (`fulltext` por defecto). Si el modelo
+o el índice fallan, la búsqueda cae automáticamente a `fulltext`.
+
+```powershell
+# 1. Migración aditiva
+cd sql
+python run_sql.py 08_embeddings.sql --database HUBDATOS
+
+# 2. Generar y verificar los 3,170 embeddings
+cd ..\ingestion\embeddings
+python generar_embeddings.py
+python verificar_embeddings.py
+
+# 3. Evaluar los tres modos
+cd ..\..\tests
+python run_corpus.py --modo all --topk 3
+```
+
+Resultados y recomendación técnica:
+`reports/recuperacion_comparacion.md`.
+Detalle por pregunta: `reports/recuperacion_resultados.json`.
+
+Las variables nuevas están documentadas en `backend/.env.example`:
+`MHUB_CORPUS_MODE`, `MHUB_EMBEDDING_MODEL`, `MHUB_EMBEDDING_BATCH`,
+`MHUB_CORPUS_TOP_K` y `MHUB_HYBRID_K`.
