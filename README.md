@@ -678,11 +678,12 @@ MHUB_V2_MODE=hybrid
 | Modo | P@1 | P@3 | R@3 | MRR | nDCG@3 | p95 |
 |---|---:|---:|---:|---:|---:|---:|
 | FULLTEXT v1 (oficial) | 0.133 | 0.089 | 0.150 | 0.189 | 0.134 | 14.0 ms |
-| hybrid v2 | **0.267** | **0.167** | **0.250** | **0.344** | **0.248** | 80.0 ms |
+| hybrid v2 | **0.267** | **0.178** | **0.267** | **0.344** | **0.261** | 83.4 ms |
 
-La v2 mejora P@1 +100%, P@3 +87.5% y R@3 +66.7% en términos relativos,
-con un aumento de ~66 ms en p95. El reranker no mejora a `hybrid` y añade
-~0.5 s, por eso queda como modo opcional.
+La v2 mejora P@1 +100%, P@3 +100%, R@3 +77.8% y nDCG@3 +94.4% en términos
+relativos, con un aumento de ~69 ms en p95. El acierto de documento en el
+top-3 (DocHit@3) sube de 0.600 a 0.900. El reranker no mejora a `hybrid` y
+añade ~0.5 s, por eso queda como modo opcional.
 
 Reporte completo: `reports/recuperacion_comparacion_v2.md`.
 Detalle por pregunta: `reports/recuperacion_resultados_v2.json`.
