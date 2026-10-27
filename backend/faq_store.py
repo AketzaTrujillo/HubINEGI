@@ -82,15 +82,16 @@ def buscar_semantica(texto, umbral=0.62):
     return None
 
 
-def buscar_corpus(texto, limite=3):
-    n = normalizar(texto)
-    if len(n) < 4:
-        return []
+def _buscar_corpus_fulltext(texto, limite=3):
+    """Consulta FULLTEXT original, usada como respaldo si corpus_search falla."""
     try:
-        return ejecutar_select(
+        filas = ejecutar_select(
             """
             SELECT
+              f.id_fragmento,
+              f.id_documento,
               f.texto,
+              f.pagina,
               d.nombre AS documento,
               fu.nombre AS fuente,
               MATCH(f.texto) AGAINST (%s IN NATURAL LANGUAGE MODE) AS score
@@ -105,9 +106,28 @@ def buscar_corpus(texto, limite=3):
             database="HUBDATOS",
             params=(texto, texto, limite),
         )
+        for rank, fila in enumerate(filas, 1):
+            fila["score"] = float(fila["score"])
+            fila["modo"] = "fulltext"
+            fila["rank"] = rank
+            fila["fallback"] = False
+        return filas
     except Exception as error:
         print(f"[faq_store] corpus no disponible: {error}")
         return []
+
+
+def buscar_corpus(texto, limite=None, modo=None):
+    """Delega en corpus_search y conserva FULLTEXT como respaldo."""
+    n = normalizar(texto)
+    if len(n) < 4:
+        return []
+    try:
+        import corpus_search
+        return corpus_search.buscar_corpus(texto, limite=limite, modo=modo)
+    except Exception as error:
+        print(f"[faq_store] corpus_search no disponible ({error}); uso FULLTEXT")
+        return _buscar_corpus_fulltext(texto, limite=limite or 3)
 
 
 def cargar_glosario():

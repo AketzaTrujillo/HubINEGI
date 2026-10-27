@@ -121,7 +121,7 @@ Reglas:
 - Puedes usar Markdown (negritas, listas) para organizar los pasos."""
 
 
-def generar_respuesta_rutas(pregunta, contexto):
+def generar_respuesta_rutas(pregunta, contexto, devolver_fragmentos=False):
     consulta = (
         f"{pregunta} violencia denuncia ayuda Centro de Justicia para las Mujeres "
         "refugio 911 Ministerio Publico asesoria juridica"
@@ -129,7 +129,7 @@ def generar_respuesta_rutas(pregunta, contexto):
     fragmentos = faq_store.buscar_corpus(consulta, limite=4)
 
     if not fragmentos:
-        return RESPUESTA_RUTAS
+        return (RESPUESTA_RUTAS, []) if devolver_fragmentos else RESPUESTA_RUTAS
 
     contexto_txt = "\n\n".join(
         f"[{f.get('documento')}]\n{str(f.get('texto'))[:900]}"
@@ -144,7 +144,9 @@ Fragmentos de documentos oficiales:
 
 Redacta la respuesta de ayuda."""
 
-    return preguntar_ollama(prompt, system=PROMPT_RUTAS).strip()
+    respuesta = preguntar_ollama(prompt, system=PROMPT_RUTAS).strip()
+    return (respuesta, fragmentos) if devolver_fragmentos else respuesta
+
 
 SALUDOS_RAPIDOS = [
     "hola", "buenos dias", "buenas tardes", "buenas noches", "hey",
@@ -262,11 +264,32 @@ def revisar_sql(pregunta, sql):
     return None
 
 
-def _respuesta_fija(texto, contexto):
+def _fuentes_de_fragmentos(fragmentos):
+    """Resume documento, página y fuente de los fragmentos recuperados."""
+    salida = []
+    vistos = set()
+    for fragmento in fragmentos or []:
+        documento = fragmento.get("documento")
+        if not documento:
+            continue
+        clave = (documento, fragmento.get("pagina"), fragmento.get("fuente"))
+        if clave in vistos:
+            continue
+        vistos.add(clave)
+        salida.append({
+            "documento": documento,
+            "pagina": fragmento.get("pagina"),
+            "fuente": fragmento.get("fuente"),
+        })
+    return salida[:5]
+
+
+def _respuesta_fija(texto, contexto, fuentes=None):
     return {
         "respuesta": texto,
         "sql": None,
         "resultados": [],
+        "fuentes": fuentes or [],
         "contexto": contexto,
     }
 
@@ -295,8 +318,9 @@ def _registrar_turno(pregunta, spec, n_resultados):
         pass
 
 
-def _respuesta_con_contexto(texto, pregunta, contexto, sql=None, resultados=None, spec=None, nota=None, tema=None, grafica=None):
+def _respuesta_con_contexto(texto, pregunta, contexto, sql=None, resultados=None, spec=None, nota=None, tema=None, grafica=None, fuentes=None):
     resultados = resultados or []
+    fuentes = fuentes if fuentes is not None else (contexto or {}).get("fuentes") or []
     _registrar_turno(pregunta, spec, len(resultados))
     historial = list((contexto or {}).get("historial") or [])
     historial.append({"pregunta": pregunta, "respuesta": texto, "spec": spec})
@@ -309,12 +333,14 @@ def _respuesta_con_contexto(texto, pregunta, contexto, sql=None, resultados=None
         "spec": spec if spec is not None else (contexto or {}).get("spec"),
         "nota": nota if nota is not None else (contexto or {}).get("nota"),
         "tema": tema if tema is not None else (contexto or {}).get("tema"),
+        "fuentes": fuentes,
         "historial": historial[-6:],
     }
     return {
         "respuesta": texto,
         "sql": sql,
         "resultados": resultados,
+        "fuentes": fuentes,
         "contexto": nuevo_contexto,
         "grafica": grafica,
     }
@@ -1321,8 +1347,13 @@ def responder(pregunta, contexto=None):
 
     # 3a. Rutas de atención institucional
     if tipo == "RUTAS":
-        respuesta = generar_respuesta_rutas(pregunta, contexto)
-        return _respuesta_con_contexto(respuesta, pregunta, contexto)
+        respuesta, fragmentos = generar_respuesta_rutas(
+            pregunta, contexto, devolver_fragmentos=True
+        )
+        return _respuesta_con_contexto(
+            respuesta, pregunta, contexto,
+            fuentes=_fuentes_de_fragmentos(fragmentos),
+        )
 
     # 3c. Ayuda dinámica (o cobertura si menciona entidad/fuente)
     if tipo == "AYUDA":
@@ -1349,7 +1380,10 @@ def responder(pregunta, contexto=None):
     # 5. FAQ desde el corpus documental
     if tipo == "FAQ_CORPUS" and ruta.get("fragmentos"):
         respuesta = generar_respuesta_corpus(pregunta, ruta["fragmentos"])
-        return _respuesta_con_contexto(respuesta, pregunta, contexto)
+        return _respuesta_con_contexto(
+            respuesta, pregunta, contexto,
+            fuentes=_fuentes_de_fragmentos(ruta["fragmentos"]),
+        )
 
     # 5d. Incidencia delictiva / llamadas 911 (SESNSP)
     sesnsp = _resolver_sesnsp(pregunta, contexto)
@@ -1401,8 +1435,13 @@ def responder(pregunta, contexto=None):
                 tema={"tema": "catalogo", "recurso": recurso},
             )
         if ti == "rutas":
-            respuesta = generar_respuesta_rutas(pregunta, contexto)
-            return _respuesta_con_contexto(respuesta, pregunta, contexto)
+            respuesta, fragmentos = generar_respuesta_rutas(
+                pregunta, contexto, devolver_fragmentos=True
+            )
+            return _respuesta_con_contexto(
+                respuesta, pregunta, contexto,
+                fuentes=_fuentes_de_fragmentos(fragmentos),
+            )
         if ti == "fuera_de_tema":
             return _respuesta_fija(RESPUESTA_FUERA_TEMA, contexto)
         if ti == "no_soportado":
