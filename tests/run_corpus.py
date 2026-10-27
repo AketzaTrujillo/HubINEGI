@@ -517,6 +517,14 @@ def bloque_diferencias(modos):
     ])
 
 
+def datos_embeddings():
+    ruta = os.path.join(REPORTS, "embeddings_verificacion.json")
+    if not os.path.exists(ruta):
+        return None
+    with open(ruta, encoding="utf-8") as archivo:
+        return json.load(archivo)
+
+
 def bloque_regresion():
     ruta = os.path.join(REPORTS, "regresion_resultados.json")
     if not os.path.exists(ruta):
@@ -540,6 +548,7 @@ def escribir_markdown(datos, ruta):
     cfg = datos["config"]
     comp = datos["comparacion"]
     rec = datos["recomendacion"]
+    emb = datos.get("embeddings")
 
     lineas = [
         "# Comparación de recuperación: FULLTEXT, embeddings e híbrida",
@@ -567,12 +576,26 @@ def escribir_markdown(datos, ruta):
         f"- **Menor latencia p95:** `{datos['mejor']['latencia']}`.",
         f"- **Recomendación técnica:** `{rec['modo']}`. {rec['motivos'][0]}",
         "",
+        (
+            f"**Embeddings:** {emb['embeddings_no_nulos']} de {emb['total_fragmentos']} "
+            f"fragmentos verificados, {emb['dimensiones']} dimensiones, "
+            f"{emb['dimensiones_incorrectas']} dimensiones incorrectas y "
+            f"{emb['hashes_desactualizados']} hashes desactualizados."
+            if emb else
+            "**Embeddings:** pendiente de verificar."
+        ),
+        "",
         "## 2. Configuración",
         "",
         "| Parámetro | Valor |",
         "|---|---|",
         f"| Modelo de embeddings | `{cfg['modelo']}` |",
         f"| Dimensiones | {cfg['dimensiones']} |",
+        (
+            f"| Embeddings verificados | {emb['embeddings_no_nulos']} / "
+            f"{emb['total_fragmentos']} (0 nulos, 0 hashes desactualizados) |"
+            if emb else "| Embeddings verificados | pendiente |"
+        ),
         f"| Top-k | {cfg['topk']} |",
         f"| Repeticiones por pregunta | {cfg['reps']} |",
         f"| Python | {cfg['python']} |",
@@ -814,6 +837,7 @@ def main():
                 for categoria in CATEGORIAS + ["fuera_de_alcance"]
             },
         },
+        "embeddings": datos_embeddings(),
         "modos": modos,
         "comparacion": comparacion,
         "mejor": {
