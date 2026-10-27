@@ -624,3 +624,66 @@ Detalle por pregunta: `reports/recuperacion_resultados.json`.
 Las variables nuevas están documentadas en `backend/.env.example`:
 `MHUB_CORPUS_MODE`, `MHUB_EMBEDDING_MODEL`, `MHUB_EMBEDDING_BATCH`,
 `MHUB_CORPUS_TOP_K` y `MHUB_HYBRID_K`.
+
+---
+
+## 16. Recuperación v2 (experimental, sobre la misma rama)
+
+La v1 midió el plan original. La v2 corrige su principal cuello de botella:
+los fragmentos v1 eran páginas completas (~271 tokens de mediana) y el modelo
+MiniLM solo veía 128 tokens, así que truncaba el 80.9% de los fragmentos.
+
+La v2 convive con la v1 en la misma rama y no borra nada:
+
+| Cambio | v1 | v2 |
+|---|---|---|
+| Fragmentos | páginas completas | chunks de ~350 tokens con 50 de solapamiento |
+| Ruido | encabezados, pies, índices | se eliminan portadas, créditos, índices y líneas repetidas |
+| Embeddings | MiniLM 128 tokens | `intfloat/multilingual-e5-small` (512 tokens, 384 dims) |
+| Búsqueda léxica | `MATCH ... AGAINST` | BM25 en memoria con stemming español |
+| Siglas | sin expansión | expansión de CJM, BANAVIM, SESNSP, CONAVIM, AVGM, PAIMEF, etc. |
+| Fusión | RRF sin pesos | RRF con peso léxico 2.0 / semántico 1.0 |
+| Resultado | fragmentos | máximo un chunk por página |
+| Reranker | no | cross-encoder opcional (`hybrid_rerank`) |
+
+### Cómo construir y evaluar la v2
+
+```powershell
+cd sql
+python run_sql.py 09_corpus_v2.sql --database HUBDATOS
+
+cd ..\ingestion\v2
+python rechunk_corpus.py
+python generar_embeddings_v2.py
+python verificar_v2.py
+
+cd ..\..\tests
+python run_corpus_v2.py --topk 3
+```
+
+### Cómo activarla
+
+La versión oficial sigue siendo `FULLTEXT` y la v1. Para usar la v2 en la API:
+
+```env
+MHUB_CORPUS_VERSION=v2
+MHUB_V2_MODE=hybrid
+```
+
+`MHUB_V2_MODE` acepta `fulltext`, `bm25`, `embedding`, `hybrid` y
+`hybrid_rerank`. El modo recomendado es `hybrid` (sin reranker).
+
+### Resultados
+
+| Modo | P@1 | P@3 | R@3 | MRR | nDCG@3 | p95 |
+|---|---:|---:|---:|---:|---:|---:|
+| FULLTEXT v1 (oficial) | 0.133 | 0.089 | 0.150 | 0.189 | 0.134 | 14.0 ms |
+| hybrid v2 | **0.267** | **0.167** | **0.250** | **0.344** | **0.248** | 80.0 ms |
+
+La v2 mejora P@1 +100%, P@3 +87.5% y R@3 +66.7% en términos relativos,
+con un aumento de ~66 ms en p95. El reranker no mejora a `hybrid` y añade
+~0.5 s, por eso queda como modo opcional.
+
+Reporte completo: `reports/recuperacion_comparacion_v2.md`.
+Detalle por pregunta: `reports/recuperacion_resultados_v2.json`.
+Verificación de embeddings: `reports/embeddings_verificacion_v2.json`.
