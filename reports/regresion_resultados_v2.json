@@ -1,0 +1,23 @@
+{
+  "generado": "2026-10-27 17:15:00",
+  "pruebas": [
+    {
+      "nombre": "run_golden.py (v2)",
+      "ok": 31,
+      "total": 31,
+      "entorno": "MHUB_CORPUS_VERSION=v2, MHUB_V2_MODE=hybrid, sin LLM"
+    },
+    {
+      "nombre": "run_conversacion.py (v2)",
+      "ok": 11,
+      "total": 11,
+      "entorno": "MHUB_CORPUS_VERSION=v2, MHUB_V2_MODE=hybrid, sin LLM"
+    },
+    {
+      "nombre": "run_interprete.py (v2)",
+      "ok": 14,
+      "total": 14,
+      "entorno": "Ollama local, qwen2.5:7b, MHUB_CORPUS_VERSION=v2"
+    }
+  ]
+}
