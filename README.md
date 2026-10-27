@@ -566,9 +566,11 @@ preguntas frecuentes, catálogos, rutas de atención, SECNSP y comparaciones.
 
 ## 14. Decisiones de diseño
 
-- **No se usa RAG vectorial.** Los datos son tabulares y numéricos; para responder
-  "el valor más alto" o "el promedio" se necesita **SQL con agregaciones**, no
-  similitud semántica.
+- **No se usa RAG vectorial para los indicadores.** Los datos son tabulares y
+  numéricos; para responder "el valor más alto" o "el promedio" se necesita
+  **SQL con agregaciones**, no similitud semántica. El corpus documental tiene
+  una rama experimental de recuperación híbrida (§15); la versión oficial sigue
+  usando `FULLTEXT`.
 - **El LLM no escribe SQL.** Solo elige la intención y los parámetros; el
   `sql_builder` construye el SQL. Así se evita inventar datos y la inyección.
 - **Anti-invención**: toda cifra sale de la base o del corpus; siempre se cita la fuente.

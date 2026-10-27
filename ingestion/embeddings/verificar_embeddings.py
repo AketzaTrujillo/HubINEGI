@@ -109,17 +109,11 @@ def main():
               f"{min(normas):.6f} / {sum(normas) / len(normas):.6f} / {max(normas):.6f}")
 
     # Muestra de similitud: dos fragmentos del mismo documento y uno ajeno.
-    muestra = None
-    por_documento = {}
-    for fila in filas:
-        if fila["id_fragmento"] in vectores:
-            por_documento.setdefault(fila["id_fragmento"] // 1000, []).append(fila["id_fragmento"])
     ids = sorted(vectores)
     if len(ids) >= 3:
         a, b, c = ids[100], ids[101], ids[-1]
         sim_rel = float(np.dot(vectores[a], vectores[b]))
         sim_ajena = float(np.dot(vectores[a], vectores[c]))
-        muestra = (a, b, c, sim_rel, sim_ajena)
         print("\nMuestra de similitud (producto punto, vectores normalizados):")
         print(f"  fragmento {a} vs {b} (contiguos) : {sim_rel:.4f}")
         print(f"  fragmento {a} vs {c} (distante) : {sim_ajena:.4f}")
