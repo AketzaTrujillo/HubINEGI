@@ -34,6 +34,18 @@ OPCIONES = {
 }
 
 
+def set_proveedor(valor):
+    """Cambia el proveedor en caliente (solo para el selector de pruebas)."""
+    global PROVEEDOR, PROVEEDOR_INTERPRETE
+    valor = (valor or "").strip().lower()
+    if valor not in ("local", "opencode"):
+        raise ValueError("Proveedor no válido: usa 'local' u 'opencode'.")
+    PROVEEDOR = valor
+    PROVEEDOR_INTERPRETE = ""
+    os.environ["MHUB_LLM_PROVIDER"] = valor
+    os.environ.pop("MHUB_LLM_PROVIDER_INTERPRETE", None)
+
+
 def proveedor_para(tarea=None):
     if tarea in ("interprete", "agente") and PROVEEDOR_INTERPRETE:
         return PROVEEDOR_INTERPRETE

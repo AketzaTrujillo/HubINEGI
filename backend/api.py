@@ -1,13 +1,14 @@
 import os
 from typing import Any, Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from database import ejecutar_select
 from consulta_mhub import responder
 from panel import filtros as panel_filtros, construir as panel_construir
+import ollama_service
 
 
 app = FastAPI(title="MHub API", version="0.1.0")
@@ -55,6 +56,54 @@ class PanelEntrada(BaseModel):
     delito: Optional[str] = None
 
 
+class ConfigExperimentoEntrada(BaseModel):
+    recuperacion: Optional[str] = None
+    llm: Optional[str] = None
+
+
+CONFIG_RECUPERACION = {
+    "v1_fulltext": ("v1", "fulltext"),
+    "v1_hybrid": ("v1", "hybrid"),
+    "v1_embedding": ("v1", "embedding"),
+    "v2_hybrid": ("v2", "hybrid"),
+    "v2_bm25": ("v2", "bm25"),
+    "v2_embedding": ("v2", "embedding"),
+    "v2_rerank": ("v2", "hybrid_rerank"),
+}
+
+
+def _clave_recuperacion(version, modo):
+    version = (version or "v1").strip().lower()
+    modo = (modo or "fulltext").strip().lower()
+    if version == "v2":
+        return {
+            "hybrid": "v2_hybrid",
+            "bm25": "v2_bm25",
+            "embedding": "v2_embedding",
+            "hybrid_rerank": "v2_rerank",
+        }.get(modo, "v2_hybrid")
+    return {
+        "fulltext": "v1_fulltext",
+        "hybrid": "v1_hybrid",
+        "embedding": "v1_embedding",
+    }.get(modo, "v1_fulltext")
+
+
+def _config_experimento_actual():
+    version = (os.environ.get("MHUB_CORPUS_VERSION") or "v1").strip().lower()
+    if version == "v2":
+        modo = (os.environ.get("MHUB_V2_MODE") or "hybrid").strip().lower()
+    else:
+        modo = (os.environ.get("MHUB_CORPUS_MODE") or "fulltext").strip().lower()
+    return {
+        "recuperacion": _clave_recuperacion(version, modo),
+        "version": version,
+        "modo": modo,
+        "llm": ollama_service.proveedor_actual("respuesta"),
+        "ollama_model": os.environ.get("OLLAMA_MODEL", "qwen2.5:7b"),
+    }
+
+
 @app.get("/salud")
 def salud():
     return {"estado": "ok", "servicio": "MHub API"}
@@ -76,6 +125,59 @@ def corpus_estado():
         }
     except Exception as error:
         raise HTTPException(status_code=503, detail=str(error))
+
+
+@app.get("/config/experimento")
+def config_experimento():
+    """Configuración de prueba actual (recuperación y proveedor de LLM)."""
+    return _config_experimento_actual()
+
+
+@app.post("/config/experimento")
+def cambiar_config_experimento(entrada: ConfigExperimentoEntrada, request: Request):
+    """Cambia recuperación/LLM en caliente. Solo para pruebas locales."""
+    host = (request.client.host if request.client else "") or ""
+    if host not in ("127.0.0.1", "::1", "localhost", "testclient"):
+        raise HTTPException(status_code=403, detail="Solo disponible en localhost.")
+
+    if entrada.recuperacion and entrada.recuperacion not in CONFIG_RECUPERACION:
+        raise HTTPException(status_code=400, detail="Modo de recuperación no válido.")
+    if entrada.llm and entrada.llm not in ("local", "opencode"):
+        raise HTTPException(status_code=400, detail="Proveedor de LLM no válido.")
+
+    anterior = _config_experimento_actual()
+    try:
+        if entrada.recuperacion:
+            version, modo = CONFIG_RECUPERACION[entrada.recuperacion]
+            os.environ["MHUB_CORPUS_VERSION"] = version
+            if version == "v2":
+                os.environ["MHUB_V2_MODE"] = modo
+                import corpus_search_v2
+                if modo == "bm25":
+                    corpus_search_v2.cargar_bm25()
+                elif modo == "embedding":
+                    corpus_search_v2.cargar_indice_v2()
+                    corpus_search_v2.cargar_modelo_v2()
+                else:
+                    corpus_search_v2.precargar()
+                    if modo == "hybrid_rerank":
+                        corpus_search_v2.cargar_reranker()
+            else:
+                os.environ["MHUB_CORPUS_MODE"] = modo
+
+        if entrada.llm:
+            ollama_service.set_proveedor(entrada.llm)
+    except Exception as error:
+        # Revertir la configuración anterior si la precarga falla.
+        os.environ["MHUB_CORPUS_VERSION"] = anterior["version"]
+        if anterior["version"] == "v2":
+            os.environ["MHUB_V2_MODE"] = anterior["modo"]
+        else:
+            os.environ["MHUB_CORPUS_MODE"] = anterior["modo"]
+        ollama_service.set_proveedor(anterior["llm"])
+        raise HTTPException(status_code=503, detail=f"No se pudo aplicar: {error}")
+
+    return {"ok": True, **_config_experimento_actual()}
 
 
 @app.get("/estado")
