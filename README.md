@@ -688,14 +688,15 @@ modelo de embeddings y el reranker si está cargado. Además, cada elemento de
 En la parte inferior del chat hay un enlace discreto **⚙ Pruebas**. Abre un
 panel pequeño para cambiar, sin editar el `.env`:
 
-- recuperación: v1 FULLTEXT, v1 híbrida, v2 híbrida, v2 BM25, v2 embeddings o
-  v2 con reranker;
+- recuperación: `FULLTEXT` (oficial) o `Híbrida v2` (nueva);
 - LLM: OpenCode (nube) u Ollama local.
 
-El cambio se aplica en caliente con `POST /config/experimento` y solo está
-disponible desde `localhost`. Es una herramienta temporal de pruebas; la
-versión oficial sigue siendo `FULLTEXT` y el selector se puede quitar sin
-tocar el resto del chat.
+Los modos de ablación (`v1 híbrida`, `v2 BM25`, `v2 embeddings`, `v2 reranker`)
+siguen disponibles por API y en la evaluación, pero ya no aparecen en el
+selector del chat. El cambio se aplica en caliente con
+`POST /config/experimento` y solo está disponible desde `localhost`. Es una
+herramienta temporal de pruebas; la versión oficial sigue siendo `FULLTEXT` y
+el selector se puede quitar sin tocar el resto del chat.
 
 ### Resultados
 
@@ -712,3 +713,6 @@ añade ~0.5 s, por eso queda como modo opcional.
 Reporte completo: `reports/recuperacion_comparacion_v2.md`.
 Detalle por pregunta: `reports/recuperacion_resultados_v2.json`.
 Verificación de embeddings: `reports/embeddings_verificacion_v2.json`.
+
+Guía detallada para entender y decidir:
+`docs/experimentos/COMPARACION_FULLTEXT_VS_HIBRIDA.md`.
