@@ -673,6 +673,16 @@ MHUB_V2_MODE=hybrid
 `MHUB_V2_MODE` acepta `fulltext`, `bm25`, `embedding`, `hybrid` y
 `hybrid_rerank`. El modo recomendado es `hybrid` (sin reranker).
 
+Para comprobar qué versión y modo están activos:
+
+```powershell
+Invoke-RestMethod http://localhost:8000/corpus/estado
+```
+
+La respuesta incluye `version`, `modo_por_defecto`, el estado de BM25, el
+modelo de embeddings y el reranker si está cargado. Además, cada elemento de
+`fuentes` en `/consulta` incluye `modo`, `version` y `fallback`.
+
 ### Resultados
 
 | Modo | P@1 | P@3 | R@3 | MRR | nDCG@3 | p95 |
