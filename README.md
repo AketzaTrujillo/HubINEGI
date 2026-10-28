@@ -683,6 +683,20 @@ La respuesta incluye `version`, `modo_por_defecto`, el estado de BM25, el
 modelo de embeddings y el reranker si está cargado. Además, cada elemento de
 `fuentes` en `/consulta` incluye `modo`, `version` y `fallback`.
 
+### Selector temporal en el chat
+
+En la parte inferior del chat hay un enlace discreto **⚙ Pruebas**. Abre un
+panel pequeño para cambiar, sin editar el `.env`:
+
+- recuperación: v1 FULLTEXT, v1 híbrida, v2 híbrida, v2 BM25, v2 embeddings o
+  v2 con reranker;
+- LLM: OpenCode (nube) u Ollama local.
+
+El cambio se aplica en caliente con `POST /config/experimento` y solo está
+disponible desde `localhost`. Es una herramienta temporal de pruebas; la
+versión oficial sigue siendo `FULLTEXT` y el selector se puede quitar sin
+tocar el resto del chat.
+
 ### Resultados
 
 | Modo | P@1 | P@3 | R@3 | MRR | nDCG@3 | p95 |
