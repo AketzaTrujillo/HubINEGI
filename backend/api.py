@@ -60,6 +60,24 @@ def salud():
     return {"estado": "ok", "servicio": "MHub API"}
 
 
+@app.get("/corpus/estado")
+def corpus_estado():
+    """Diagnóstico de la versión y modo de recuperación activos."""
+    version = (os.environ.get("MHUB_CORPUS_VERSION") or "v1").strip().lower()
+    try:
+        if version == "v2":
+            import corpus_search_v2
+            return {"version": "v2", **corpus_search_v2.estado()}
+        import corpus_search
+        return {
+            "version": "v1",
+            "modo_por_defecto": corpus_search.modo_por_defecto(),
+            **corpus_search.estado_indice(),
+        }
+    except Exception as error:
+        raise HTTPException(status_code=503, detail=str(error))
+
+
 @app.get("/estado")
 def estado():
     try:

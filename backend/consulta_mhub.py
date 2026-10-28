@@ -280,6 +280,9 @@ def _fuentes_de_fragmentos(fragmentos):
             "documento": documento,
             "pagina": fragmento.get("pagina"),
             "fuente": fragmento.get("fuente"),
+            "modo": fragmento.get("modo"),
+            "version": fragmento.get("version"),
+            "fallback": bool(fragmento.get("fallback")),
         })
     return salida[:5]
 
