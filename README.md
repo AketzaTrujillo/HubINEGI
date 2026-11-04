@@ -69,6 +69,14 @@ mysql-connector-python>=9.0
 requests>=2.32
 ```
 
+Dependencias del ETL de ingesta (`ingestion/requirements.txt`), necesarias para
+crear la base y cargar los CSV:
+
+```
+pandas>=2.2
+mysql-connector-python>=9.0
+```
+
 ---
 
 ## 3. Cómo ejecutarlo (paso a paso)
@@ -121,7 +129,34 @@ MHUB_LLM_PROVIDER=local
 ### 3.3 Crear la base de datos
 
 El backend usa **dos bases**: `HUBDATOS` (los datos) y `mhub_meta` (la metadata
-semántica). Los scripts `.sql` de `sql/` las crean **en orden**:
+semántica). La creación va en **tres partes**:
+
+**a) Crear `HUBDATOS` con su esquema original.** Las tablas crudas (`fuentes`,
+`registros`, `indicadores_endireh/siesvim/inmujeres`) vienen de
+`HUBDATOS.session.sql`, en la raíz. No lleva `--database` porque el propio script
+hace `DROP`/`CREATE DATABASE`:
+
+```bash
+cd sql
+python run_sql.py ../HUBDATOS.session.sql
+```
+
+**b) Cargar los CSV crudos.** Requiere `pandas` (ver `ingestion/requirements.txt`).
+Pide la contraseña de MySQL si no está en el entorno:
+
+```bash
+cd ../ingestion
+python cargar_endireh_mysql.py
+python cargar_siesvim_mysql.py
+python cargar_inmujeres_mysql.py
+python cargar_twitter_mysql.py
+```
+
+> Alternativa: `python setup_db.py` hace (a) y (b) de una sola vez, pero recrea
+> `HUBDATOS` desde cero y te pide la contraseña de forma interactiva.
+
+**c) Crear el esquema en estrella y la metadata.** Los scripts `.sql` de `sql/` se
+aplican **en orden**:
 
 ```bash
 cd ../sql
@@ -136,6 +171,9 @@ python run_sql.py 07_tipo_violencia.sql --database HUBDATOS
 
 > `run_sql.py` es un pequeño ejecutor que lee un `.sql`, lo separa en sentencias
 > y las aplica. Es **idempotente** (se puede correr varias veces).
+>
+> El orden importa: `01_entidades.sql` hace `ALTER TABLE fuentes`, así que
+> `HUBDATOS` y sus tablas crudas (parte **a**) deben existir antes.
 
 ### 3.4 Cargar los datos (ETL)
 
@@ -152,8 +190,25 @@ python cargar_sesnsp.py              # series de incidencia delictiva y 911 (SES
 
 ```bash
 cd ../../backend
-uvicorn api:app --reload
+uvicorn api:app
 ```
+
+> **Recarga automática (opcional).** `uvicorn api:app --reload` vigila *todo* el
+> directorio, incluida la carpeta `.venv`. Si el sincronizado de archivos (p. ej.
+> OneDrive) o una instalación de paquetes tocan `.venv`, uvicorn detecta "cambios"
+> en `site-packages` y **reinicia en bucle** (verás avisos `WatchFiles detected
+> changes in '.venv\Lib\site-packages\...'` y trazas de `KeyboardInterrupt`).
+> Para evitarlo, excluye el entorno con su **ruta absoluta** (patrones como
+> `.venv/*` no bastan, porque la coincidencia es por ruta completa):
+>
+> ```bash
+> # PowerShell (Windows):
+> uvicorn api:app --reload --reload-exclude "$PWD\.venv"
+> # Bash (Linux/Mac):
+> uvicorn api:app --reload --reload-exclude "$PWD/.venv"
+> ```
+>
+> Si no necesitas recarga en vivo, arranca sin `--reload` y listo.
 
 La API queda en `http://localhost:8000`. Comprueba:
 
