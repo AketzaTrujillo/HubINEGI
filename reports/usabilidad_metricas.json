@@ -1,0 +1,81 @@
+{
+  "tareas": {
+    "participantes": 5,
+    "tareas": 5,
+    "registros": 25,
+    "tasa_exito_global": 0.92,
+    "tiempo_promedio_global": 37.0,
+    "errores_promedio_global": 0.16,
+    "por_tarea": [
+      {
+        "tarea": "T1",
+        "n": 5,
+        "exito": 5,
+        "tasa_exito": 1.0,
+        "tiempo_promedio": 30.0,
+        "errores_promedio": 0.0
+      },
+      {
+        "tarea": "T2",
+        "n": 5,
+        "exito": 4,
+        "tasa_exito": 0.8,
+        "tiempo_promedio": 45.0,
+        "errores_promedio": 0.6
+      },
+      {
+        "tarea": "T3",
+        "n": 5,
+        "exito": 5,
+        "tasa_exito": 1.0,
+        "tiempo_promedio": 36.0,
+        "errores_promedio": 0.0
+      },
+      {
+        "tarea": "T4",
+        "n": 5,
+        "exito": 5,
+        "tasa_exito": 1.0,
+        "tiempo_promedio": 24.0,
+        "errores_promedio": 0.0
+      },
+      {
+        "tarea": "T5",
+        "n": 5,
+        "exito": 4,
+        "tasa_exito": 0.8,
+        "tiempo_promedio": 50.0,
+        "errores_promedio": 0.2
+      }
+    ]
+  },
+  "sus": {
+    "participantes": 5,
+    "promedio": 85.0,
+    "minimo": 70.0,
+    "maximo": 100.0,
+    "por_participante": [
+      {
+        "usuario": "P01",
+        "sus": 100.0
+      },
+      {
+        "usuario": "P02",
+        "sus": 75.0
+      },
+      {
+        "usuario": "P03",
+        "sus": 90.0
+      },
+      {
+        "usuario": "P04",
+        "sus": 70.0
+      },
+      {
+        "usuario": "P05",
+        "sus": 90.0
+      }
+    ]
+  },
+  "ejemplo": true
+}

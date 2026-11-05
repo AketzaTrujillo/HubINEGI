@@ -106,6 +106,12 @@ def construir_spec(pregunta, señales=None, contexto=None):
     if not fuente and seguimiento:
         fuente = previo.get("fuente")
 
+    solo_criticas = bool(señales.get("solo_criticas"))
+    if not solo_criticas and re.search(r"\bcriticas?\b", n) and (
+        fuente == "X" or "publicacion" in n or "publicaciones" in n
+    ):
+        solo_criticas = True
+
     entidad_nombre = None
     entidad_id = señales.get("entidad_id")
     if entidad_id is None:
@@ -130,6 +136,7 @@ def construir_spec(pregunta, señales=None, contexto=None):
         "orden": orden,
         "limite": limite,
         "indicador": None,
+        "solo_criticas": solo_criticas,
     }
 
 
@@ -164,6 +171,7 @@ def desde_interpretacion(interp, contexto=None, pregunta=None):
     entidad = interp.get("entidad")
     anio = interp.get("anio")
     tipo_violencia = interp.get("tipo_violencia")
+    solo_criticas = bool(interp.get("solo_criticas"))
 
     if interp.get("intencion") == "seguir" or operacion in (
         "anios_disponibles", "por_anio",
@@ -172,6 +180,7 @@ def desde_interpretacion(interp, contexto=None, pregunta=None):
         entidad = entidad or previo.get("entidad")
         anio = anio if anio is not None else previo.get("anio")
         tipo_violencia = tipo_violencia or previo.get("tipo_violencia")
+        solo_criticas = solo_criticas or bool(previo.get("solo_criticas"))
 
     # "dividir por estado": se agrupa por TODAS las entidades, no se hereda la entidad.
     if operacion == "por_entidad":
@@ -227,4 +236,5 @@ def desde_interpretacion(interp, contexto=None, pregunta=None):
         "tipo_violencia": tipo_violencia,
         "filtro_texto": interp.get("filtro_texto"),
         "_id_indicador": id_indicador,
+        "solo_criticas": solo_criticas,
     }

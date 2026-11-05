@@ -167,6 +167,7 @@ python run_sql.py 04_mhub_meta.sql     --database mhub_meta --create-database mh
 python run_sql.py 05_corpus_faq.sql    --database HUBDATOS
 python run_sql.py 06_conversacion.sql  --database mhub_meta
 python run_sql.py 07_tipo_violencia.sql --database HUBDATOS
+python run_sql.py 08_criticidad_publicacion.sql --database HUBDATOS
 ```
 
 > `run_sql.py` es un pequeño ejecutor que lee un `.sql`, lo separa en sentencias
@@ -185,6 +186,11 @@ python cargar_corpus_faq.py          # carga los documentos para FAQ / rutas
 python poblar_tipo_violencia.py      # llena las relaciones indicador↔tipo de violencia
 python cargar_sesnsp.py              # series de incidencia delictiva y 911 (SESNSP)
 ```
+
+> El ETL de X clasifica la criticidad con `models/clasificador_criticas` si el
+> modelo existe; si no, usa la regla de respaldo (noticia/denuncia). Para
+> entrenarlo: `pip install -r ingestion/requirements-ml.txt` y luego
+> `cd ingestion/X && python entrenar_clasificador.py`.
 
 ### 3.5 Arrancar la API
 
@@ -328,7 +334,7 @@ erDiagram
 | `dim_indicador` | El catálogo de indicadores | "Víctimas mujeres de feminicidio" |
 | `dim_indicador_alias` | Sinónimos de indicadores | — |
 | `fact_indicador` | **Los valores numéricos** | Jalisco, 2021, indicador X, 37.58, porcentaje |
-| `fact_publicacion` | Publicaciones de X | texto, usuario, entidad, año |
+| `fact_publicacion` | Publicaciones de X | texto, usuario, entidad, año, `es_critica`, `prob_critica` |
 | `tipos_violencia`, `ambitos_violencia`, `tipos_contenido` | Catálogos | física, psicológica, pareja… |
 | `bridge_indicador_tipo_violencia` | Indicador ↔ tipo de violencia | (indicador, "sexual") |
 | `bridge_pub_tipo_violencia`, `bridge_pub_ambito`, `bridge_pub_tipo_contenido` | Publicación ↔ catálogos | — |
@@ -574,32 +580,99 @@ Y fuera del backend:
 
 | Carpeta | Contiene |
 |---------|----------|
-| `sql/` | Los `.sql` de creación + `run_sql.py` |
+| `sql/` | Los `.sql` de creación + `run_sql.py` (incluye `08_criticidad_publicacion.sql`) |
 | `ingestion/migracion/` | Los ETL (carga y migración de datos) |
+| `ingestion/X/clasificador_dl.py` | Modelo TextCNN y clasificación de criticidad |
+| `ingestion/X/entrenar_clasificador.py` | Entrenamiento y validación del clasificador |
 | `ingestion/limpieza_*.py`, `ingestion/cargar_*_mysql.py` | Limpieza y carga original de cada fuente |
-| `tests/` | Golden sets y runners de validación |
+| `tests/` | Golden sets, evaluación del clasificador y kit de usabilidad |
+| `tests/usabilidad/` | Protocolo, tareas, SUS y análisis de usabilidad |
 
 ---
 
 ## 12. Validación y pruebas
 
+### 12.1 Golden sets
+
 Se valida con **golden sets** (conjuntos de casos con resultado esperado):
 
 | Runner | Qué valida | Resultado |
 |--------|-----------|-----------|
-| `tests/run_golden.py` | Intención, operación y SQL (sin LLM) | 31/31 |
+| `tests/run_golden.py` | Intención, operación y SQL (sin LLM) | 32/32 |
 | `tests/run_conversacion.py` | Seguimientos y anáforas (sin LLM) | 11/11 |
 | `tests/run_interprete.py` | Que el LLM extraiga bien los slots (requiere LLM) | 14/14 |
+| `tests/run_clasificador.py` | Funciones del clasificador (sin modelo) | 7/7 |
 
 ```bash
 cd tests
 python run_golden.py
 python run_conversacion.py
+python run_clasificador.py
 # python run_interprete.py   # requiere Ollama/OpenCode en marcha
 ```
 
 **Qué prueban:** rutas, detalle, cada operación de agregación, seguimiento,
-preguntas frecuentes, catálogos, rutas de atención, SECNSP y comparaciones.
+preguntas frecuentes, catálogos, rutas de atención, SESNSP, comparaciones y
+publicaciones críticas de X.
+
+### 12.2 Clasificador de publicaciones críticas (objetivo 7)
+
+El clasificador es un **TextCNN** (Deep Learning con PyTorch) que se preentrena
+con etiquetas débiles (`tipo_contenido` = noticia/denuncia) y se ajusta con un
+piloto anotado manualmente. El piloto se excluye del preentrenamiento y se evalúa
+con validación cruzada estratificada de 5 folds.
+
+```bash
+# Dependencias del modelo (torch, scikit-learn)
+pip install -r ingestion/requirements-ml.txt
+
+# Entrenar y evaluar
+cd ingestion/X
+python entrenar_clasificador.py
+```
+
+**Resultados actuales** (piloto de 100 publicaciones, 32 críticas):
+
+| Conjunto | Accuracy | Precision | Recall | F1 | ROC-AUC |
+|----------|---------:|----------:|-------:|---:|--------:|
+| Piloto manual, OOF, umbral 0.5 | 0.86 | 0.8462 | 0.6875 | **0.7586** | 0.938 |
+| Baseline por reglas | 0.73 | 0.5472 | 0.9062 | 0.6824 | 0.7767 |
+
+> El piloto es pequeño (100 publicaciones) y la varianza por fold es alta; se
+> recomienda ampliarlo con negativos duros antes de usarlo en producción.
+
+El modelo final se guarda en `models/clasificador_criticas/` (ignorado por git)
+y el reporte en `reports/clasificador_reporte.md`. El ETL de X usa el modelo si
+está disponible y, si no, cae a la regla de respaldo. Además, un filtro de
+seguridad descarta publicaciones de crimen organizado sin componente de género.
+La variable `MHUB_MODELO_CRITICIDAD` permite apuntar a otro directorio de modelo.
+
+```bash
+# Evaluar un conjunto etiquetado nuevo
+cd tests
+python evaluar_clasificador.py --csv ../data/processed/mi_test.csv
+```
+
+### 12.3 Usabilidad (objetivo 9)
+
+El kit vive en `tests/usabilidad/`:
+
+- `protocolo.md`: consentimiento, tareas y métricas.
+- `tareas.csv` y `sus.csv`: instrumentos.
+- `analizar_usabilidad.py`: calcula éxito, tiempos y SUS.
+
+```bash
+cd tests/usabilidad
+python analizar_usabilidad.py \
+  --tareas resultados_tareas.csv \
+  --sus resultados_sus.csv
+```
+
+El reporte se guarda en `reports/usabilidad_reporte.md`. También hay una
+evaluación heurística en `tests/usabilidad/evaluacion_heuristica.md`.
+
+> Los archivos `*_ejemplo.csv` son ficticios y solo sirven para validar el
+> formato y el script; no son resultados reales de participantes.
 
 ---
 

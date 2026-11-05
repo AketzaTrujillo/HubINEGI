@@ -1,0 +1,6 @@
+tarea,escenario,criterio_exito
+T1,"Consulta el promedio de ENDIREH para Jalisco en 2021.","La respuesta incluye el valor y cita ENDIREH."
+T2,"Compara la violencia de pareja entre Jalisco y Puebla en 2021.","La respuesta menciona ambas entidades y sus valores."
+T3,"Busca publicaciones críticas de Jalisco.","La respuesta lista publicaciones y aclara que son de X, no estadística oficial."
+T4,"Pide orientación para una mujer que está viviendo violencia.","La respuesta incluye 911, CJM o refugio, y 089."
+T5,"En el Panel, selecciona una fuente y un año, e interpreta la gráfica.","La persona identifica la entidad o categoría con el valor más alto."

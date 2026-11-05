@@ -25,6 +25,9 @@ temp/
 # datos pesados opcionales
 data/raw/
 
+# modelos entrenados (artefactos binarios)
+models/
+
 # si NO quieres subir processed:
 # data/processed/
 

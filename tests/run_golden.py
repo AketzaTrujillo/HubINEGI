@@ -46,6 +46,11 @@ def evaluar(caso):
             errores.append(f"entidad={spec['entidad']} (esperado {caso['entidad']})")
         if caso.get("anio") and spec["anio"] != caso["anio"]:
             errores.append(f"anio={spec['anio']} (esperado {caso['anio']})")
+        if "solo_criticas" in caso and bool(spec.get("solo_criticas")) != bool(caso["solo_criticas"]):
+            errores.append(
+                f"solo_criticas={spec.get('solo_criticas')} "
+                f"(esperado {caso['solo_criticas']})"
+            )
 
         try:
             sql, params = sql_builder.construir_sql(spec)

@@ -96,13 +96,17 @@ CREATE TABLE IF NOT EXISTS fact_publicacion (
   es_basura          ENUM('si','no') DEFAULT 'no',
   motivo_basura      VARCHAR(150),
   nivel_confianza    DECIMAL(4,2),
+  es_critica         ENUM('si','no') DEFAULT 'no',
+  prob_critica       DECIMAL(5,4) NULL,
+  modelo_criticidad  VARCHAR(50) NULL,
   CONSTRAINT fk_fp_fuente   FOREIGN KEY (id_fuente) REFERENCES fuentes(id_fuente),
   CONSTRAINT fk_fp_entidad  FOREIGN KEY (id_entidad) REFERENCES dim_entidad(id_entidad),
   CONSTRAINT fk_fp_tpub     FOREIGN KEY (id_tiempo_pub) REFERENCES dim_tiempo(id_tiempo),
   CONSTRAINT fk_fp_tmencion FOREIGN KEY (id_tiempo_mencion) REFERENCES dim_tiempo(id_tiempo),
   INDEX idx_fp_entidad (id_entidad),
   INDEX idx_fp_tpub    (id_tiempo_pub),
-  INDEX idx_fp_basura  (es_basura)
+  INDEX idx_fp_basura  (es_basura),
+  INDEX idx_fp_critica (es_critica)
 );
 
 -- ------------------------------------------------------------

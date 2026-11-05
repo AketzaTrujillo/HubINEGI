@@ -83,6 +83,8 @@ def _where_indicador(spec):
 def _where_publicacion(spec):
     condiciones = ["p.es_basura = 'no'"]
     params = []
+    if spec.get("solo_criticas"):
+        condiciones.append("p.es_critica = 'si'")
     if spec.get("entidad"):
         condiciones.append("e.nombre_canonico = %s")
         params.append(spec["entidad"])
@@ -261,9 +263,11 @@ def _sql_publicacion(spec):
 
     return (
         "SELECT p.texto_limpio AS publicacion, e.nombre_canonico AS entidad, "
-        "t.anio AS anio, p.nivel_confianza AS confianza "
+        "t.anio AS anio, p.nivel_confianza AS confianza, "
+        "p.es_critica AS es_critica, p.prob_critica AS prob_critica "
         f"{TABLAS_PUBLICACION}{where} "
-        f"ORDER BY p.nivel_confianza DESC LIMIT {int(limite)}"
+        "ORDER BY CASE WHEN p.es_critica = 'si' THEN 0 ELSE 1 END, "
+        f"p.nivel_confianza DESC LIMIT {int(limite)}"
     ), params
 
 

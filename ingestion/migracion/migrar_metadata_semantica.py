@@ -139,6 +139,9 @@ TABLAS = [
             ("violencia_mujer", "si, no o incierto.", "enum", "clasificacion", 1, 1, 0, "si"),
             ("es_basura", "si o no. Las publicaciones basura se excluyen por defecto.", "enum", "basura", 1, 1, 0, "no"),
             ("nivel_confianza", "Confianza de la clasificación (0 a 1).", "decimal", "confianza", 1, 0, 1, "0.91"),
+            ("es_critica", "si o no. Publicación que reporta un caso o alerta concreta de violencia.", "enum", "critica,criticas", 1, 1, 0, "si"),
+            ("prob_critica", "Probabilidad estimada por el modelo de criticidad (0 a 1).", "decimal", "probabilidad,criticidad", 0, 0, 1, "0.87"),
+            ("modelo_criticidad", "Versión del modelo que asignó la criticidad.", "varchar", None, 0, 0, 0, "textcnn-v1"),
         ],
     },
     {
