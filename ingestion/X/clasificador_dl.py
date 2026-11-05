@@ -35,6 +35,19 @@ UNK_ID = 1
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
 
+_AVISO_MODELO_AUSENTE = False
+
+
+def _avisar_modelo_ausente() -> None:
+    global _AVISO_MODELO_AUSENTE
+    if _AVISO_MODELO_AUSENTE:
+        return
+    print(
+        "[criticidad] Modelo no encontrado; usando regla de respaldo. "
+        "Entrena con: cd ingestion/X && python entrenar_clasificador.py"
+    )
+    _AVISO_MODELO_AUSENTE = True
+
 
 def normalizar_texto(texto: object) -> str:
     texto = str(texto or "").lower()
@@ -241,6 +254,7 @@ def clasificar_publicaciones(
 
     cargado = cargar_modelo(modelo_dir)
     if cargado is None:
+        _avisar_modelo_ausente()
         return [
             {
                 "es_critica": "si"
@@ -258,6 +272,7 @@ def clasificar_publicaciones(
     umbral = float(umbral if umbral is not None else config.get("umbral", 0.5))
     probabilidades = predecir_probs(textos, modelo_dir=modelo_dir)
     if probabilidades is None:
+        _avisar_modelo_ausente()
         return [
             {
                 "es_critica": "si"

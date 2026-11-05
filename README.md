@@ -587,6 +587,7 @@ Y fuera del backend:
 | `ingestion/limpieza_*.py`, `ingestion/cargar_*_mysql.py` | Limpieza y carga original de cada fuente |
 | `tests/` | Golden sets, evaluación del clasificador y kit de usabilidad |
 | `tests/usabilidad/` | Protocolo, tareas, SUS y análisis de usabilidad |
+| `docs/modelo_criticidad.md` | Ficha del modelo, métricas, limitaciones y reproducibilidad |
 
 ---
 
@@ -643,9 +644,12 @@ python entrenar_clasificador.py
 
 El modelo final se guarda en `models/clasificador_criticas/` (ignorado por git)
 y el reporte en `reports/clasificador_reporte.md`. El ETL de X usa el modelo si
-está disponible y, si no, cae a la regla de respaldo. Además, un filtro de
-seguridad descarta publicaciones de crimen organizado sin componente de género.
-La variable `MHUB_MODELO_CRITICIDAD` permite apuntar a otro directorio de modelo.
+está disponible y, si no, cae a la regla de respaldo y avisa en consola. Además,
+un filtro de seguridad descarta publicaciones de crimen organizado sin
+componente de género. La variable `MHUB_MODELO_CRITICIDAD` permite apuntar a
+otro directorio de modelo.
+
+> Ficha completa del modelo: [`docs/modelo_criticidad.md`](docs/modelo_criticidad.md).
 
 ```bash
 # Evaluar un conjunto etiquetado nuevo
