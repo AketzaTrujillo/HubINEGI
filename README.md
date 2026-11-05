@@ -682,6 +682,9 @@ heurística en `tests/usabilidad/evaluacion_heuristica.md`.
 > Los archivos `*_ejemplo.csv` son ficticios y solo sirven para validar el
 > formato y el script; no son resultados reales de participantes.
 
+> Documento detallado de cierre de ambos objetivos:
+> [`docs/implementacion_objetivos_7_9.md`](docs/implementacion_objetivos_7_9.md).
+
 ---
 
 ## 13. Glosario
