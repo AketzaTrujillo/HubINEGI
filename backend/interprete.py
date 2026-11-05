@@ -6,6 +6,7 @@ resultado contra la base de datos. Si algo falla, devuelve None para que el
 sistema use el enrutador por reglas.
 """
 import json
+import re
 
 import semantic_loader
 import vocabulario
@@ -46,6 +47,7 @@ Claves del JSON:
 - grupo: lista con "anio" o "entidad" | []
 - tipo_violencia: "física" | "psicológica" | "sexual" | "económica" | "patrimonial" | "discriminación" | null
 - indicador: texto del indicador si el usuario lo menciona | null
+- solo_criticas: true si pide publicaciones críticas de X; false en cualquier otro caso
 - aclaracion: si intencion es "aclarar" o "no_soportado", la pregunta o explicación para el usuario | null
 - confianza: número entre 0 y 1
 
@@ -59,6 +61,7 @@ Reglas de operación:
 - "qué años hay", "de qué años", "años disponibles", "solo tienes de ese año" -> "anios_disponibles"
 - "muéstrame", "dame los", "lista", "cuáles son" -> "detalle"
 - "compara X y Z", "diferencia entre X y Z", "X vs Z" -> "comparar" con entidad=X y entidad_b=Z
+- "publicaciones críticas", "críticas de X", "casos críticos" -> fuente X, solo_criticas=true
 - Si no hay operación clara, usa "detalle".
 
 Reglas de intención:
@@ -99,7 +102,9 @@ R: {"intencion":"consulta","recurso":null,"operacion":"por_entidad","fuente":nul
 P: divídelo por cada estado
 R: {"intencion":"consulta","recurso":null,"operacion":"por_entidad","fuente":null,"entidad":null,"anio":null,"grupo":["entidad"],"tipo_violencia":null,"indicador":null,"aclaracion":null,"confianza":0.85}
 P: publicaciones de X por año en Jalisco
-R: {"intencion":"consulta","recurso":null,"operacion":"por_anio","fuente":"X","entidad":"Jalisco","anio":null,"grupo":["anio"],"tipo_violencia":null,"indicador":null,"aclaracion":null,"confianza":0.9}
+R: {"intencion":"consulta","recurso":null,"operacion":"por_anio","fuente":"X","entidad":"Jalisco","anio":null,"grupo":["anio"],"tipo_violencia":null,"indicador":null,"solo_criticas":false,"aclaracion":null,"confianza":0.9}
+P: publicaciones críticas de Jalisco
+R: {"intencion":"consulta","recurso":null,"operacion":"detalle","fuente":"X","entidad":"Jalisco","anio":null,"grupo":[],"tipo_violencia":null,"indicador":null,"solo_criticas":true,"aclaracion":null,"confianza":0.95}
 P: compara la violencia de pareja entre Jalisco y Puebla en 2021
 R: {"intencion":"consulta","recurso":null,"operacion":"comparar","fuente":null,"entidad":"Jalisco","entidad_b":"Puebla","anio":2021,"grupo":[],"tipo_violencia":null,"indicador":null,"aclaracion":null,"confianza":0.9}
 P: háblame de SIESVIM
@@ -230,6 +235,14 @@ def _validar(bruto, pregunta_original=None, pista=None):
     else:
         tipo_violencia = None
 
+    solo_criticas = bool(bruto.get("solo_criticas"))
+    if not solo_criticas and pregunta_original:
+        bajo = semantic_loader.normalizar(str(pregunta_original))
+        if re.search(r"\bcriticas?\b", bajo) and (
+            "publicacion" in bajo or "registro" in bajo or " x " in f" {bajo} "
+        ):
+            solo_criticas = True
+
     try:
         confianza = float(bruto.get("confianza"))
     except (TypeError, ValueError):
@@ -248,6 +261,15 @@ def _validar(bruto, pregunta_original=None, pista=None):
     if intencion == "catalogo" and (fuente or entidad_nombre or anio):
         intencion = "consulta"
 
+    # Respaldos deterministas para operaciones frecuentes (después de resolver
+    # si es catálogo o consulta de datos con filtros).
+    if operacion is None and intencion == "consulta" and pregunta_original:
+        bajo = semantic_loader.normalizar(str(pregunta_original))
+        if re.search(r"\b(cuantos|cuantas|numero de|cantidad de)\b", bajo):
+            operacion = "conteo"
+        elif re.search(r"\b(muestrame|muestra|dame|lista|listame|detalle)\b", bajo):
+            operacion = "detalle"
+
     # "qué datos tienes de <entidad>" -> cobertura, no ayuda genérica
     if intencion == "ayuda" and (entidad_nombre or fuente):
         intencion = "consulta"
@@ -265,13 +287,14 @@ def _validar(bruto, pregunta_original=None, pista=None):
         "tipo_violencia": tipo_violencia,
         "indicador": bruto.get("indicador") or None,
         "filtro_texto": filtro_texto,
+        "solo_criticas": solo_criticas,
         "aclaracion": bruto.get("aclaracion") or None,
         "confianza": confianza,
     }
 
 
 def interpretar(pregunta, contexto=None):
-    if proveedor_actual("interprete") not in ("local", "groq"):
+    if proveedor_actual("interprete") not in ("local", "groq", "opencode"):
         return None
 
     pista = vocabulario.pista(pregunta)

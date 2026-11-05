@@ -9,6 +9,12 @@ import difflib
 
 import mysql.connector
 
+RUTA_X = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "X"))
+if RUTA_X not in sys.path:
+    sys.path.insert(0, RUTA_X)
+
+from clasificador_dl import clasificar_publicaciones  # noqa: E402
+
 
 # ------------------------------------------------------------
 # Conexión (lee backend/.env)
@@ -357,65 +363,105 @@ def etl_publicaciones(cur, dim):
     cur.execute(
         """
         SELECT r.id_registro, r.id_tipo_violencia, r.id_tipo_contenido,
-               r.id_ambito, r.archivo_origen, r.anio_publicacion,
-               r.anio_mencionado, r.usuario, r.texto_original,
-               r.texto_limpio, r.violencia_contra_mujer, r.es_basura,
-               r.motivo_basura, r.nivel_confianza, u.estado
+               tc.nombre AS tipo_contenido, r.id_ambito, r.archivo_origen,
+               r.anio_publicacion, r.anio_mencionado, r.usuario,
+               r.texto_original, r.texto_limpio, r.violencia_contra_mujer,
+               r.es_basura, r.motivo_basura, r.nivel_confianza, u.estado
         FROM registros r
         LEFT JOIN ubicaciones u ON u.id_ubicacion = r.id_ubicacion
+        LEFT JOIN tipos_contenido tc ON tc.id_tipo_contenido = r.id_tipo_contenido
         """
     )
     filas = cur.fetchall()
     id_fuente = dim.fuentes["X"]
 
     vistas = set()
-    publicaciones = []
-    bridges_violencia = []
-    bridges_contenido = []
-    bridges_ambito = []
+    registros = []
 
     for (
-        _id, id_tv, id_tc, id_amb, archivo, anio_pub, anio_menc, usuario,
-        texto_original, texto_limpio, violencia, basura, motivo, confianza,
-        estado,
+        _id, id_tv, id_tc, tipo_contenido, id_amb, archivo, anio_pub, anio_menc,
+        usuario, texto_original, texto_limpio, violencia, basura, motivo,
+        confianza, estado,
     ) in filas:
         clave_dedup = normalizar(texto_limpio or texto_original or "")
         if clave_dedup and clave_dedup in vistas:
             continue
         vistas.add(clave_dedup)
 
+        registros.append(
+            {
+                "id_tv": id_tv,
+                "id_tc": id_tc,
+                "tipo_contenido": tipo_contenido,
+                "id_amb": id_amb,
+                "archivo": archivo,
+                "anio_pub": anio_pub,
+                "anio_menc": anio_menc,
+                "usuario": usuario,
+                "texto_original": texto_original,
+                "texto_limpio": texto_limpio,
+                "texto": texto_limpio or texto_original or "",
+                "violencia": violencia,
+                "basura": basura,
+                "motivo": motivo,
+                "confianza": confianza,
+                "estado": estado,
+            }
+        )
+
+    criticas = clasificar_publicaciones(
+        [registro["texto"] for registro in registros],
+        [registro["tipo_contenido"] for registro in registros],
+    )
+
+    publicaciones = []
+    bridges_violencia = []
+    bridges_contenido = []
+    bridges_ambito = []
+
+    for indice, registro in enumerate(registros):
+        critica = criticas[indice]
         publicaciones.append(
             (
                 id_fuente,
-                dim.entidad(estado),
-                dim.tiempo(int(anio_pub) if anio_pub else None, "publicacion"),
-                dim.tiempo(int(anio_menc) if anio_menc else None, "mencion"),
-                archivo,
-                usuario,
-                texto_original,
-                texto_limpio,
-                violencia or "incierto",
-                basura or "no",
-                motivo,
-                float(confianza) if confianza is not None else None,
+                dim.entidad(registro["estado"]),
+                dim.tiempo(
+                    int(registro["anio_pub"]) if registro["anio_pub"] else None,
+                    "publicacion",
+                ),
+                dim.tiempo(
+                    int(registro["anio_menc"]) if registro["anio_menc"] else None,
+                    "mencion",
+                ),
+                registro["archivo"],
+                registro["usuario"],
+                registro["texto_original"],
+                registro["texto_limpio"],
+                registro["violencia"] or "incierto",
+                registro["basura"] or "no",
+                registro["motivo"],
+                float(registro["confianza"]) if registro["confianza"] is not None else None,
+                critica["es_critica"],
+                critica["prob_critica"],
+                critica["modelo_version"],
             )
         )
 
-        indice = len(publicaciones) - 1
-        if id_tv:
-            bridges_violencia.append((indice, id_tv))
-        if id_tc:
-            bridges_contenido.append((indice, id_tc))
-        if id_amb:
-            bridges_ambito.append((indice, id_amb))
+        if registro["id_tv"]:
+            bridges_violencia.append((indice, registro["id_tv"]))
+        if registro["id_tc"]:
+            bridges_contenido.append((indice, registro["id_tc"]))
+        if registro["id_amb"]:
+            bridges_ambito.append((indice, registro["id_amb"]))
 
     cur.executemany(
         """
         INSERT INTO fact_publicacion (
             id_fuente, id_entidad, id_tiempo_pub, id_tiempo_mencion,
             archivo_origen, usuario, texto_original, texto_limpio,
-            violencia_mujer, es_basura, motivo_basura, nivel_confianza
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            violencia_mujer, es_basura, motivo_basura, nivel_confianza,
+            es_critica, prob_critica, modelo_criticidad
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """,
         publicaciones,
     )

@@ -36,6 +36,7 @@ ACCIONES:
     tipo_violencia: "física"|"psicológica"|"sexual"|"económica"|"patrimonial"|"discriminación"|"familiar"|"pareja"|"laboral"|"escolar" | null
     grupo: ["anio"]|["entidad"]|[]
     indicador: texto | null
+    solo_criticas: true|false  (publicaciones críticas de X)
 - "catalogo": args {"recurso": "tipos_violencia"|"fuentes"|"entidades"|"indicadores"|"unidades"}
 - "cobertura": args {"fuente": ..., "entidad": ...}  -> qué años hay
 - "definicion": args {"termino": "..."}  -> definiciones y rutas de atención
@@ -49,6 +50,7 @@ REGLAS:
 - Si pregunta "de qué tipo de violencia" -> operacion "por_tipo_violencia".
 - Si pregunta "en qué año" -> operacion "maximo"/"minimo" con tipo_violencia si aplica.
 - Si pide una gráfica -> usa una operacion con varios valores ("por_entidad", "por_anio", "por_tipo_violencia").
+- Si pide "publicaciones críticas" o "críticas de X" -> fuente "X" y solo_criticas true.
 - Cuando los datos respondan, usa "responder" con una respuesta breve y cita la fuente.
 - Al responder, puedes usar Markdown (negritas, listas y tablas) para organizar la respuesta.
 - Usa solo lo que devuelvan las herramientas. No inventes teléfonos, cifras ni entidades.
@@ -58,6 +60,7 @@ EJEMPLOS:
 - "cuántos feminicidios en 2021" -> {"accion":"consultar","args":{"operacion":"detalle","indicador":"feminicidio","anio":2021}}
 - "homicidios dolosos de mujeres por año" -> {"accion":"consultar","args":{"operacion":"por_anio","indicador":"homicidio doloso"}}
 - "llamadas 911 por violencia contra la mujer por año" -> {"accion":"consultar","args":{"operacion":"por_anio","indicador":"llamadas 911 violencia contra la mujer"}}
+- "publicaciones críticas de Jalisco" -> {"accion":"consultar","args":{"operacion":"detalle","fuente":"X","entidad":"Jalisco","solo_criticas":true}}
 """
 
 
@@ -184,6 +187,7 @@ def _spec_desde_args(args, pregunta=None):
         "tipo_violencia": tipo_res,
         "filtro_texto": filtro_texto,
         "_id_indicador": id_indicador,
+        "solo_criticas": bool(args.get("solo_criticas")),
     }
     return cm._preparar_ranking(spec)
 

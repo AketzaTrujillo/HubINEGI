@@ -1,0 +1,67 @@
+[
+  {
+    "id": "T1",
+    "pregunta": "promedio de ENDIREH para Jalisco en 2021",
+    "exito": true,
+    "grupos_ok": [
+      true,
+      true
+    ],
+    "tiempo_segundos": 5.28,
+    "respuesta": "El **promedio de los indicadores ENDIREH para Jalisco en 2021** es de **37.58%** (calculado sobre 10 registros/indicadores con dato disponible para esa entidad y año).\n\n| Dato | Valor |\n|---|---|\n| Fuente | ENDIREH |\n| Entidad | Jalisco |\n| Año | 2021 |\n| Promedio | 37.58% |\n| Indicadores considerados | 10 |\n\nSi quieres, puedo desglosar el detalle por tipo de violencia (física, psicológica, sexual, económica o patrimonial) para ver qué indicador jala el promedio hacia arriba.",
+    "sql": "SELECT AVG(f.valor) AS promedio, u.nombre AS unidad, COUNT(*) AS registros \nFROM fact_indicador f\nJOIN dim_indicador i ON i.id_indicador = f.id_indicador\nJOIN dim_entidad   e ON e.id_entidad   = f.id_entidad\nJOIN dim_tiempo    t ON t.id_tiempo    = f.id_tiempo\nJOIN dim_unidad    u ON u.id_unidad    = f.id_unidad\nJOIN fuentes       fu ON fu.id_fuente  = f.id_fuente\n WHERE t.tipo_tiempo = 'dato' AND fu.codigo = %s AND e.nombre_canonico = %s AND t.anio = %s GROUP BY u.nombre ORDER BY promedio DESC",
+    "n_resultados": 1
+  },
+  {
+    "id": "T2",
+    "pregunta": "compara la violencia de pareja entre Jalisco y Puebla en 2021",
+    "exito": true,
+    "grupos_ok": [
+      true,
+      true
+    ],
+    "tiempo_segundos": 11.88,
+    "respuesta": "## Violencia de pareja: Jalisco vs. Puebla (2021)\n\nSegún la **ENDIREH 2021**, el porcentaje de mujeres que experimentaron **violencia de pareja** es muy similar en ambas entidades:\n\n| Entidad | Porcentaje de mujeres con violencia de pareja |\n|---|---|\n| **Jalisco** | 37.58 % |\n| **Puebla** | 37.46 % |\n\n**Diferencia:** Jalisco apenas supera a Puebla por **0.12 puntos porcentuales**, por lo que la prevalencia es prácticamente equivalente en 2021.\n\n*Fuente: ENDIREH (INEGI), porcentaje de mujeres de 15 años y más con violencia de pareja a lo largo de la vida.*",
+    "sql": "SELECT e.nombre_canonico AS entidad, AVG(f.valor) AS promedio, u.nombre AS unidad, GROUP_CONCAT(DISTINCT fu.codigo ORDER BY fu.codigo) AS fuentes \nFROM fact_indicador f\nJOIN dim_indicador i ON i.id_indicador = f.id_indicador\nJOIN dim_entidad   e ON e.id_entidad   = f.id_entidad\nJOIN dim_tiempo    t ON t.id_tiempo    = f.id_tiempo\nJOIN dim_unidad    u ON u.id_unidad    = f.id_unidad\nJOIN fuentes       fu ON fu.id_fuente  = f.id_fuente\n WHERE t.tipo_tiempo = 'dato' AND fu.codigo = %s AND t.anio = %s AND e.nombre_canonico IN (%s, %s) GROUP BY e.nombre_canonico, u.nombre ORDER BY e.nombre_canonico",
+    "n_resultados": 2
+  },
+  {
+    "id": "T3",
+    "pregunta": "publicaciones críticas de Jalisco",
+    "exito": true,
+    "grupos_ok": [
+      true,
+      true,
+      true
+    ],
+    "tiempo_segundos": 5.02,
+    "respuesta": "Encontré **4 publicaciones críticas de X** sobre Jalisco (fuente: publicaciones de X):\n\n| Año | Publicación (resumen) | Prob. crítica |\n|---|---|---|\n| 2026 | Guardia nocturna en San Pedro Tlaquepaque (col. Brisas de Chapala): mujer de 32 años denunció agresión de su pareja, quien huyó | 0.95 |\n| 2023 | En la Fiscalía de Poncitlán, Jalisco, el acusado entra y mata a dos mujeres | 0.997 |\n| 2025 | Karla, 28 años, asesinada a tiros en la col. Residencial Plutarco Elías Calles, Guadalajara; era pareja del victimario | 0.699 |\n| 2025 | Hombre asesina a su pareja durante una discusión en Guadalajara; víctima identificada como Karla, 28 años | 0.868 |\n\nTres de los cuatro casos corresponden a **violencia de pareja** con desenlace feminicida, y uno a agresión en el ámbito familiar. ¿Quieres que los cruce con las cifras oficiales de víctimas mujeres de feminicidio u homicidio doloso en Jalisco?",
+    "sql": "SELECT p.texto_limpio AS publicacion, e.nombre_canonico AS entidad, t.anio AS anio, p.nivel_confianza AS confianza, p.es_critica AS es_critica, p.prob_critica AS prob_critica \nFROM fact_publicacion p\nJOIN dim_entidad e ON e.id_entidad = p.id_entidad\nJOIN dim_tiempo  t ON t.id_tiempo  = p.id_tiempo_pub\n WHERE p.es_basura = 'no' AND p.es_critica = 'si' AND e.nombre_canonico = %s ORDER BY CASE WHEN p.es_critica = 'si' THEN 0 ELSE 1 END, p.nivel_confianza DESC LIMIT 100",
+    "n_resultados": 4
+  },
+  {
+    "id": "T4",
+    "pregunta": "estoy sufriendo violencia, ¿dónde puedo pedir ayuda?",
+    "exito": true,
+    "grupos_ok": [
+      true
+    ],
+    "tiempo_segundos": 4.3,
+    "respuesta": "Lamento mucho que estés pasando por esto. No estás sola y hay lugares donde pueden ayudarte:\n\n- **Si hay riesgo ahora mismo, llama al 911.** Están obligados a canalizarte a un Centro de Justicia para las Mujeres (CJM) y/o a un refugio. También puedes pedir a una persona policía que te traslade a un Ministerio Público o a un CJM.\n- **Acude a un CJM:** ahí hay atención **psicológica, jurídica y médica**, y puedes contar con una persona asesora jurídica. Es un lugar donde también puedes presentar tu denuncia.\n- **Para denunciar:** puedes hacerlo de forma presencial en el Ministerio Público o en un CJM; si prefieres no dar tus datos, la denuncia anónima es al **089**.\n- **Prepara lo básico:** ten a la mano o deja con alguien de confianza documentos como actas de nacimiento y algo de dinero.\n- **Apóyate en alguien:** hablar con familia, amigas o compañeras puede ayudarte a sentir que no estás sola, y busca ayuda psicológica y legal.\n\nFuente: *No Estás Sola* (CONAVIM) y *Protocolo de Atención de los CJM*.",
+    "sql": null,
+    "n_resultados": 0
+  },
+  {
+    "id": "T5",
+    "pregunta": "muéstrame los indicadores de Puebla",
+    "exito": true,
+    "grupos_ok": [
+      true,
+      true
+    ],
+    "tiempo_segundos": 19.25,
+    "respuesta": "Para **Puebla**, los indicadores disponibles en el sistema (principalmente fuente **SIESVIM**) son:\n\n| Indicador | Año | Valor |\n|---|---|---|\n| Prevalencia de violencia psicológica contra las mujeres de 15 años y más ejercida por cualquier pareja a lo largo de su vida | 2021 | 42.60 % |\n| Porcentaje de mujeres que experimentaron violencia de pareja por tipo de daños | 2021 | 19.40 % |\n| Prevalencia de violencia económica y/o patrimonial contra las mujeres de 15 años y más | 2021 | (disponible) |\n| Egresos hospitalarios de mujeres que ingresaron por lesiones y violencia | 2024 | 3,916 (registro principal) |\n\nAdemás, para Puebla están disponibles los indicadores de incidencia delictiva y llamadas 911 del **SESNSP** (feminicidio, homicidio doloso, violencia familiar, llamadas 911 por violencia contra la mujer, entre otros).\n\n¿Quieres que profundice en alguno de ellos (por ejemplo, feminicidios o llamadas 911 en Puebla por año)?",
+    "sql": "SELECT i.nombre AS indicador, e.nombre_canonico AS entidad, t.anio AS anio, f.valor AS valor, u.nombre AS unidad, fu.codigo AS fuente \nFROM fact_indicador f\nJOIN dim_indicador i ON i.id_indicador = f.id_indicador\nJOIN dim_entidad   e ON e.id_entidad   = f.id_entidad\nJOIN dim_tiempo    t ON t.id_tiempo    = f.id_tiempo\nJOIN dim_unidad    u ON u.id_unidad    = f.id_unidad\nJOIN fuentes       fu ON fu.id_fuente  = f.id_fuente\n WHERE t.tipo_tiempo = 'dato' AND e.nombre_canonico = %s ORDER BY t.anio DESC, e.nombre_canonico LIMIT 100",
+    "n_resultados": 100
+  }
+]

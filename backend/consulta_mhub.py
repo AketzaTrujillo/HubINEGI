@@ -777,7 +777,13 @@ def _resolver_datos(pregunta, ruta, interp, contexto):
     operacion = _operacion_final(ruta, interp)
 
     spec = query_spec.desde_interpretacion(
-        {**interp, "operacion": operacion}, contexto, pregunta
+        {
+            **interp,
+            "operacion": operacion,
+            "solo_criticas": interp.get("solo_criticas") or ruta.get("solo_criticas"),
+        },
+        contexto,
+        pregunta,
     )
     if operacion == "por_entidad":
         spec["entidad"] = None
@@ -1261,6 +1267,7 @@ def _tema_desde_spec(spec, resultados=None):
         "_id_indicador": spec.get("_id_indicador"),
         "tipo_violencia": spec.get("tipo_violencia"),
         "operacion": spec.get("operacion"),
+        "solo_criticas": spec.get("solo_criticas"),
     }
 
 

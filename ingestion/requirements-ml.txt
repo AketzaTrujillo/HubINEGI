@@ -1,0 +1,7 @@
+# Dependencias del clasificador de criticidad (objetivo 7).
+# Instalar solo si se va a entrenar o ejecutar el modelo de Deep Learning:
+#   pip install -r ingestion/requirements-ml.txt
+torch>=2.0
+scikit-learn>=1.3
+pandas>=2.2
+numpy>=1.26

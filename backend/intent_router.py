@@ -55,6 +55,7 @@ PISTAS_DATOS = [
     "indicador", "endireh", "siesvim", "inmujeres", "promedio", "cuantos",
     "cuantas", "valor", "entidad", "estado", "publicacion", "publicaciones",
     "registro", "registros", "fuente", "tipo", "anio", "ano",
+    "critica", "criticas",
 ]
 
 DOMINIO = [
@@ -151,6 +152,21 @@ def _es_dominio(texto):
     return any(s in texto for s in DOMINIO)
 
 
+def _es_consulta_criticas(texto):
+    """Publicaciones críticas de X: 'publicaciones críticas de Jalisco'."""
+    if not re.search(r"\bcriticas?\b", texto):
+        return False
+    if "publicacion" in texto or "publicaciones" in texto or "registro" in texto:
+        return True
+    # "críticas de X" o "críticas en <entidad>" sin la palabra publicaciones.
+    return bool(semantic_loader.resolver_entidad(texto) or re.search(r"\bx\b", texto))
+
+
+def _es_catalogo_fuentes_hay(texto):
+    """'qué fuentes hay' es catálogo; 'qué fuentes usa MHub' es FAQ."""
+    return bool(re.search(r"\b(que|cuales)\s+fuentes\s+(hay|existen|tienen|tienes)\b", texto))
+
+
 def _recurso_catalogo(texto):
     # No es un catálogo si menciona una entidad o fuente concreta:
     # "tipos de violencia en Veracruz" es una consulta de datos.
@@ -207,6 +223,7 @@ def _resultado(tipo, **extra):
         "entidad_id": None,
         "metrica": None,
         "recurso": None,
+        "solo_criticas": False,
     }
     base.update(extra)
     return base
@@ -231,6 +248,14 @@ def clasificar(pregunta, contexto=None):
 
     if _es_explicar(texto, contexto):
         return _resultado("EXPLICAR")
+
+    # "qué fuentes hay" es catálogo; "qué fuentes usa MHub" es FAQ.
+    if _es_catalogo_fuentes_hay(texto):
+        return _resultado("CATALOGO", recurso="fuentes")
+
+    # Publicaciones críticas de X (objetivo 7).
+    if _es_consulta_criticas(texto):
+        return _resultado("CONSULTA_DETALLE", fuente="X", solo_criticas=True)
 
     # FAQ exacta (alta precisión) antes que datos.
     faq_exacta = faq_store.buscar_exacta(texto)

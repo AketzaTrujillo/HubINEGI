@@ -1,0 +1,11 @@
+item,texto,sentido
+1,"Creo que me gustaría usar este sistema con frecuencia.",positivo
+2,"Encontré el sistema innecesariamente complejo.",negativo
+3,"Pensé que el sistema era fácil de usar.",positivo
+4,"Creo que necesitaría apoyo técnico para poder usar este sistema.",negativo
+5,"Encontré las diversas funciones del sistema bien integradas.",positivo
+6,"Pensé que había demasiada inconsistencia en el sistema.",negativo
+7,"Imagino que la mayoría de la gente aprendería a usar este sistema muy rápido.",positivo
+8,"Encontré el sistema muy difícil de usar.",negativo
+9,"Me sentí muy seguro al usar el sistema.",positivo
+10,"Necesité aprender muchas cosas antes de poder empezar a usar el sistema.",negativo

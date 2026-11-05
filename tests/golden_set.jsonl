@@ -29,3 +29,4 @@
 {"pregunta": "¿Qué datos tienes?", "tipo": "AYUDA"}
 {"pregunta": "indicadores", "tipo": "CLARIFICACION"}
 {"pregunta": "dame el código de hola mundo en C", "tipo": "CLARIFICACION"}
+{"pregunta": "publicaciones críticas de Jalisco", "tipo": "CONSULTA_DETALLE", "fuente": "X", "entidad": "Jalisco", "solo_criticas": true}
