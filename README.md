@@ -664,16 +664,20 @@ El kit vive en `tests/usabilidad/`:
 - `protocolo.md`: consentimiento, tareas y métricas.
 - `tareas.csv` y `sus.csv`: instrumentos.
 - `analizar_usabilidad.py`: calcula éxito, tiempos y SUS.
+- `validar_tareas_funcional.py`: verifica los 5 flujos de extremo a extremo
+  (no sustituye las sesiones con personas).
 
 ```bash
 cd tests/usabilidad
+python validar_tareas_funcional.py
 python analizar_usabilidad.py \
   --tareas resultados_tareas.csv \
   --sus resultados_sus.csv
 ```
 
-El reporte se guarda en `reports/usabilidad_reporte.md`. También hay una
-evaluación heurística en `tests/usabilidad/evaluacion_heuristica.md`.
+El reporte se guarda en `reports/usabilidad_reporte.md` y la validación funcional
+en `reports/validacion_funcional_tareas.md`. También hay una evaluación
+heurística en `tests/usabilidad/evaluacion_heuristica.md`.
 
 > Los archivos `*_ejemplo.csv` son ficticios y solo sirven para validar el
 > formato y el script; no son resultados reales de participantes.

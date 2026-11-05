@@ -177,14 +177,6 @@ def _validar(bruto, pregunta_original=None, pista=None):
         if "año" in bajo or "ano" in bajo or "solo tienes" in bajo:
             operacion = "anios_disponibles"
 
-    # Respaldo determinista para conteos: "cuántos indicadores tiene...".
-    if operacion is None and intencion == "consulta" and pregunta_original:
-        if re.search(
-            r"\b(cuantos|cuantas|numero de|cantidad de)\b",
-            semantic_loader.normalizar(str(pregunta_original)),
-        ):
-            operacion = "conteo"
-
     # Respaldo: usar la pista borrosa si el modelo no lo captó y no hay
     # una operación de datos claramente distinta.
     if (
@@ -268,6 +260,15 @@ def _validar(bruto, pregunta_original=None, pista=None):
     # Si hay filtros concretos, no es un catálogo: es una consulta de datos.
     if intencion == "catalogo" and (fuente or entidad_nombre or anio):
         intencion = "consulta"
+
+    # Respaldos deterministas para operaciones frecuentes (después de resolver
+    # si es catálogo o consulta de datos con filtros).
+    if operacion is None and intencion == "consulta" and pregunta_original:
+        bajo = semantic_loader.normalizar(str(pregunta_original))
+        if re.search(r"\b(cuantos|cuantas|numero de|cantidad de)\b", bajo):
+            operacion = "conteo"
+        elif re.search(r"\b(muestrame|muestra|dame|lista|listame|detalle)\b", bajo):
+            operacion = "detalle"
 
     # "qué datos tienes de <entidad>" -> cobertura, no ayuda genérica
     if intencion == "ayuda" and (entidad_nombre or fuente):
